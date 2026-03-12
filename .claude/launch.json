@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "oneonethree",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "/Users/cambrewitt/Desktop/web-apps/oneonethree-website-2", "-l", "4113"],
+      "port": 4113
+    }
+  ]
+}

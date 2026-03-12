@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Review Tap Tags | OneOneThree Digital</title>
+  <meta name="description" content="Get 10x more Google reviews with NFC tap tags. One tap turns happy customers into 5-star reviews. Trusted by 100+ Kiwi businesses." />
+
+  <style>
+    :root {
+      --color-primary:     #113D79;
+      --color-background:  #113D79;
+      --color-text:        #FFFFFF;
+      --color-accent:      #BAA649;
+      --color-text-light:  #a8c0e0;
+      --color-navy-base:   #113D79;
+      --color-navy-light:  #1a4d94;
+      --color-navy-mid:    #163870;
+      --color-navy-dark:   #0e3268;
+      --color-white:       #ffffff;
+      --color-black:       #000000;
+      --color-gold:        #BAA649;
+      --color-bg:          var(--color-navy-base);
+      --color-section-alt: var(--color-navy-light);
+
+      --font-primary: "gopher", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --fw-medium: 500;
+      --fs-base: 16px;
+      --fs-h3: 2.5rem;
+      --fs-h2: 3rem;
+      --fs-h1: 4.5rem;
+
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  2rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+      --space-2xl: 8rem;
+
+      --max-width: 1500px;
+      --gutter: 4vw;
+      --gutter-mobile: 6vw;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration: 0.3s;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: var(--fs-base); scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .section { padding-block: var(--space-xl); }
+    .section--alt { background: var(--color-section-alt); }
+    .section--dark { background: var(--color-navy-dark); }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-heading {
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-medium);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      max-width: 60ch;
+      margin-top: var(--space-sm);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid currentColor;
+      cursor: pointer;
+      transition: background var(--duration) var(--ease), color var(--duration) var(--ease), border-color var(--duration) var(--ease);
+    }
+    .btn--primary { background: var(--color-accent); color: var(--color-navy-dark); border-color: var(--color-accent); }
+    .btn--primary:hover { background: transparent; color: var(--color-accent); }
+    .btn--outline { background: transparent; color: var(--color-white); border-color: var(--color-white); }
+    .btn--outline:hover { background: var(--color-white); color: var(--color-navy-base); }
+    .btn--dark { background: var(--color-white); color: var(--color-navy-base); border-color: var(--color-white); }
+    .btn--dark:hover { background: var(--color-accent); color: var(--color-navy-dark); border-color: var(--color-accent); }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--color-navy-base);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: box-shadow var(--duration) var(--ease);
+    }
+    .header.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px; padding-inline: var(--gutter);
+      max-width: var(--max-width); margin-inline: auto;
+    }
+    .nav__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav__logo img { height: 52px; width: auto; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-lg); }
+    .nav__links a {
+      font-size: 0.8rem; font-weight: var(--fw-medium);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      position: relative; transition: color var(--duration) var(--ease);
+    }
+    .nav__links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 2px; background: var(--color-accent);
+      transition: width var(--duration) var(--ease);
+    }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__cta { display: flex; align-items: center; gap: var(--space-sm); }
+
+    .nav__burger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer; padding: 0; z-index: 200;
+    }
+    .nav__burger span {
+      display: block; height: 2px; background: var(--color-white);
+      border-radius: 2px;
+      transition: transform var(--duration) var(--ease), opacity var(--duration) var(--ease);
+    }
+    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 90;
+      background: var(--color-navy-dark);
+      flex-direction: column; justify-content: center; align-items: center;
+      gap: var(--space-md); opacity: 0; pointer-events: none;
+      transition: opacity var(--duration) var(--ease);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: var(--fs-h3); font-weight: var(--fw-medium); letter-spacing: -0.01em; transition: color var(--duration) var(--ease); }
+    .mobile-menu a:hover { color: var(--color-accent); }
+    .mobile-menu__social { display: flex; gap: var(--space-md); margin-top: var(--space-md); }
+    .mobile-menu__social a { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('welly.webp');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.38);
+    }
+    .hero__content {
+      position: relative; z-index: 1;
+      text-align: center; color: var(--color-white);
+      padding-inline: var(--gutter);
+      max-width: 960px;
+    }
+    .hero__eyebrow {
+      font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--color-accent); margin-bottom: var(--space-md);
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.2s forwards;
+    }
+    .hero__heading {
+      font-size: clamp(2.5rem, 7vw, var(--fs-h1));
+      font-weight: var(--fw-medium); line-height: 1.05; letter-spacing: -0.02em;
+      margin-bottom: var(--space-sm);
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.4s forwards;
+    }
+    .hero__sub-heading {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: var(--fw-medium); letter-spacing: 0.02em;
+      color: var(--color-accent); margin-bottom: var(--space-md);
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.5s forwards;
+    }
+    .hero__body {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      line-height: 1.7; color: rgba(255,255,255,0.8);
+      margin-bottom: var(--space-xl); max-width: 52ch; margin-inline: auto;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.6s forwards;
+    }
+    .hero__body ul { list-style: none; margin-top: 0.75rem; }
+    .hero__body ul li {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.95rem; color: rgba(255,255,255,0.7);
+      margin-bottom: 0.4rem;
+    }
+    .hero__body ul li::before {
+      content: '★'; color: var(--color-accent); flex-shrink: 0; font-size: 0.7rem; margin-top: 0.2rem;
+    }
+    .hero__cta {
+      display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.8s forwards;
+    }
+    .hero__scroll {
+      position: absolute; bottom: var(--space-md); left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      color: rgba(255,255,255,0.5); font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 1.2s forwards;
+    }
+    .hero__scroll svg { animation: bounce 1.5s ease-in-out infinite; }
+
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ============================================================
+       STATS STRIP — LIGHT GREY CARD
+    ============================================================ */
+    .stats-section {
+      background: var(--color-navy-dark);
+      padding-block: var(--space-xl);
+    }
+    .stats-card {
+      background: #f0f2f5;
+      border-radius: 12px;
+      padding: var(--space-lg) var(--space-xl);
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 0;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding-inline: var(--space-md);
+      position: relative;
+    }
+    .stat-item + .stat-item::before {
+      content: '';
+      position: absolute; left: 0; top: 10%; bottom: 10%;
+      width: 1px; background: rgba(17,61,121,0.15);
+    }
+    .stat-item__num {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: var(--fw-medium);
+      color: var(--color-navy-base);
+      line-height: 1;
+    }
+    .stat-item__label {
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(17,61,121,0.6); margin-top: 0.5rem; line-height: 1.4;
+    }
+
+    /* ============================================================
+       PRODUCT IMAGE CAROUSEL
+    ============================================================ */
+    .carousel-section {
+      background: var(--color-navy-base);
+      padding-block: var(--space-xl);
+    }
+    .carousel-section .section-label,
+    .carousel-section .section-heading {
+      text-align: center;
+      display: block;
+    }
+    .carousel-section .section-heading { margin-bottom: var(--space-xl); }
+
+    .carousel {
+      position: relative;
+      max-width: 900px;
+      margin-inline: auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .carousel__track {
+      display: flex;
+      transition: transform 0.45s var(--ease);
+    }
+    .carousel__slide {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+    .carousel__slide img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel__btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 52px; height: 52px;
+      background: rgba(17,61,121,0.85);
+      border: 2px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      color: var(--color-white);
+      display: grid; place-items: center;
+      cursor: pointer; z-index: 10;
+      transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease);
+      backdrop-filter: blur(4px);
+    }
+    .carousel__btn:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-navy-dark); }
+    .carousel__btn--prev { left: var(--space-sm); }
+    .carousel__btn--next { right: var(--space-sm); }
+    .carousel__btn svg { width: 20px; height: 20px; }
+
+    .carousel__dots {
+      display: flex; justify-content: center; gap: 0.5rem;
+      margin-top: var(--space-md);
+    }
+    .carousel__dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.25); border: none;
+      cursor: pointer; padding: 0;
+      transition: background var(--duration) var(--ease), transform var(--duration) var(--ease);
+    }
+    .carousel__dot.active { background: var(--color-accent); transform: scale(1.3); }
+
+    /* ============================================================
+       BEFORE / AFTER
+    ============================================================ */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    .before-after__item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .before-after__item img {
+      width: 100%; height: 380px; object-fit: cover; display: block;
+    }
+    .before-after__label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: var(--space-md);
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+      font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-white);
+    }
+    .before-after__label span {
+      display: inline-block;
+      padding: 0.35em 1em;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    .before-after__item--after .before-after__label span {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-navy-dark);
+    }
+
+    /* ============================================================
+       TAPTAGQUOTE
+    ============================================================ */
+    .taptagquote-section {
+      background: var(--color-navy-dark);
+      padding-block: var(--space-xl);
+    }
+    .taptagquote-wrap {
+      max-width: 800px;
+      margin-inline: auto;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .taptagquote-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ============================================================
+       PRODUCTS GRID
+    ============================================================ */
+    .products__header { text-align: center; margin-bottom: var(--space-xl); }
+    .products__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+
+    .product-card {
+      padding: var(--space-lg) var(--space-md);
+      background: var(--color-navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color var(--duration) var(--ease), transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+    }
+    .product-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 0; background: var(--color-accent);
+      transition: height 0.4s var(--ease);
+    }
+    .product-card:hover { border-color: var(--color-accent); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+    .product-card:hover::before { height: 100%; }
+
+    .product-card__icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--color-accent); display: grid; place-items: center;
+      margin-bottom: var(--space-md); flex-shrink: 0;
+    }
+    .product-card__icon svg { width: 28px; height: 28px; color: var(--color-navy-dark); }
+    .product-card__badge { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-xs); }
+    .product-card__title { font-size: 1.4rem; font-weight: var(--fw-medium); margin-bottom: var(--space-sm); letter-spacing: -0.01em; }
+    .product-card__desc { font-size: 0.9rem; line-height: 1.7; color: var(--color-text-light); margin-bottom: var(--space-md); }
+    .product-card__features { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: var(--space-md); flex: 1; }
+    .product-card__feature { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.85rem; color: var(--color-text-light); line-height: 1.5; }
+    .product-card__feature::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; margin-top: 0.4rem; }
+    .product-card__meta { margin-top: auto; padding-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.08); }
+    .product-card__meta-row { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.8rem; color: var(--color-text-light); }
+    .product-card__meta-row strong { color: var(--color-white); }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    .how-it-works__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin-top: var(--space-xl); }
+    .step-card { padding: var(--space-lg); background: var(--color-navy-light); }
+    .step-card__num { font-size: 5rem; font-weight: var(--fw-medium); color: var(--color-accent); line-height: 1; opacity: 0.3; margin-bottom: var(--space-sm); }
+    .step-card__title { font-size: 1.3rem; font-weight: var(--fw-medium); margin-bottom: var(--space-sm); letter-spacing: -0.01em; }
+    .step-card__text { font-size: 0.9rem; line-height: 1.75; color: var(--color-text-light); }
+
+    /* ============================================================
+       INVESTMENT / ONE-OFF BANNER
+    ============================================================ */
+    .investment-banner {
+      background: var(--color-accent);
+      padding-block: var(--space-lg);
+      text-align: center;
+    }
+    .investment-banner__text {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: var(--fw-medium);
+      color: var(--color-navy-dark);
+      letter-spacing: -0.01em;
+    }
+    .investment-banner__sub {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(14,50,104,0.65);
+      margin-top: 0.4rem;
+    }
+
+    /* ============================================================
+       TRUST / DETAILS STRIP
+    ============================================================ */
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item {
+      background: var(--color-navy-base);
+      padding: var(--space-lg) var(--space-md);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .trust-item img { height: 36px; width: auto; object-fit: contain; }
+    .trust-item__title { font-size: 0.85rem; font-weight: var(--fw-medium); letter-spacing: 0.05em; text-transform: uppercase; }
+    .trust-item__sub { font-size: 0.75rem; color: var(--color-text-light); line-height: 1.5; }
+    .trust-item__ssl {
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--color-accent); margin-top: 0.25rem;
+    }
+
+    /* ============================================================
+       CRAIG TESTIMONIAL
+    ============================================================ */
+    .testimonial-section {
+      background: var(--color-navy-dark);
+      padding-block: var(--space-xl);
+    }
+    .testimonial-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+      max-width: 1100px;
+      margin-inline: auto;
+    }
+    .testimonial-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+    .testimonial-images img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .testimonial-content {}
+    .testimonial-content blockquote {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: var(--color-white);
+      font-style: italic;
+      margin-bottom: var(--space-md);
+      position: relative;
+      padding-left: var(--space-md);
+    }
+    .testimonial-content blockquote::before {
+      content: '"';
+      position: absolute; left: 0; top: -0.2em;
+      font-size: 3rem; color: var(--color-accent); line-height: 1;
+      font-style: normal;
+    }
+    .testimonial-attribution {
+      font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--color-accent);
+    }
+    .testimonial-attribution span { display: block; color: var(--color-text-light); letter-spacing: 0.05em; text-transform: none; font-size: 0.85rem; margin-top: 0.25rem; }
+
+    /* ============================================================
+       CTA BANNER
+    ============================================================ */
+    .cta-banner { text-align: center; background: var(--color-navy); padding-block: var(--space-xl); }
+    .cta-banner .section-heading { font-size: clamp(1.8rem, 4.5vw, var(--fs-h2)); color: var(--color-white); margin-bottom: var(--space-md); }
+    .cta-banner__sub { font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: var(--space-xl); max-width: 55ch; margin-inline: auto; }
+    .cta-banner__actions { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer { background: var(--color-navy-dark); color: var(--color-white); padding-block: var(--space-xl) var(--space-md); }
+    .footer__top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer__brand p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.55); margin-top: var(--space-md); max-width: 35ch; }
+    .footer__social { display: flex; gap: var(--space-sm); margin-top: var(--space-md); }
+    .footer__social a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.2); display: grid; place-items: center; font-size: 0.7rem; letter-spacing: 0.05em; transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease); }
+    .footer__social a:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-black); }
+    .footer__col h4 { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-md); }
+    .footer__col ul { display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer__col ul a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color var(--duration) var(--ease); }
+    .footer__col ul a:hover { color: var(--color-white); }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: var(--space-md); font-size: 0.75rem; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: var(--space-sm); }
+
+    /* ============================================================
+       REVEAL
+    ============================================================ */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+    .reveal--delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      :root { --gutter: var(--gutter-mobile); }
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+      .mobile-menu { display: flex; }
+      .products__grid { grid-template-columns: repeat(2, 1fr); }
+      .how-it-works__grid { grid-template-columns: 1fr; gap: 2rem; }
+      .trust-strip { grid-template-columns: repeat(2, 1fr); }
+      .testimonial-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .footer__brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding-block: 4rem; }
+      .section-heading { font-size: var(--fs-h3); }
+      .products__grid { grid-template-columns: 1fr; }
+      .before-after { grid-template-columns: 1fr; }
+      .stats-card { flex-direction: column; gap: 2rem; padding: 2rem; }
+      .stat-item + .stat-item::before { left: 10%; right: 10%; top: 0; bottom: auto; width: auto; height: 1px; }
+      .trust-strip { grid-template-columns: 1fr 1fr; }
+      .testimonial-images { grid-template-columns: 1fr; }
+      .testimonial-images img { height: 220px; }
+      .footer__top { grid-template-columns: 1fr; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+      .footer__brand { grid-column: auto; }
+      .carousel__slide img { height: 260px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="index.html" class="nav__logo" aria-label="OneOneThree Digital home">
+        <img src="oot-logo.webp" alt="OneOneThree Digital" />
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a href="mailto:cam@oneonethree.co.nz" class="btn btn--dark">Get in Touch</a>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav>
+      <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <li><a href="index.html" class="mobile-link">Home</a></li>
+        <li><a href="services.html" class="mobile-link">Services</a></li>
+        <li><a href="about.html" class="mobile-link">About</a></li>
+        <li><a href="about.html#contact" class="mobile-link">Contact</a></li>
+        <li style="margin-top:1rem;"><a href="mailto:cam@oneonethree.co.nz" class="btn btn--primary">Get in Touch</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__social">
+      <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="home">
+      <div class="hero__bg" role="img" aria-label="Wellington cityscape"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">OneOneThree Digital &mdash; Google Review Tap Tags</p>
+        <h1 class="hero__heading">Get 10x More Reviews</h1>
+        <p class="hero__sub-heading">Boost Your Online Visibility</p>
+        <div class="hero__body">
+          <p>One simple tap instantly turns happy customers into 5-star Google Reviews.</p>
+          <ul>
+            <li>Fits any storefront. Works with any smartphone.</li>
+            <li>More reviews = higher rankings = more customers.</li>
+          </ul>
+        </div>
+        <div class="hero__cta">
+          <a href="mailto:cam@oneonethree.co.nz" class="btn btn--primary">Order Now</a>
+          <a href="tel:02204441845" class="btn btn--outline">Call Us</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="1" width="14" height="22" rx="7"/>
+          <circle cx="8" cy="7" r="2" fill="currentColor" stroke="none"/>
+        </svg>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STATS — LIGHT GREY CARD
+    ============================================================ -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-card reveal">
+          <div class="stat-item">
+            <div class="stat-item__num">93%</div>
+            <div class="stat-item__label">of consumers check reviews before buying</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">88%</div>
+            <div class="stat-item__label">trust Google Reviews as much as personal recommendations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">100+</div>
+            <div class="stat-item__label">Kiwi businesses trust our tap tags</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         IMAGE CAROUSEL — 1 through 7
+    ============================================================ -->
+    <section class="carousel-section">
+      <div class="container">
+        <span class="section-label reveal">See it in action</span>
+        <h2 class="section-heading reveal reveal--delay-1">Our Tap Tags</h2>
+
+        <div class="carousel reveal reveal--delay-2" id="carousel">
+          <div class="carousel__track" id="carouselTrack">
+            <div class="carousel__slide"><img src="1.webp" alt="Google Review Tap Tag product 1" /></div>
+            <div class="carousel__slide"><img src="2.webp" alt="Google Review Tap Tag product 2" /></div>
+            <div class="carousel__slide"><img src="3.webp" alt="Google Review Tap Tag product 3" /></div>
+            <div class="carousel__slide"><img src="4.webp" alt="Google Review Tap Tag product 4" /></div>
+            <div class="carousel__slide"><img src="5.webp" alt="Google Review Tap Tag product 5" /></div>
+            <div class="carousel__slide"><img src="6.webp" alt="Google Review Tap Tag product 6" /></div>
+            <div class="carousel__slide"><img src="7.webp" alt="Google Review Tap Tag product 7" /></div>
+          </div>
+
+          <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="Next image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="carousel__dots" id="carouselDots">
+          <button class="carousel__dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="carousel__dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="carousel__dot" data-index="2" aria-label="Slide 3"></button>
+          <button class="carousel__dot" data-index="3" aria-label="Slide 4"></button>
+          <button class="carousel__dot" data-index="4" aria-label="Slide 5"></button>
+          <button class="carousel__dot" data-index="5" aria-label="Slide 6"></button>
+          <button class="carousel__dot" data-index="6" aria-label="Slide 7"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BEFORE / AFTER
+    ============================================================ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
+          <span class="section-label">Real Results</span>
+          <h2 class="section-heading">See the difference.</h2>
+        </div>
+        <div class="before-after reveal reveal--delay-1">
+          <div class="before-after__item before-after__item--before">
+            <img src="3.6.webp" alt="Before Google Review Tag" />
+            <div class="before-after__label"><span>Before Google Review Tag</span></div>
+          </div>
+          <div class="before-after__item before-after__item--after">
+            <img src="4.7.webp" alt="After Google Review Tag" />
+            <div class="before-after__label"><span>After Google Review Tag</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TAPTAGQUOTE
+    ============================================================ -->
+    <section class="taptagquote-section">
+      <div class="container">
+        <div class="taptagquote-wrap reveal">
+          <img src="taptagquote.webp" alt="What customers are saying about Google Review Tap Tags" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INVESTMENT BANNER
+    ============================================================ -->
+    <div class="investment-banner">
+      <div class="container">
+        <p class="investment-banner__text">One off investment, unlimited reviews.</p>
+        <p class="investment-banner__sub">No subscriptions &bull; No hidden fees &bull; No apps required</p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PRODUCTS
+    ============================================================ -->
+    <section class="section" id="products">
+      <div class="container">
+        <div class="products__header reveal">
+          <span class="section-label">Our Products</span>
+          <h2 class="section-heading">Choose Your Tap Tag</h2>
+          <p class="section-sub" style="margin-inline:auto;text-align:center;">All tap tags are fully pre-programmed to your business, require no apps, and work with all modern smartphones.</p>
+        </div>
+
+        <div class="products__grid">
+
+          <div class="product-card reveal reveal--delay-1">
+            <div class="product-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/>
+              </svg>
+            </div>
+            <p class="product-card__badge">Most Popular</p>
+            <h3 class="product-card__title">Google Review Tap Stand</h3>
+            <p class="product-card__desc">The tall, noticeable option. Eye-catching and compact — perfect for counter placement.</p>
+            <ul class="product-card__features">
+              <li class="product-card__feature">NFC tap or QR scan — no apps required</li>
+              <li class="product-card__feature">Compatible with all modern smartphones</li>
+              <li class="product-card__feature">Eye-catching, compact design</li>
+              <li class="product-card__feature">Pre-programmed to your business</li>
+            </ul>
+            <div class="product-card__meta">
+              <div class="product-card__meta-row">
+                <span><strong>Best for:</strong> Cafes, restaurants, clinics, retail counters</span>
+                <span><strong>Tip:</strong> Position at checkout or where customers linger</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card reveal reveal--delay-2">
+            <div class="product-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+              </svg>
+            </div>
+            <p class="product-card__badge">Permanent</p>
+            <h3 class="product-card__title">Google Review Plaque</h3>
+            <p class="product-card__desc">The permanent, durable option. Sleek and modern — mounts directly on walls or countertops.</p>
+            <ul class="product-card__features">
+              <li class="product-card__feature">Sleek, modern aesthetic</li>
+              <li class="product-card__feature">NFC-enabled tap-to-review functionality</li>
+              <li class="product-card__feature">Strong adhesive backing for mounting</li>
+              <li class="product-card__feature">Pre-programmed to your business</li>
+            </ul>
+            <div class="product-card__meta">
+              <div class="product-card__meta-row">
+                <span><strong>Best for:</strong> Walls, reception desks, countertops</span>
+                <span><strong>Tip:</strong> Mount near payment points</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card reveal reveal--delay-3">
+            <div class="product-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <p class="product-card__badge">Portable</p>
+            <h3 class="product-card__title">Google Review Tap Card</h3>
+            <p class="product-card__desc">The portable option. Standard bank card dimensions — fits in any wallet for on-the-go use.</p>
+            <ul class="product-card__features">
+              <li class="product-card__feature">Standard bank card dimensions</li>
+              <li class="product-card__feature">Wallet-compatible size</li>
+              <li class="product-card__feature">NFC tap activation — no apps or fees</li>
+              <li class="product-card__feature">Pre-programmed to your business</li>
+            </ul>
+            <div class="product-card__meta">
+              <div class="product-card__meta-row">
+                <span><strong>Best for:</strong> Tradies, landscapers, consultants, mobile services</span>
+                <span><strong>Tip:</strong> Use after job completion or with invoices</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS
+    ============================================================ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">How It Works</span>
+          <h2 class="section-heading">Simple as a tap.</h2>
+          <p class="section-sub">No apps. No friction. Just more reviews.</p>
+        </div>
+        <div class="how-it-works__grid">
+          <div class="step-card reveal reveal--delay-1">
+            <div class="step-card__num">01</div>
+            <h3 class="step-card__title">Customer taps (or scans)</h3>
+            <p class="step-card__text">Your customer holds their phone near the tap tag — or scans the QR code. No app download needed. Works with all modern smartphones instantly.</p>
+          </div>
+          <div class="step-card reveal reveal--delay-2">
+            <div class="step-card__num">02</div>
+            <h3 class="step-card__title">Google Review opens</h3>
+            <p class="step-card__text">Their phone opens directly to your Google Review page — pre-filled with your business. The path to leaving a review couldn't be shorter.</p>
+          </div>
+          <div class="step-card reveal reveal--delay-3">
+            <div class="step-card__num">03</div>
+            <h3 class="step-card__title">Your reviews grow</h3>
+            <p class="step-card__text">Happy customers leave 5-star reviews in seconds. More reviews means better rankings, more trust, and more customers finding you online.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRUST STRIP — visa + free shipping
+    ============================================================ -->
+    <div class="trust-strip">
+      <div class="trust-item reveal">
+        <img src="visa.webp" alt="Visa accepted" />
+        <div class="trust-item__title">Secure Payment</div>
+        <div class="trust-item__ssl">Secure SSL Encryption</div>
+      </div>
+      <div class="trust-item reveal reveal--delay-1">
+        <img src="free.webp" alt="Free shipping" />
+        <div class="trust-item__title">Free NZ Shipping</div>
+        <div class="trust-item__sub">2–4 working days</div>
+      </div>
+      <div class="trust-item reveal reveal--delay-2">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <div class="trust-item__title">One-time Purchase</div>
+        <div class="trust-item__sub">No subscriptions or ongoing fees</div>
+      </div>
+      <div class="trust-item reveal reveal--delay-3">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <div class="trust-item__title">Ready to Use</div>
+        <div class="trust-item__sub">Fully pre-programmed on arrival</div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         CRAIG TESTIMONIAL
+    ============================================================ -->
+    <section class="testimonial-section">
+      <div class="container">
+        <div class="testimonial-inner">
+          <div class="testimonial-images reveal">
+            <img src="craigactual.webp" alt="Craig" />
+            <img src="craig.webp" alt="Craig's business" />
+          </div>
+          <div class="testimonial-content reveal reveal--delay-2">
+            <span class="section-label">Customer Story</span>
+            <blockquote>
+              The tap tag made collecting reviews effortless. Our Google rating went up and we started seeing more new customers finding us online within weeks.
+            </blockquote>
+            <div class="testimonial-attribution">
+              Craig
+              <span>OneOneThree Digital customer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BANNER
+    ============================================================ -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Ready to grow your reviews?</span>
+          <h2 class="section-heading">Start collecting reviews<br>from day one.</h2>
+          <p class="cta-banner__sub">Get in touch to order your tap tag. We'll pre-program it to your business and have it delivered to your door.</p>
+          <div class="cta-banner__actions">
+            <a href="mailto:cam@oneonethree.co.nz" class="btn btn--primary">Email Us to Order</a>
+            <a href="tel:02204441845" class="btn btn--outline">Call 022 044 1845</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="oot-logo.webp" alt="OneOneThree Digital" style="height:52px;width:auto;" />
+          <p>Experienced, cost-effective digital marketing for Kiwi SMEs. Based in Dunedin, with consultants in Wellington &amp; Christchurch.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener" aria-label="Facebook">fb</a>
+            <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:cam@oneonethree.co.nz">cam@oneonethree.co.nz</a></li>
+            <li><a href="tel:02204441845">022 044 1845</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span id="year"></span> OneOneThree Digital Ltd. All rights reserved.</span>
+        <span>Born at 113A York Place, Dunedin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    'use strict';
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Header scroll
+    const header = document.getElementById('header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const burger     = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link, .btn');
+    const openMenu = () => { burger.classList.add('open'); burger.setAttribute('aria-expanded','true'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; };
+    const closeMenu = () => { burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; };
+    burger.addEventListener('click', () => burger.classList.contains('open') ? closeMenu() : openMenu());
+    mobileLinks.forEach(l => l.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+
+    // Carousel
+    const track = document.getElementById('carouselTrack');
+    const dots   = document.querySelectorAll('.carousel__dot');
+    const total  = 7;
+    let current  = 0;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('carouselNext').addEventListener('click', () => goTo(current + 1));
+    document.getElementById('carouselPrev').addEventListener('click', () => goTo(current - 1));
+    dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.index)));
+
+    // Auto-advance every 4s
+    let autoplay = setInterval(() => goTo(current + 1), 4000);
+    document.getElementById('carousel').addEventListener('mouseenter', () => clearInterval(autoplay));
+    document.getElementById('carousel').addEventListener('mouseleave', () => { autoplay = setInterval(() => goTo(current + 1), 4000); });
+
+    // Touch swipe
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
