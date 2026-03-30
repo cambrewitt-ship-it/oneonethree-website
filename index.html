@@ -1,0 +1,1331 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneOneThree Digital | Your Local Digital Marketing Experts</title>
+  <meta name="description" content="OneOneThree Digital – experienced, cost-effective digital marketing for Kiwi SMEs. Social media, SEM, content creation & more." />
+  <link rel="canonical" href="https://www.oneonethree.co.nz/" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES – COLOUR SYSTEM
+    ============================================================ */
+    :root {
+      /* ── Brand palette ── */
+      --color-primary:     #113D79;   /* main navy */
+      --color-background:  #113D79;
+      --color-text:        #FFFFFF;
+      --color-secondary:   #FFFFFF;
+      --color-accent:      #BAA649;   /* gold – CTAs, highlights */
+      --color-border:      rgba(255,255,255,0.18);
+      --color-text-light:  #a8c0e0;   /* light blue – subheadings, captions, muted */
+
+      /* ── Navy scale ── */
+      --color-navy-base:   #113D79;   /* body / page bg */
+      --color-navy-light:  #1a4d94;   /* card / component bg */
+      --color-navy-mid:    #163870;   /* marquee, subtle dividers */
+      --color-navy-dark:   #0e3268;   /* footer, deep sections */
+
+      /* ── Structural aliases ── */
+      --color-white:       #ffffff;
+      --color-black:       #000000;
+      --color-gold:        #BAA649;
+      --color-navy:        #113D79;
+      --color-bg:          var(--color-navy-base);
+      --color-muted:       var(--color-text-light);
+      --color-section-alt: var(--color-navy-light);
+
+      /* Typography */
+      --font-primary: "gopher", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-fallback: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+      --fw-medium:  500;
+
+      --fs-base:  16px;
+      --fs-sm:    1rem;
+      --fs-body:  1.5rem;
+      --fs-h4:    2rem;
+      --fs-h3:    2.5rem;
+      --fs-h2:    3rem;
+      --fs-h1:    4.5rem;
+
+      /* Spacing */
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  2rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+      --space-2xl: 8rem;
+
+      /* Layout */
+      --max-width: 1500px;
+      --gutter: 4vw;
+      --gutter-mobile: 6vw;
+
+      /* Animation */
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration: 0.3s;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: var(--fs-base);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-body);
+      line-height: 1.4;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================================
+       UTILITY CLASSES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .section {
+      padding-block: var(--space-xl);
+    }
+
+    .section--alt {
+      background: var(--color-section-alt);
+    }
+
+    .section--dark {
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+    }
+
+    .section--navy {
+      background: var(--color-navy);
+      color: var(--color-white);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-heading {
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-medium);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      max-width: 60ch;
+      margin-top: var(--space-sm);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid currentColor;
+      cursor: pointer;
+      transition: background var(--duration) var(--ease),
+                  color var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease);
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      border-color: var(--color-accent);
+    }
+
+    .btn--primary:hover {
+      background: transparent;
+      color: var(--color-accent);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+
+    .btn--outline:hover {
+      background: var(--color-white);
+      color: var(--color-navy-base);
+    }
+
+    /* On navy bg: white pill that turns gold on hover */
+    .btn--dark {
+      background: var(--color-white);
+      color: var(--color-navy-base);
+      border-color: var(--color-white);
+    }
+
+    .btn--dark:hover {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      border-color: var(--color-accent);
+    }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--color-navy-base);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: box-shadow var(--duration) var(--ease);
+    }
+
+    .header.scrolled {
+      box-shadow: 0 2px 24px rgba(0,0,0,0.35);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding-inline: var(--gutter);
+      max-width: var(--max-width);
+      margin-inline: auto;
+    }
+
+    /* Logo */
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .nav__logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    /* Desktop nav links */
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .nav__links a {
+      font-size: 0.8rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color var(--duration) var(--ease);
+    }
+
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width var(--duration) var(--ease);
+    }
+
+    .nav__links a:hover::after { width: 100%; }
+
+    .nav__cta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    /* Hamburger */
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 200;
+    }
+
+    .nav__burger span {
+      display: block;
+      height: 2px;
+      background: var(--color-white);
+      border-radius: 2px;
+      transition: transform var(--duration) var(--ease),
+                  opacity var(--duration) var(--ease);
+    }
+
+    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: var(--color-navy-dark);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--duration) var(--ease);
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-menu a {
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-medium);
+      letter-spacing: -0.01em;
+      transition: color var(--duration) var(--ease);
+    }
+
+    .mobile-menu a:hover { color: var(--color-accent); }
+
+    .mobile-menu__social {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .mobile-menu__social a {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.squarespace-cdn.com/content/v1/663c4c6ee61f8e31f6fa0851/a8cd974b-6536-46f3-a9a5-057408073b99/things-to-do-in-dunedin-6.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.38);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--color-white);
+      padding-inline: var(--gutter);
+      max-width: 900px;
+    }
+
+    .hero__eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.2s forwards;
+    }
+
+    .hero__heading {
+      font-size: clamp(2.5rem, 7vw, var(--fs-h1));
+      font-weight: var(--fw-medium);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.4s forwards;
+    }
+
+    .hero__sub {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: var(--space-xl);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.6s forwards;
+    }
+
+    .hero__cta {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.8s forwards;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: var(--space-md);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 1.2s forwards;
+    }
+
+    .hero__scroll svg {
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       MARQUEE
+    ============================================================ */
+    .marquee {
+      background: var(--color-navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      padding-block: 1rem;
+    }
+
+    .marquee__track {
+      display: flex;
+      width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee__item {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-inline: 2rem;
+      font-size: 0.8rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .marquee__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .about__img-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about__img-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 66%;
+      margin: 0 auto;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    }
+
+    .about__img-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about__text { }
+
+    .about__text p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-text-light);
+      margin-top: var(--space-sm);
+    }
+
+    .about__text p + p { margin-top: 0.75rem; }
+
+
+    /* ============================================================
+       CLIENTS / HALL OF FAME
+    ============================================================ */
+    .clients {
+      text-align: center;
+    }
+
+    .clients__heading {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* ---- Marquee carousel ---- */
+    .clients__carousel {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
+    .clients__track {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      width: max-content;
+      animation: clients-marquee 32s linear infinite;
+    }
+
+    .clients__track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes clients-marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .clients__track a {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .clients__logo {
+      height: 260px;
+      width: auto;
+      object-fit: contain;
+      opacity: 1;
+      transition: opacity var(--duration) var(--ease);
+    }
+
+    .clients__logo:hover {
+      opacity: 0.8;
+    }
+
+    /* ============================================================
+       VALUE PROP / SPLIT BANNER
+    ============================================================ */
+    .value-prop {
+      text-align: center;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .value-prop .section-heading {
+      font-size: clamp(2rem, 5vw, var(--fs-h2));
+    }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    .services__header {
+      margin-bottom: var(--space-xl);
+    }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .service-card {
+      padding: var(--space-lg) var(--space-md);
+      background: var(--color-navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--duration) var(--ease),
+                  transform var(--duration) var(--ease),
+                  box-shadow var(--duration) var(--ease);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--color-accent);
+      transition: height 0.4s var(--ease);
+    }
+
+    .service-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    .service-card:hover::before { height: 100%; }
+
+    .service-card__icon {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto var(--space-md);
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .service-card__icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-card__icon svg {
+      width: 26px;
+      height: 26px;
+      color: var(--color-navy-dark);
+    }
+
+    .service-card__title {
+      font-size: 1.1rem;
+      font-weight: var(--fw-medium);
+      margin-bottom: var(--space-sm);
+      letter-spacing: -0.01em;
+    }
+
+    .service-card__text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--color-text-light);
+    }
+
+    /* ============================================================
+       PROCESS
+    ============================================================ */
+    .process__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+      counter-reset: process-counter;
+    }
+
+    .process-step {
+      padding: var(--space-lg);
+      background: var(--color-navy-light);
+      position: relative;
+    }
+
+    .process-step__num {
+      font-size: 5rem;
+      font-weight: var(--fw-medium);
+      color: var(--color-accent);
+      line-height: 1;
+      opacity: 0.3;
+      margin-bottom: var(--space-sm);
+    }
+
+    .process-step__title {
+      font-size: 1.5rem;
+      font-weight: var(--fw-medium);
+      margin-bottom: var(--space-sm);
+      letter-spacing: -0.01em;
+    }
+
+    .process-step__text {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--color-text-light);
+    }
+
+    .process-step--connector {
+      display: none;
+    }
+
+    /* ============================================================
+       CTA BANNER
+    ============================================================ */
+    .cta-banner {
+      text-align: center;
+    }
+
+    .cta-banner .section-heading {
+      font-size: clamp(1.8rem, 4.5vw, var(--fs-h2));
+      color: var(--color-white);
+      margin-bottom: var(--space-md);
+    }
+
+    .cta-banner__sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: var(--space-xl);
+      max-width: 55ch;
+      margin-inline: auto;
+    }
+
+    .cta-banner__actions {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+      padding-block: var(--space-xl) var(--space-md);
+    }
+
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer__brand .logo-text {
+      font-size: 1.1rem;
+      margin-top: var(--space-sm);
+    }
+
+    .footer__brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      margin-top: var(--space-md);
+      max-width: 35ch;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .footer__social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      transition: background var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease);
+    }
+
+    .footer__social a:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-black);
+    }
+
+    .footer__col h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer__col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer__col ul a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--duration) var(--ease);
+    }
+
+    .footer__col ul a:hover { color: var(--color-white); }
+
+    .footer__col .consultant {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .footer__col .consultant a {
+      color: rgba(255,255,255,0.55);
+      display: inline;
+      font-size: inherit;
+    }
+    .footer__col .consultant a:hover { color: var(--color-white); }
+
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-md);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* ============================================================
+       SCROLL-REVEAL ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+    .reveal--delay-4 { transition-delay: 0.4s; }
+    .reveal--delay-5 { transition-delay: 0.5s; }
+
+    /* ============================================================
+       RESPONSIVE – TABLET (≤1024px)
+    ============================================================ */
+    @media (max-width: 1024px) {
+      :root {
+        --gutter: var(--gutter-mobile);
+      }
+
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__burger {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+
+      .about__img-wrap {
+        aspect-ratio: 16/9;
+      }
+
+      .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+      }
+
+      .footer__brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVE – MOBILE (≤640px)
+    ============================================================ */
+    @media (max-width: 640px) {
+      .section {
+        padding-block: var(--space-lg);
+      }
+
+      .section-heading {
+        font-size: var(--fs-h3);
+      }
+
+      .hero__heading {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about__stats {
+        gap: var(--space-md);
+      }
+
+      .clients__grid {
+        gap: var(--space-lg);
+      }
+
+      .clients__logo {
+        height: 160px;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer__brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="#home" class="nav__logo" aria-label="OneOneThree Digital home">
+        <img src="oot-logo.webp" alt="OneOneThree Digital" />
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--dark">Get in Touch</a>
+      </div>
+
+      <button class="nav__burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav>
+      <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <li><a href="index.html"    class="mobile-link">Home</a></li>
+        <li><a href="services.html" class="mobile-link">Services</a></li>
+        <li><a href="product.html"  class="mobile-link">Products</a></li>
+        <li><a href="about.html"    class="mobile-link">About</a></li>
+        <li><a href="contact.html"  class="mobile-link">Contact</a></li>
+        <li style="margin-top:1rem;">
+          <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__social">
+      <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="home">
+      <div class="hero__bg" role="img" aria-label="Dunedin cityscape"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">OneOneThree Digital &mdash; Dunedin, New Zealand</p>
+        <h1 class="hero__heading">Your Digital Marketing Specialists</h1>
+        <p class="hero__sub">We turn clicks into customers.</p>
+        <div class="hero__cta">
+          <a href="services.html" class="btn btn--primary">Our Services</a>
+          <a href="contact.html" class="btn btn--outline">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="1" width="14" height="22" rx="7"/>
+          <circle cx="8" cy="7" r="2" fill="currentColor" stroke="none"/>
+        </svg>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MARQUEE
+    ============================================================ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <!-- duplicated for seamless loop -->
+        <div class="marquee__item">Social Media Strategy <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Search Engine Marketing <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Content Creation <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Digital Advertising <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Social Media Management <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Email Marketing <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Social Media Strategy <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Search Engine Marketing <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Content Creation <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Digital Advertising <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Social Media Management <span class="marquee__dot"></span></div>
+        <div class="marquee__item">Email Marketing <span class="marquee__dot"></span></div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         ABOUT
+    ============================================================ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about">
+          <div class="about__img-wrap reveal">
+            <div class="about__img-card">
+              <img
+                src="https://images.squarespace-cdn.com/content/v1/663c4c6ee61f8e31f6fa0851/f5aa4ff1-b6f9-4aaf-9fab-0b5d4f08c255/Screenshot+2025-05-21+at+8.29.18+AM.jpg"
+                alt="Otago Business School"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div class="about__text reveal reveal--delay-2">
+            <span class="section-label">Our Story</span>
+            <h2 class="section-heading">Born from 113A York Place&nbsp;&mdash; our Dunedin flat.</h2>
+            <p>We deliver experienced, cost-effective marketing solutions for Kiwi SMEs.</p>
+            <p>Born from humble beginnings at the Otago Business School and our Dunedin student flat. We operate as a hybrid-remote agency, with consultants in Wellington &amp; Christchurch.</p>
+            <p>Partner with us for one-off or monthly support, with no strings attached.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CLIENTS
+    ============================================================ -->
+    <section class="section section--alt clients">
+      <div class="container">
+        <p class="clients__heading reveal">Hall of Fame &mdash; Our Clients</p>
+      </div>
+      <div class="clients__carousel">
+        <div class="clients__track">
+          <!-- Set 1 -->
+          <a href="https://www.thedoughcouncil.co.nz" target="_blank" rel="noopener">
+            <img class="clients__logo" src="tdc.webp" alt="The Dough Council" />
+          </a>
+          <a href="https://www.whitestonegeopark.nz" target="_blank" rel="noopener">
+            <img class="clients__logo" src="waitaki.webp" alt="Waitaki Whitestone Geopark" />
+          </a>
+          <a href="https://www.concordproperty.co.nz" target="_blank" rel="noopener">
+            <img class="clients__logo" src="concord.webp" alt="Concord Property" />
+          </a>
+          <a href="#">
+            <img class="clients__logo" src="eco.webp" alt="Ecocycle" />
+          </a>
+          <a href="https://www.heartlandchips.co.nz/" target="_blank" rel="noopener">
+            <img class="clients__logo" src="heartlad.webp" alt="Heartland Potato Chips" />
+          </a>
+          <!-- Set 2 — duplicate for seamless loop -->
+          <a href="https://www.thedoughcouncil.co.nz" target="_blank" rel="noopener">
+            <img class="clients__logo" src="tdc.webp" alt="The Dough Council" />
+          </a>
+          <a href="https://www.whitestonegeopark.nz" target="_blank" rel="noopener">
+            <img class="clients__logo" src="waitaki.webp" alt="Waitaki Whitestone Geopark" />
+          </a>
+          <a href="https://www.concordproperty.co.nz" target="_blank" rel="noopener">
+            <img class="clients__logo" src="concord.webp" alt="Concord Property" />
+          </a>
+          <a href="#">
+            <img class="clients__logo" src="eco.webp" alt="Ecocycle" />
+          </a>
+          <a href="https://www.heartlandchips.co.nz/" target="_blank" rel="noopener">
+            <img class="clients__logo" src="heartlad.webp" alt="Heartland Potato Chips" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VALUE PROP
+    ============================================================ -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="value-prop reveal">
+          <span class="section-label">Why OneOneThree</span>
+          <h2 class="section-heading" style="color:var(--color-white);">Let's build your<br>digital voice.</h2>
+          <p class="section-sub" style="color:var(--color-text-light);margin-inline:auto;">Don't have the tools or time to improve your digital presence? We've got you covered — no jargon, no lock-in, just results.</p>
+          <div style="margin-top:var(--space-xl);">
+            <a href="services.html" class="btn btn--primary">See What We Do</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BANNER
+    ============================================================ -->
+    <section class="section section--navy cta-banner" id="contact">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Ready to grow?</span>
+          <h2 class="section-heading">Ready to boost your<br>business's online presence?</h2>
+          <p class="cta-banner__sub">Give us a call — we're always happy to chat to business owners, whether it's business or not.</p>
+          <div class="cta-banner__actions">
+            <a href="contact.html" class="btn btn--primary">Email Us</a>
+            <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener" class="btn btn--outline">Find Us on Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <div>
+            <img src="oot-logo.webp" alt="OneOneThree Digital" style="height:52px;width:auto;" />
+          </div>
+          <p>Experienced, cost-effective digital marketing for Kiwi SMEs. Based in Dunedin, with consultants in Wellington &amp; Christchurch.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener" aria-label="Facebook">fb</a>
+            <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Other</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Digital Marketing Consultants</h4>
+          <div class="consultant">
+            Nick Plieger<br>
+            <a href="mailto:nick@oneonethree.co.nz">nick@oneonethree.co.nz</a>
+          </div>
+          <div class="consultant">
+            Cam Brewitt<br>
+            <a href="mailto:cam@oneonethree.co.nz">cam@oneonethree.co.nz</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span id="year"></span> OneOneThree Digital Ltd. All rights reserved.</span>
+        <span>Born at 113A York Place, Dunedin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT – Embedded, no dependencies
+  ============================================================ -->
+  <script>
+    'use strict';
+
+    /* ---- Year -------------------------------------------------- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---- Header scroll state ----------------------------------- */
+    const header = document.getElementById('header');
+    const onScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ---- Mobile menu ------------------------------------------ */
+    const burger     = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link, .btn');
+
+    const openMenu = () => {
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    burger.addEventListener('click', () => {
+      burger.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    });
+
+    /* ---- Scroll-reveal ---------------------------------------- */
+    const revealEls = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      // Fallback – show everything
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+
+    /* ---- Smooth scroll for anchor links ----------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const offset = 80; // header height
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

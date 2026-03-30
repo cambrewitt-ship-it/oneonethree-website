@@ -1,0 +1,1740 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Review Tap Tags | OneOneThree Digital</title>
+  <meta name="description" content="Get 10x more Google reviews with NFC tap tags. One tap turns happy customers into 5-star reviews. Trusted by 100+ Kiwi businesses." />
+  <link rel="canonical" href="https://www.oneonethree.co.nz/product" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-primary:     #113D79;
+      --color-background:  #113D79;
+      --color-text:        #FFFFFF;
+      --color-secondary:   #FFFFFF;
+      --color-accent:      #BAA649;
+      --color-border:      rgba(255,255,255,0.18);
+      --color-text-light:  #a8c0e0;
+
+      --color-navy-base:   #113D79;
+      --color-navy-light:  #1a4d94;
+      --color-navy-mid:    #163870;
+      --color-navy-dark:   #0e3268;
+
+      --color-white:       #ffffff;
+      --color-black:       #000000;
+      --color-gold:        #BAA649;
+      --color-navy:        #113D79;
+      --color-bg:          var(--color-navy-base);
+      --color-muted:       var(--color-text-light);
+      --color-section-alt: var(--color-navy-light);
+
+      --font-primary: "gopher", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --fw-medium:  500;
+
+      --fs-base:  16px;
+      --fs-body:  1.5rem;
+      --fs-h4:    2rem;
+      --fs-h3:    2.5rem;
+      --fs-h2:    3rem;
+      --fs-h1:    4.5rem;
+
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  2rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+      --space-2xl: 8rem;
+
+      --max-width: 1500px;
+      --gutter: 4vw;
+      --gutter-mobile: 6vw;
+
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration: 0.3s;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { font-size: var(--fs-base); scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-body);
+      line-height: 1.4;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .section { padding-block: var(--space-xl); }
+    .section--alt  { background: var(--color-section-alt); }
+    .section--dark { background: var(--color-navy-dark); color: var(--color-white); }
+    .section--navy { background: var(--color-navy); color: var(--color-white); }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-heading {
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-medium);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      max-width: 60ch;
+      margin-top: var(--space-sm);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid currentColor;
+      cursor: pointer;
+      transition: background var(--duration) var(--ease),
+                  color var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease);
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      border-color: var(--color-accent);
+    }
+    .btn--primary:hover {
+      background: transparent;
+      color: var(--color-accent);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+    .btn--outline:hover {
+      background: var(--color-white);
+      color: var(--color-navy-base);
+    }
+
+    .btn--dark {
+      background: var(--color-white);
+      color: var(--color-navy-base);
+      border-color: var(--color-white);
+    }
+    .btn--dark:hover {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      border-color: var(--color-accent);
+    }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--color-navy-base);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: box-shadow var(--duration) var(--ease);
+    }
+    .header.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding-inline: var(--gutter);
+      max-width: var(--max-width);
+      margin-inline: auto;
+    }
+
+    .nav__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav__logo img { height: 52px; width: auto; display: block; }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+    .nav__links a {
+      font-size: 0.8rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color var(--duration) var(--ease);
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--color-accent);
+      transition: width var(--duration) var(--ease);
+    }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__links a.active::after { width: 100%; }
+
+    .nav__cta { display: flex; align-items: center; gap: var(--space-sm); }
+
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px; height: 36px;
+      background: none; border: none;
+      cursor: pointer; padding: 0;
+      z-index: 200;
+    }
+    .nav__burger span {
+      display: block;
+      height: 2px;
+      background: var(--color-white);
+      border-radius: 2px;
+      transition: transform var(--duration) var(--ease),
+                  opacity var(--duration) var(--ease);
+    }
+    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: var(--color-navy-dark);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--duration) var(--ease);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-medium);
+      letter-spacing: -0.01em;
+      transition: color var(--duration) var(--ease);
+    }
+    .mobile-menu a:hover { color: var(--color-accent); }
+    .mobile-menu__social {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .mobile-menu__social a {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding-top: 100px;
+      padding-bottom: var(--space-xl);
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('obay.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.35);
+    }
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      gap: var(--space-xl);
+      padding-inline: var(--gutter);
+      max-width: 1200px;
+      width: 100%;
+    }
+    .hero__video-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.2s forwards;
+      width: 100%;
+    }
+    .hero__video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hero__content {
+      color: var(--color-white);
+      text-align: left;
+    }
+    .hero__eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.2s forwards;
+    }
+    .hero__heading {
+      font-size: clamp(2.5rem, 7vw, var(--fs-h1));
+      font-weight: var(--fw-medium);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.4s forwards;
+    }
+    .hero__sub {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: var(--space-xl);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.6s forwards;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(186,166,73,0.15);
+      border: 1px solid rgba(186,166,73,0.4);
+      padding: 0.6em 1.4em;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xl);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.8s forwards;
+    }
+    .hero__badge svg { flex-shrink: 0; }
+    .hero__cta {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 1s forwards;
+    }
+    .hero__scroll {
+      position: absolute;
+      bottom: var(--space-md);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 1.4s forwards;
+    }
+    .hero__scroll svg { animation: bounce 1.5s ease-in-out infinite; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       VALUE PROPS
+    ============================================================ */
+    .value-props {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .value-prop-item {
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .value-prop-item:last-child { border-right: none; }
+    .value-prop-item__icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-md);
+      line-height: 1;
+    }
+    .value-prop-item h3 {
+      font-size: clamp(1.8rem, 3.5vw, var(--fs-h2));
+      font-weight: var(--fw-medium);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .value-prop-item p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      margin-top: var(--space-sm);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       INTRO BLOCK
+    ============================================================ */
+    .intro-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .intro-block__text { }
+    .intro-block__text h2 {
+      font-size: clamp(1.8rem, 3vw, var(--fs-h2));
+      font-weight: var(--fw-medium);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-md);
+    }
+    .intro-block__text p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-text-light);
+      margin-bottom: var(--space-md);
+    }
+    .intro-block__list {
+      margin-bottom: var(--space-lg);
+    }
+    .intro-block__list li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-text-light);
+      padding-left: 1.4rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .intro-block__list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+    .intro-block__cta {
+      font-size: 1.1rem;
+      font-weight: var(--fw-medium);
+      color: var(--color-accent);
+    }
+
+    /* ============================================================
+       PRODUCT IMAGE CAROUSEL
+    ============================================================ */
+    .product-carousel {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+    .product-carousel__track {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      width: max-content;
+      animation: product-scroll 32s linear infinite;
+    }
+    .product-carousel__track:hover { animation-play-state: paused; }
+    @keyframes product-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .product-carousel__img {
+      width: 340px;
+      height: 260px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-radius: 8px;
+    }
+
+    /* ============================================================
+       PRODUCT CARDS
+    ============================================================ */
+    .product-cards__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    .product-card {
+      background: var(--color-navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: var(--space-lg) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--duration) var(--ease),
+                  transform var(--duration) var(--ease),
+                  box-shadow var(--duration) var(--ease);
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--color-accent);
+      transition: height 0.4s var(--ease);
+    }
+    .product-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    .product-card:hover::before { height: 100%; }
+
+    .product-card__tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: rgba(186,166,73,0.12);
+      border: 1px solid rgba(186,166,73,0.3);
+      padding: 0.3em 0.8em;
+      margin-bottom: var(--space-md);
+      align-self: flex-start;
+    }
+    .product-card__title {
+      font-size: 1.4rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+    .product-card__descriptor {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      font-style: italic;
+      margin-bottom: var(--space-md);
+    }
+    .product-card__list {
+      margin-bottom: var(--space-md);
+      flex: 1;
+    }
+    .product-card__list li {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--color-text-light);
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.3rem;
+    }
+    .product-card__list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+    .product-card__meta {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .product-card__meta p {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      margin-bottom: 0.3rem;
+    }
+    .product-card__meta strong {
+      color: var(--color-white);
+    }
+    .product-card__tip {
+      margin-top: var(--space-md);
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .product-card__cta {
+      margin-top: var(--space-md);
+    }
+
+    /* ============================================================
+       PROMO BANNER
+    ============================================================ */
+    .promo-banner {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      padding-block: var(--space-lg);
+      text-align: center;
+    }
+    .promo-banner__label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+    .promo-banner__heading {
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+    }
+    .countdown {
+      display: inline-flex;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    .countdown__block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 70px;
+    }
+    .countdown__num {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: var(--fw-medium);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .countdown__label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-top: 0.3rem;
+    }
+    .countdown__sep {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: var(--fw-medium);
+      opacity: 0.5;
+      align-self: flex-start;
+      padding-top: 0.1em;
+    }
+
+    /* ============================================================
+       TRUST BADGE
+    ============================================================ */
+    .trust-badge {
+      background: var(--color-navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-block: 1.2rem;
+      text-align: center;
+    }
+    .trust-badge__inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+    .trust-badge__icon {
+      width: 20px; height: 20px;
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       BEFORE / AFTER
+    ============================================================ */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .before-after__item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .before-after__item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .before-after__label {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-md);
+      font-size: 0.7rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.4em 1em;
+      border-radius: 2px;
+    }
+    .before-after__label--before {
+      background: rgba(0,0,0,0.6);
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .before-after__label--after {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+    }
+
+    /* ============================================================
+       STATS
+    ============================================================ */
+    .stats-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .stat-item {
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item__num {
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: var(--fw-medium);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--color-accent);
+    }
+    .stat-item__text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      margin-top: var(--space-sm);
+      max-width: 32ch;
+      margin-inline: auto;
+    }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .faq__list {
+      max-width: 820px;
+      margin-inline: auto;
+      margin-top: var(--space-xl);
+    }
+    .faq__item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq__question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--color-white);
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      font-weight: var(--fw-medium);
+      text-align: left;
+      padding: var(--space-md) 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      transition: color var(--duration) var(--ease);
+    }
+    .faq__question:hover { color: var(--color-accent); }
+    .faq__chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      transition: transform var(--duration) var(--ease);
+      color: var(--color-accent);
+    }
+    .faq__item.open .faq__chevron { transform: rotate(180deg); }
+    .faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--ease);
+    }
+    .faq__answer-inner {
+      padding-bottom: var(--space-md);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--color-text-light);
+    }
+
+    /* ============================================================
+       CONTACT CTA
+    ============================================================ */
+    /* Product photos */
+    .product-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .product-photos img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* Contact CTA form */
+    .contact-cta__form {
+      background: var(--color-navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: var(--space-lg);
+      border-radius: 8px;
+    }
+    .cta-form__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: var(--space-md);
+    }
+    .cta-form__group label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+    .cta-form__group input,
+    .cta-form__group textarea,
+    .cta-form__group select {
+      background: var(--color-navy-base);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--color-white);
+      padding: 0.85rem 1.2rem;
+      font-family: var(--font-primary);
+      font-size: 0.9rem;
+      width: 100%;
+      transition: border-color var(--duration) var(--ease);
+      outline: none;
+      border-radius: 4px;
+    }
+    .cta-form__group input::placeholder,
+    .cta-form__group textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+    .cta-form__group input:focus,
+    .cta-form__group textarea:focus,
+    .cta-form__group select:focus {
+      border-color: var(--color-accent);
+    }
+    .cta-form__group select option { background: var(--color-navy-dark); }
+    .cta-form__group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .contact-cta__text { }
+    .contact-cta__heading {
+      font-size: clamp(2rem, 4vw, var(--fs-h2));
+      font-weight: var(--fw-medium);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: var(--space-md);
+    }
+    .contact-cta__heading span {
+      color: var(--color-accent);
+    }
+    .contact-cta__details {
+      margin-top: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .contact-cta__details a {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color var(--duration) var(--ease);
+    }
+    .contact-cta__details a:hover { color: var(--color-white); }
+    .contact-cta__details svg {
+      flex-shrink: 0;
+      width: 16px; height: 16px;
+      color: var(--color-accent);
+    }
+    .contact-cta__images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+    .contact-cta__img {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .contact-cta__img img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: top;
+    }
+    .contact-cta__img:first-child {
+      margin-top: var(--space-xl);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+      padding-block: var(--space-xl) var(--space-md);
+    }
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer__brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      margin-top: var(--space-md);
+      max-width: 35ch;
+    }
+    .footer__social {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    .footer__social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      transition: background var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease);
+    }
+    .footer__social a:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-black);
+    }
+    .footer__col h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+    .footer__col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .footer__col ul a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--duration) var(--ease);
+    }
+    .footer__col ul a:hover { color: var(--color-white); }
+    .footer__col .consultant {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .footer__col .consultant a {
+      color: rgba(255,255,255,0.55);
+      display: inline;
+      font-size: inherit;
+    }
+    .footer__col .consultant a:hover { color: var(--color-white); }
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-md);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* ============================================================
+       SCROLL-REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+
+    /* ============================================================
+       RESPONSIVE – TABLET (≤1024px)
+    ============================================================ */
+    @media (max-width: 1024px) {
+      :root { --gutter: var(--gutter-mobile); }
+
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+      .mobile-menu { display: flex; }
+
+      .value-props { grid-template-columns: 1fr; }
+      .value-prop-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .value-prop-item:last-child { border-bottom: none; }
+
+      .intro-block { grid-template-columns: 1fr; gap: var(--space-lg); }
+
+      .hero__inner { grid-template-columns: 1fr; }
+      .hero__content { text-align: center; }
+      .hero__cta { justify-content: center; }
+
+      .product-cards__grid { grid-template-columns: 1fr 1fr; }
+
+      .before-after { grid-template-columns: 1fr; }
+      .before-after__item img { height: auto; }
+
+      .stats-block { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .stat-item:last-child { border-bottom: none; }
+
+      .contact-cta { grid-template-columns: 1fr; }
+      .product-photos { grid-template-columns: 1fr 1fr; }
+
+      .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .footer__brand { grid-column: 1 / -1; }
+    }
+
+    /* ============================================================
+       RESPONSIVE – MOBILE (≤640px)
+    ============================================================ */
+    @media (max-width: 640px) {
+      .section { padding-block: var(--space-lg); }
+      .section-heading { font-size: var(--fs-h3); }
+      .hero__heading { font-size: clamp(2rem, 10vw, 3rem); }
+
+      .product-cards__grid { grid-template-columns: 1fr; }
+      .product-photos { grid-template-columns: 1fr; }
+
+      .countdown { gap: var(--space-xs); }
+      .countdown__block { min-width: 50px; }
+
+      .footer__top { grid-template-columns: 1fr; }
+      .footer__brand { grid-column: auto; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="index.html" class="nav__logo" aria-label="OneOneThree Digital home">
+        <img src="oot-logo.webp" alt="OneOneThree Digital" />
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="product.html" class="active">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--dark">Get in Touch</a>
+      </div>
+
+      <button class="nav__burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav>
+      <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <li><a href="index.html"         class="mobile-link">Home</a></li>
+        <li><a href="services.html"      class="mobile-link">Services</a></li>
+        <li><a href="contact.html" class="mobile-link">Contact Us</a></li>
+        <li><a href="product.html"       class="mobile-link">Products</a></li>
+        <li><a href="about.html"         class="mobile-link">About Us</a></li>
+        <li style="margin-top:1rem;">
+          <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__social">
+      <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="home">
+      <div class="hero__bg" role="img" aria-label="Dunedin cityscape"></div>
+      <div class="hero__inner">
+        <div class="hero__video-wrap">
+          <video autoplay muted loop playsinline>
+            <source src="25-sec-explainer.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero__content">
+          <p class="hero__eyebrow">OneOneThree Digital &mdash; Products</p>
+          <h1 class="hero__heading">Google Review<br>Tap Tags</h1>
+          <p class="hero__sub">Get 10x More Reviews<br>Boost Your Online Visibility</p>
+          <div class="hero__badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M4.5 7l1.8 1.8L9.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Trusted by 100+ Kiwi Businesses
+          </div>
+          <div class="hero__cta">
+            <a href="#products" class="btn btn--primary">View Products</a>
+            <a href="contact.html" class="btn btn--outline">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="1" width="14" height="22" rx="7"/>
+          <circle cx="8" cy="7" r="2" fill="currentColor" stroke="none"/>
+        </svg>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRODUCT IMAGE CAROUSEL
+    ============================================================ -->
+    <div class="section--alt" style="padding-block:var(--space-md);">
+      <div class="product-carousel">
+        <div class="product-carousel__track">
+          <!-- Set 1 -->
+          <img class="product-carousel__img" src="1.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="2.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="3.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="4.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="5.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="6.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="7.webp" alt="Google Review Tap Tag product" />
+          <!-- Set 2 — duplicate for seamless loop -->
+          <img class="product-carousel__img" src="1.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="2.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="3.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="4.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="5.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="6.webp" alt="Google Review Tap Tag product" />
+          <img class="product-carousel__img" src="7.webp" alt="Google Review Tap Tag product" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         INTRO BLOCK
+    ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="intro-block">
+          <div class="intro-block__text reveal">
+            <span class="section-label">How It Works</span>
+            <h2>One simple tap instantly turns happy customers into 5-star Google Reviews.</h2>
+            <ul class="intro-block__list">
+              <li>Fits any storefront. Works with any smartphone.</li>
+              <li>More reviews = higher rankings = more customers.</li>
+              <li>No app required — just tap and go.</li>
+              <li>Pre-programmed to your Google Business page, ready out of the box.</li>
+            </ul>
+            <p class="intro-block__cta">One off investment, unlimited reviews.</p>
+            <div style="margin-top:var(--space-lg);">
+              <a href="#products" class="btn btn--primary">View Products</a>
+            </div>
+          </div>
+          <div class="reveal reveal--delay-2">
+            <img src="taptagquote.webp" alt="Google Review Tap Tag in use" style="border-radius:8px;width:100%;object-fit:cover;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRODUCT CARDS
+    ============================================================ -->
+    <section class="section" id="products">
+      <div class="container">
+        <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
+          <span class="section-label">Choose Your Product</span>
+          <h2 class="section-heading">Find the right tag<br>for your business.</h2>
+        </div>
+
+        <div class="product-cards__grid">
+
+          <!-- Card 1: Tap Stand -->
+          <article class="product-card reveal reveal--delay-1">
+            <span class="product-card__tag">Most Popular</span>
+            <h3 class="product-card__title">Google Review Tap Stand</h3>
+            <p class="product-card__descriptor">The tall, noticeable option.</p>
+            <ul class="product-card__list">
+              <li>NFC tap or scan &mdash; no apps needed</li>
+              <li>Works with all modern smartphones</li>
+              <li>Eye-catching, compact design</li>
+              <li>Pre-programmed to your business</li>
+            </ul>
+            <div class="product-card__meta">
+              <p><strong>Perfect for:</strong> Cafes, restaurants, clinics, retail counters</p>
+              <p><strong>Includes:</strong> Custom NFC stand, ready to use</p>
+            </div>
+            <p class="product-card__tip">&#x1F4A1; Place at checkout or where customers linger</p>
+            <div class="product-card__cta">
+              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
+            </div>
+          </article>
+
+          <!-- Card 2: Plaque -->
+          <article class="product-card reveal reveal--delay-2">
+            <span class="product-card__tag">Permanent</span>
+            <h3 class="product-card__title">Google Review Plaque</h3>
+            <p class="product-card__descriptor">The permanent, durable option.</p>
+            <ul class="product-card__list">
+              <li>Sleek, modern design</li>
+              <li>NFC-enabled &mdash; tap to review</li>
+              <li>Strong adhesive backing</li>
+            </ul>
+            <div class="product-card__meta">
+              <p><strong>Best for:</strong> Walls, reception desks, countertops</p>
+              <p><strong>Includes:</strong> Custom NFC plaque, pre-programmed</p>
+            </div>
+            <p class="product-card__tip">&#x1F4A1; Mount near payment points</p>
+            <div class="product-card__cta">
+              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
+            </div>
+          </article>
+
+          <!-- Card 3: Tap Card -->
+          <article class="product-card reveal reveal--delay-3">
+            <span class="product-card__tag">Portable</span>
+            <h3 class="product-card__title">Google Review Tap Card</h3>
+            <p class="product-card__descriptor">The portable option.</p>
+            <ul class="product-card__list">
+              <li>Standard bank card size</li>
+              <li>Fits in your wallet</li>
+              <li>NFC tap &mdash; no apps, no fees</li>
+            </ul>
+            <div class="product-card__meta">
+              <p><strong>Best for:</strong> Tradies, landscapers, consultants, mobile services</p>
+              <p><strong>Includes:</strong> Custom NFC card, pre-programmed</p>
+            </div>
+            <p class="product-card__tip">&#x1F4A1; Use after a job or when handing over an invoice</p>
+            <div class="product-card__cta">
+              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRUST BADGE
+    ============================================================ -->
+    <div class="trust-badge">
+      <span class="trust-badge__inner">
+        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
+        </svg>
+        Secure SSL Encryption
+        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        Safe &amp; Secure Checkout
+        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
+        </svg>
+        Trusted by 100+ Kiwi Businesses
+      </span>
+    </div>
+
+    <!-- ============================================================
+         PROMO BANNER
+    ============================================================ -->
+    <div class="promo-banner">
+      <p class="promo-banner__label">Limited Time Offer</p>
+      <p class="promo-banner__heading">&#x1F69A;&nbsp; Free NZ Shipping &mdash; Promo Ends:</p>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div class="countdown__block">
+          <span class="countdown__num" id="cd-days">00</span>
+          <span class="countdown__label">Days</span>
+        </div>
+        <span class="countdown__sep">:</span>
+        <div class="countdown__block">
+          <span class="countdown__num" id="cd-hours">00</span>
+          <span class="countdown__label">Hours</span>
+        </div>
+        <span class="countdown__sep">:</span>
+        <div class="countdown__block">
+          <span class="countdown__num" id="cd-mins">00</span>
+          <span class="countdown__label">Minutes</span>
+        </div>
+        <span class="countdown__sep">:</span>
+        <div class="countdown__block">
+          <span class="countdown__num" id="cd-secs">00</span>
+          <span class="countdown__label">Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PRODUCT PHOTOS
+    ============================================================ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="product-photos">
+          <img src="craig.webp" alt="OneOneThree Digital team" />
+          <img src="craigactual.webp" alt="OneOneThree Digital team" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BEFORE / AFTER
+    ============================================================ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
+          <span class="section-label">The Difference</span>
+          <h2 class="section-heading">See it in action.</h2>
+          <p class="section-sub" style="margin-inline:auto;">One NFC tap tag. A measurable impact on your Google Reviews.</p>
+        </div>
+        <div class="before-after reveal">
+          <div class="before-after__item">
+            <img src="3.6.webp" alt="Google Business listing before using a Review Tap Tag — low review count" />
+            <span class="before-after__label before-after__label--before">Before</span>
+          </div>
+          <div class="before-after__item">
+            <img src="4.7.webp" alt="Google Business listing after using a Review Tap Tag — high review count" />
+            <span class="before-after__label before-after__label--after">After</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STATS
+    ============================================================ -->
+    <div class="stats-block section--dark">
+      <div class="stat-item reveal">
+        <div class="stat-item__num">93%</div>
+        <p class="stat-item__text">of consumers check reviews before buying.</p>
+      </div>
+      <div class="stat-item reveal reveal--delay-2">
+        <div class="stat-item__num">88%</div>
+        <p class="stat-item__text">of customers trust Google Reviews as much as a personal recommendation.</p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         FAQ
+    ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="reveal" style="text-align:center;">
+          <span class="section-label">Questions</span>
+          <h2 class="section-heading">Frequently Asked</h2>
+        </div>
+
+        <ul class="faq__list" id="faqList">
+
+          <li class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              How is my Google Review Tag connected to my business?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">Simple &mdash; you just tell us the name of your business when ordering, and we'll take care of the rest. Your tag arrives fully programmed to your Google Review page, ready to go right out of the box. No setup.</p>
+            </div>
+          </li>
+
+          <li class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Are there any subscriptions or ongoing fees?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">No. This is a one-off purchase. No apps, no subscriptions, no hidden charges. Pay once, collect reviews forever.</p>
+            </div>
+          </li>
+
+          <li class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              How long does shipping take?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">We offer free, fast shipping across New Zealand. Most orders arrive within 2&ndash;4 working days.</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT CTA
+    ============================================================ -->
+    <section class="section section--dark" id="contact">
+      <div class="container">
+        <div class="contact-cta">
+          <div class="contact-cta__text reveal">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="contact-cta__heading">Got a question?<br><span>Drop us a line.</span></h2>
+            <p style="font-size:1rem;line-height:1.7;color:var(--color-text-light);margin-top:var(--space-md);">We're real people who love a good chat. Whether you're ready to order or just want to know more, get in touch and we'll sort you out.</p>
+
+            <div class="contact-cta__details">
+              <a href="mailto:cam@oneonethree.co.nz">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+                cam@oneonethree.co.nz
+              </a>
+              <a href="tel:+6422044845">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
+                022 044 1845
+              </a>
+              <a href="#" style="pointer-events:none;cursor:default;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                Oriental Bay, Wellington, New Zealand
+              </a>
+            </div>
+
+            <div style="margin-top:var(--space-xl);">
+              <a href="contact.html" class="btn btn--primary">Send a Message</a>
+            </div>
+          </div>
+
+          <div class="contact-cta__form reveal reveal--delay-2">
+            <form name="product-enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="productContactForm">
+              <input type="hidden" name="form-name" value="product-enquiry" />
+              <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+              <div class="cta-form__group">
+                <label for="cta-name">Name *</label>
+                <input type="text" name="name" id="cta-name" required placeholder="Your full name" />
+              </div>
+              <div class="cta-form__group">
+                <label for="cta-email">Email *</label>
+                <input type="email" name="email" id="cta-email" required placeholder="your@email.com" />
+              </div>
+              <div class="cta-form__group">
+                <label for="cta-phone">Phone</label>
+                <input type="tel" name="phone" id="cta-phone" placeholder="e.g. 021 123 4567" />
+              </div>
+              <div class="cta-form__group">
+                <label for="cta-product">Product of Interest</label>
+                <select name="product" id="cta-product">
+                  <option value="" disabled selected>Select a product…</option>
+                  <option value="Google Review Tap Stand">Google Review Tap Stand</option>
+                  <option value="Google Review Plaque">Google Review Plaque</option>
+                  <option value="Google Review Tap Card">Google Review Tap Card</option>
+                  <option value="General Enquiry">General Enquiry</option>
+                </select>
+              </div>
+              <div class="cta-form__group">
+                <label for="cta-message">Message *</label>
+                <textarea name="message" id="cta-message" required placeholder="Tell us about your business…"></textarea>
+              </div>
+              <div style="margin-top:var(--space-md);">
+                <button type="submit" class="btn btn--primary">Send Message</button>
+              </div>
+            </form>
+            <div id="productFormSuccess" style="display:none;text-align:center;padding:var(--space-lg);color:var(--color-accent);font-size:1rem;line-height:1.6;">
+              &#x2713;&nbsp; Thanks! We'll be in touch within one business day.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <img src="oot-logo.webp" alt="OneOneThree Digital" style="height:52px;width:auto;" />
+          <p>Experienced, cost-effective digital marketing for Kiwi SMEs. Based in Dunedin, with consultants in Wellington &amp; Christchurch.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener" aria-label="Facebook">fb</a>
+            <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Other</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Digital Marketing Consultants</h4>
+          <div class="consultant">
+            Nick Plieger<br>
+            <a href="mailto:nick@oneonethree.co.nz">nick@oneonethree.co.nz</a>
+          </div>
+          <div class="consultant">
+            Cam Brewitt<br>
+            <a href="mailto:cam@oneonethree.co.nz">cam@oneonethree.co.nz</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span id="year"></span> OneOneThree Digital Ltd. All rights reserved.</span>
+        <span>Born at 113A York Place, Dunedin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    'use strict';
+
+    /* ---- Year -------------------------------------------------- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---- Header scroll state ----------------------------------- */
+    const header = document.getElementById('header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ---- Mobile menu ------------------------------------------ */
+    const burger     = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link, .btn');
+
+    const openMenu = () => {
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    burger.addEventListener('click', () => burger.classList.contains('open') ? closeMenu() : openMenu());
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    });
+
+    /* ---- Countdown timer --------------------------------------- */
+    const STORAGE_KEY = 'oot_promo_deadline';
+    const DURATION_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+    let deadline = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+    if (!deadline || deadline < Date.now()) {
+      deadline = Date.now() + DURATION_MS;
+      localStorage.setItem(STORAGE_KEY, deadline);
+    }
+
+    const pad = n => String(n).padStart(2, '0');
+
+    const tickCountdown = () => {
+      const diff = deadline - Date.now();
+      if (diff <= 0) {
+        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+          document.getElementById(id).textContent = '00';
+        });
+        return;
+      }
+      const days  = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins  = Math.floor((diff % 3600000)  / 60000);
+      const secs  = Math.floor((diff % 60000)    / 1000);
+
+      document.getElementById('cd-days').textContent  = pad(days);
+      document.getElementById('cd-hours').textContent = pad(hours);
+      document.getElementById('cd-mins').textContent  = pad(mins);
+      document.getElementById('cd-secs').textContent  = pad(secs);
+    };
+
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+
+    /* ---- Product enquiry form --------------------------------- */
+    const productForm = document.getElementById('productContactForm');
+    const productFormSuccess = document.getElementById('productFormSuccess');
+    if (productForm) {
+      productForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(productForm);
+        try {
+          await fetch('/', { method: 'POST', body: new URLSearchParams(data).toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+          productForm.style.display = 'none';
+          productFormSuccess.style.display = 'block';
+        } catch {
+          productForm.submit();
+        }
+      });
+    }
+
+    /* ---- FAQ accordion ---------------------------------------- */
+    document.querySelectorAll('.faq__question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item   = btn.closest('.faq__item');
+        const answer = item.querySelector('.faq__answer');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq__item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+          i.querySelector('.faq__answer').style.maxHeight = null;
+        });
+
+        // Open clicked (if it was closed)
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* ---- Scroll-reveal ---------------------------------------- */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+
+    /* ---- Smooth scroll ---------------------------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

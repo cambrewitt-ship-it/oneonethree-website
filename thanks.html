@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanks for Getting in Touch | OneOneThree Digital</title>
+  <meta name="description" content="Thanks for contacting OneOneThree Digital. We'll be in touch shortly." />
+  <meta name="robots" content="noindex" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-primary:     #113D79;
+      --color-background:  #113D79;
+      --color-text:        #FFFFFF;
+      --color-secondary:   #FFFFFF;
+      --color-accent:      #BAA649;
+      --color-border:      rgba(255,255,255,0.18);
+      --color-text-light:  #a8c0e0;
+
+      --color-navy-base:   #113D79;
+      --color-navy-light:  #1a4d94;
+      --color-navy-mid:    #163870;
+      --color-navy-dark:   #0e3268;
+
+      --color-white:       #ffffff;
+      --color-black:       #000000;
+      --color-gold:        #BAA649;
+      --color-navy:        #113D79;
+      --color-bg:          var(--color-navy-base);
+      --color-section-alt: var(--color-navy-light);
+
+      --font-primary: "gopher", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --fw-medium: 500;
+
+      --fs-base:  16px;
+      --fs-body:  1.5rem;
+      --fs-h3:    2.5rem;
+      --fs-h2:    3rem;
+      --fs-h1:    4.5rem;
+
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  2rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+      --space-2xl: 8rem;
+
+      --max-width: 1500px;
+      --gutter: 4vw;
+      --gutter-mobile: 6vw;
+
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration: 0.3s;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: var(--fs-base); scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-body);
+      line-height: 1.4;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .section { padding-block: var(--space-xl); }
+    .section--alt  { background: var(--color-section-alt); }
+    .section--dark { background: var(--color-navy-dark); color: var(--color-white); }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid currentColor;
+      cursor: pointer;
+      transition: background var(--duration) var(--ease),
+                  color var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease);
+    }
+    .btn--primary {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      border-color: var(--color-accent);
+    }
+    .btn--primary:hover {
+      background: transparent;
+      color: var(--color-accent);
+    }
+    .btn--dark {
+      background: var(--color-white);
+      color: var(--color-navy-base);
+      border-color: var(--color-white);
+    }
+    .btn--dark:hover {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      border-color: var(--color-accent);
+    }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--color-navy-base);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: box-shadow var(--duration) var(--ease);
+    }
+    .header.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding-inline: var(--gutter);
+      max-width: var(--max-width);
+      margin-inline: auto;
+    }
+    .nav__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav__logo img { height: 52px; width: auto; display: block; }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+    .nav__links a {
+      font-size: 0.8rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color var(--duration) var(--ease);
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--color-accent);
+      transition: width var(--duration) var(--ease);
+    }
+    .nav__links a:hover::after,
+    .nav__links a.active::after { width: 100%; }
+
+    .nav__cta { display: flex; align-items: center; gap: var(--space-sm); }
+
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px; height: 36px;
+      background: none; border: none;
+      cursor: pointer; padding: 0;
+      z-index: 200;
+    }
+    .nav__burger span {
+      display: block;
+      height: 2px;
+      background: var(--color-white);
+      border-radius: 2px;
+      transition: transform var(--duration) var(--ease),
+                  opacity var(--duration) var(--ease);
+    }
+    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: var(--color-navy-dark);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--duration) var(--ease);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-medium);
+      letter-spacing: -0.01em;
+      transition: color var(--duration) var(--ease);
+    }
+    .mobile-menu a:hover { color: var(--color-accent); }
+    .mobile-menu__social {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .mobile-menu__social a {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+
+    /* ============================================================
+       THANKS SECTION
+    ============================================================ */
+    .thanks-section {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+      text-align: center;
+      padding-inline: var(--gutter);
+    }
+
+    .thanks-content {
+      max-width: 600px;
+    }
+
+    .thanks-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--color-navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-inline: auto;
+      margin-bottom: var(--space-md);
+      color: var(--color-accent);
+    }
+    .thanks-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .thanks-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.2s forwards;
+    }
+
+    .thanks-heading {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: var(--fw-medium);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.35s forwards;
+    }
+
+    .thanks-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      margin-bottom: var(--space-xl);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.5s forwards;
+    }
+
+    .thanks-cta {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.65s forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+      padding-block: var(--space-xl) var(--space-md);
+    }
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer__brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      margin-top: var(--space-md);
+      max-width: 35ch;
+    }
+    .footer__social {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    .footer__social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      transition: background var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease);
+    }
+    .footer__social a:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-black);
+    }
+    .footer__col h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+    .footer__col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .footer__col ul a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--duration) var(--ease);
+    }
+    .footer__col ul a:hover { color: var(--color-white); }
+    .footer__col .consultant {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .footer__col .consultant a {
+      color: rgba(255,255,255,0.55);
+      display: inline;
+      font-size: inherit;
+    }
+    .footer__col .consultant a:hover { color: var(--color-white); }
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-md);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* ============================================================
+       RESPONSIVE – TABLET (≤1024px)
+    ============================================================ */
+    @media (max-width: 1024px) {
+      :root { --gutter: var(--gutter-mobile); }
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+      .mobile-menu { display: flex; }
+
+      .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+      }
+      .footer__brand { grid-column: 1 / -1; }
+    }
+
+    /* ============================================================
+       RESPONSIVE – MOBILE (≤640px)
+    ============================================================ */
+    @media (max-width: 640px) {
+      .section { padding-block: var(--space-lg); }
+      .footer__top { grid-template-columns: 1fr; }
+      .footer__brand { grid-column: auto; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="index.html" class="nav__logo" aria-label="OneOneThree Digital home">
+        <img src="oot-logo.webp" alt="OneOneThree Digital" />
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--dark">Get in Touch</a>
+      </div>
+
+      <button class="nav__burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav>
+      <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <li><a href="index.html"    class="mobile-link">Home</a></li>
+        <li><a href="services.html" class="mobile-link">Services</a></li>
+        <li><a href="contact.html"  class="mobile-link">Contact Us</a></li>
+        <li><a href="product.html"  class="mobile-link">Products</a></li>
+        <li><a href="about.html"    class="mobile-link">About Us</a></li>
+        <li style="margin-top:1rem;">
+          <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__social">
+      <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============================================================
+         THANKS SECTION
+    ============================================================ -->
+    <section class="thanks-section">
+      <div class="thanks-content">
+
+        <div class="thanks-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+
+        <p class="thanks-eyebrow">Message received</p>
+        <h1 class="thanks-heading">Thanks for getting in touch.</h1>
+        <p class="thanks-sub">We'll be in touch shortly.</p>
+
+        <div class="thanks-cta">
+          <a href="index.html" class="btn btn--primary">Back to Home</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <img src="oot-logo.webp" alt="OneOneThree Digital" style="height:52px;width:auto;" />
+          <p>Experienced, cost-effective digital marketing for Kiwi SMEs. Based in Dunedin, with consultants in Wellington &amp; Christchurch.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener" aria-label="Facebook">fb</a>
+            <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Other</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Digital Marketing Consultants</h4>
+          <div class="consultant">
+            Nick Plieger<br>
+            <a href="mailto:nick@oneonethree.co.nz">nick@oneonethree.co.nz</a>
+          </div>
+          <div class="consultant">
+            Cam Brewitt<br>
+            <a href="mailto:cam@oneonethree.co.nz">cam@oneonethree.co.nz</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span id="year"></span> OneOneThree Digital Ltd. All rights reserved.</span>
+        <span>Born at 113A York Place, Dunedin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    'use strict';
+
+    /* ---- Year -------------------------------------------------- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---- Header scroll state ----------------------------------- */
+    const header = document.getElementById('header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ---- Mobile menu ------------------------------------------ */
+    const burger     = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link, .btn');
+
+    const openMenu = () => {
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    burger.addEventListener('click', () => burger.classList.contains('open') ? closeMenu() : openMenu());
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    });
+  </script>
+
+</body>
+</html>
