@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Google Review Tap Tags | OneOneThree Digital</title>
   <meta name="description" content="Get 10x more Google reviews with NFC tap tags. One tap turns happy customers into 5-star reviews. Trusted by 100+ Kiwi businesses." />
+  <link rel="canonical" href="https://www.oneonethree.co.nz/product" />
 
   <style>
     /* ============================================================
@@ -823,11 +824,72 @@
     /* ============================================================
        CONTACT CTA
     ============================================================ */
+    /* Product photos */
+    .product-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .product-photos img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* Contact CTA form */
+    .contact-cta__form {
+      background: var(--color-navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: var(--space-lg);
+      border-radius: 8px;
+    }
+    .cta-form__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: var(--space-md);
+    }
+    .cta-form__group label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+    .cta-form__group input,
+    .cta-form__group textarea,
+    .cta-form__group select {
+      background: var(--color-navy-base);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--color-white);
+      padding: 0.85rem 1.2rem;
+      font-family: var(--font-primary);
+      font-size: 0.9rem;
+      width: 100%;
+      transition: border-color var(--duration) var(--ease);
+      outline: none;
+      border-radius: 4px;
+    }
+    .cta-form__group input::placeholder,
+    .cta-form__group textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+    .cta-form__group input:focus,
+    .cta-form__group textarea:focus,
+    .cta-form__group select:focus {
+      border-color: var(--color-accent);
+    }
+    .cta-form__group select option { background: var(--color-navy-dark); }
+    .cta-form__group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
     .contact-cta {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--space-xl);
-      align-items: center;
+      align-items: start;
     }
     .contact-cta__text { }
     .contact-cta__heading {
@@ -1005,8 +1067,7 @@
       .stat-item:last-child { border-bottom: none; }
 
       .contact-cta { grid-template-columns: 1fr; }
-      .contact-cta__images { grid-template-columns: 1fr 1fr; }
-      .contact-cta__img:first-child { margin-top: 0; }
+      .product-photos { grid-template-columns: 1fr 1fr; }
 
       .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
       .footer__brand { grid-column: 1 / -1; }
@@ -1021,7 +1082,7 @@
       .hero__heading { font-size: clamp(2rem, 10vw, 3rem); }
 
       .product-cards__grid { grid-template-columns: 1fr; }
-      .contact-cta__images { grid-template-columns: 1fr; }
+      .product-photos { grid-template-columns: 1fr; }
 
       .countdown { gap: var(--space-xs); }
       .countdown__block { min-width: 50px; }
@@ -1047,13 +1108,13 @@
       <ul class="nav__links" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="about.html#contact">Contact Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="product.html" class="active">Products</a></li>
         <li><a href="about.html">About Us</a></li>
       </ul>
 
       <div class="nav__cta">
-        <a href="about.html#contact" class="btn btn--dark">Get in Touch</a>
+        <a href="contact.html" class="btn btn--dark">Get in Touch</a>
       </div>
 
       <button class="nav__burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
@@ -1068,11 +1129,11 @@
       <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
         <li><a href="index.html"         class="mobile-link">Home</a></li>
         <li><a href="services.html"      class="mobile-link">Services</a></li>
-        <li><a href="about.html#contact" class="mobile-link">Contact Us</a></li>
+        <li><a href="contact.html" class="mobile-link">Contact Us</a></li>
         <li><a href="product.html"       class="mobile-link">Products</a></li>
         <li><a href="about.html"         class="mobile-link">About Us</a></li>
         <li style="margin-top:1rem;">
-          <a href="about.html#contact" class="btn btn--primary">Get in Touch</a>
+          <a href="contact.html" class="btn btn--primary">Get in Touch</a>
         </li>
       </ul>
     </nav>
@@ -1108,7 +1169,7 @@
           </div>
           <div class="hero__cta">
             <a href="#products" class="btn btn--primary">View Products</a>
-            <a href="about.html#contact" class="btn btn--outline">Get in Touch</a>
+            <a href="contact.html" class="btn btn--outline">Get in Touch</a>
           </div>
         </div>
       </div>
@@ -1203,7 +1264,7 @@
             </div>
             <p class="product-card__tip">&#x1F4A1; Place at checkout or where customers linger</p>
             <div class="product-card__cta">
-              <a href="about.html#contact" class="btn btn--primary">Enquire Now</a>
+              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
             </div>
           </article>
 
@@ -1223,7 +1284,7 @@
             </div>
             <p class="product-card__tip">&#x1F4A1; Mount near payment points</p>
             <div class="product-card__cta">
-              <a href="about.html#contact" class="btn btn--primary">Enquire Now</a>
+              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
             </div>
           </article>
 
@@ -1243,13 +1304,34 @@
             </div>
             <p class="product-card__tip">&#x1F4A1; Use after a job or when handing over an invoice</p>
             <div class="product-card__cta">
-              <a href="about.html#contact" class="btn btn--primary">Enquire Now</a>
+              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
             </div>
           </article>
 
         </div>
       </div>
     </section>
+
+    <!-- ============================================================
+         TRUST BADGE
+    ============================================================ -->
+    <div class="trust-badge">
+      <span class="trust-badge__inner">
+        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
+        </svg>
+        Secure SSL Encryption
+        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        Safe &amp; Secure Checkout
+        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
+        </svg>
+        Trusted by 100+ Kiwi Businesses
+      </span>
+    </div>
 
     <!-- ============================================================
          PROMO BANNER
@@ -1281,25 +1363,16 @@
     </div>
 
     <!-- ============================================================
-         TRUST BADGE
+         PRODUCT PHOTOS
     ============================================================ -->
-    <div class="trust-badge">
-      <span class="trust-badge__inner">
-        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
-        </svg>
-        Secure SSL Encryption
-        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <rect x="3" y="11" width="18" height="11" rx="2"/>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
-        Safe &amp; Secure Checkout
-        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
-        </svg>
-        Trusted by 100+ Kiwi Businesses
-      </span>
-    </div>
+    <section class="section section--alt">
+      <div class="container">
+        <div class="product-photos">
+          <img src="craig.webp" alt="OneOneThree Digital team" />
+          <img src="craigactual.webp" alt="OneOneThree Digital team" />
+        </div>
+      </div>
+    </section>
 
     <!-- ============================================================
          BEFORE / AFTER
@@ -1417,16 +1490,47 @@
             </div>
 
             <div style="margin-top:var(--space-xl);">
-              <a href="about.html#contact" class="btn btn--primary">Send a Message</a>
+              <a href="contact.html" class="btn btn--primary">Send a Message</a>
             </div>
           </div>
 
-          <div class="contact-cta__images reveal reveal--delay-2">
-            <div class="contact-cta__img">
-              <img src="craig.webp" alt="OneOneThree Digital team" />
-            </div>
-            <div class="contact-cta__img">
-              <img src="craigactual.webp" alt="OneOneThree Digital team" />
+          <div class="contact-cta__form reveal reveal--delay-2">
+            <form name="product-enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="productContactForm">
+              <input type="hidden" name="form-name" value="product-enquiry" />
+              <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+              <div class="cta-form__group">
+                <label for="cta-name">Name *</label>
+                <input type="text" name="name" id="cta-name" required placeholder="Your full name" />
+              </div>
+              <div class="cta-form__group">
+                <label for="cta-email">Email *</label>
+                <input type="email" name="email" id="cta-email" required placeholder="your@email.com" />
+              </div>
+              <div class="cta-form__group">
+                <label for="cta-phone">Phone</label>
+                <input type="tel" name="phone" id="cta-phone" placeholder="e.g. 021 123 4567" />
+              </div>
+              <div class="cta-form__group">
+                <label for="cta-product">Product of Interest</label>
+                <select name="product" id="cta-product">
+                  <option value="" disabled selected>Select a product…</option>
+                  <option value="Google Review Tap Stand">Google Review Tap Stand</option>
+                  <option value="Google Review Plaque">Google Review Plaque</option>
+                  <option value="Google Review Tap Card">Google Review Tap Card</option>
+                  <option value="General Enquiry">General Enquiry</option>
+                </select>
+              </div>
+              <div class="cta-form__group">
+                <label for="cta-message">Message *</label>
+                <textarea name="message" id="cta-message" required placeholder="Tell us about your business…"></textarea>
+              </div>
+              <div style="margin-top:var(--space-md);">
+                <button type="submit" class="btn btn--primary">Send Message</button>
+              </div>
+            </form>
+            <div id="productFormSuccess" style="display:none;text-align:center;padding:var(--space-lg);color:var(--color-accent);font-size:1rem;line-height:1.6;">
+              &#x2713;&nbsp; Thanks! We'll be in touch within one business day.
             </div>
           </div>
         </div>
@@ -1458,15 +1562,15 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="product.html">Products</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="about.html#contact">Contact Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
           <h4>Other</h4>
           <ul>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
           </ul>
         </div>
 
@@ -1563,6 +1667,23 @@
 
     tickCountdown();
     setInterval(tickCountdown, 1000);
+
+    /* ---- Product enquiry form --------------------------------- */
+    const productForm = document.getElementById('productContactForm');
+    const productFormSuccess = document.getElementById('productFormSuccess');
+    if (productForm) {
+      productForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(productForm);
+        try {
+          await fetch('/', { method: 'POST', body: new URLSearchParams(data).toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+          productForm.style.display = 'none';
+          productFormSuccess.style.display = 'block';
+        } catch {
+          productForm.submit();
+        }
+      });
+    }
 
     /* ---- FAQ accordion ---------------------------------------- */
     document.querySelectorAll('.faq__question').forEach(btn => {

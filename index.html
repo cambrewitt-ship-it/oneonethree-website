@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OneOneThree Digital | Your Local Digital Marketing Experts</title>
   <meta name="description" content="OneOneThree Digital – experienced, cost-effective digital marketing for Kiwi SMEs. Social media, SEM, content creation & more." />
+  <link rel="canonical" href="https://www.oneonethree.co.nz/" />
 
   <style>
     /* ============================================================
@@ -566,16 +567,16 @@
     /* ---- Marquee carousel ---- */
     .clients__carousel {
       overflow: hidden;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
     }
 
     .clients__track {
       display: flex;
       align-items: center;
-      gap: 0;
+      gap: var(--space-md);
       width: max-content;
-      animation: clients-marquee 28s linear infinite;
+      animation: clients-marquee 32s linear infinite;
     }
 
     .clients__track:hover {
@@ -594,17 +595,15 @@
     }
 
     .clients__logo {
-      opacity: 1;
-      max-height: 140px;
-      max-width: 360px;
+      height: 260px;
       width: auto;
-      height: auto;
       object-fit: contain;
+      opacity: 1;
       transition: opacity var(--duration) var(--ease);
     }
 
     .clients__logo:hover {
-      opacity: 1;
+      opacity: 0.8;
     }
 
     /* ============================================================
@@ -781,7 +780,7 @@
 
     .footer__top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: var(--space-xl);
       padding-bottom: var(--space-xl);
       border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -845,6 +844,19 @@
     }
 
     .footer__col ul a:hover { color: var(--color-white); }
+
+    .footer__col .consultant {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .footer__col .consultant a {
+      color: rgba(255,255,255,0.55);
+      display: inline;
+      font-size: inherit;
+    }
+    .footer__col .consultant a:hover { color: var(--color-white); }
 
     .footer__bottom {
       display: flex;
@@ -955,8 +967,7 @@
       }
 
       .clients__logo {
-        max-height: 70px;
-        max-width: 180px;
+        height: 160px;
       }
 
       .footer__top {
@@ -989,12 +1000,13 @@
       <ul class="nav__links" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
+        <li><a href="product.html">Products</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="about.html#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
 
       <div class="nav__cta">
-        <a href="mailto:contactoneonethree@gmail.com" class="btn btn--dark">Get in Touch</a>
+        <a href="contact.html" class="btn btn--dark">Get in Touch</a>
       </div>
 
       <button class="nav__burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
@@ -1009,12 +1021,13 @@
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
     <nav>
       <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
-        <li><a href="index.html"         class="mobile-link">Home</a></li>
-        <li><a href="services.html"      class="mobile-link">Services</a></li>
-        <li><a href="about.html"         class="mobile-link">About</a></li>
-        <li><a href="about.html#contact" class="mobile-link">Contact</a></li>
+        <li><a href="index.html"    class="mobile-link">Home</a></li>
+        <li><a href="services.html" class="mobile-link">Services</a></li>
+        <li><a href="product.html"  class="mobile-link">Products</a></li>
+        <li><a href="about.html"    class="mobile-link">About</a></li>
+        <li><a href="contact.html"  class="mobile-link">Contact</a></li>
         <li style="margin-top:1rem;">
-          <a href="mailto:contactoneonethree@gmail.com" class="btn btn--primary">Get in Touch</a>
+          <a href="contact.html" class="btn btn--primary">Get in Touch</a>
         </li>
       </ul>
     </nav>
@@ -1037,7 +1050,7 @@
         <p class="hero__sub">We turn clicks into customers.</p>
         <div class="hero__cta">
           <a href="services.html" class="btn btn--primary">Our Services</a>
-          <a href="about.html#contact" class="btn btn--outline">Get in Touch</a>
+          <a href="contact.html" class="btn btn--outline">Get in Touch</a>
         </div>
       </div>
       <div class="hero__scroll" aria-hidden="true">
@@ -1168,7 +1181,7 @@
           <h2 class="section-heading">Ready to boost your<br>business's online presence?</h2>
           <p class="cta-banner__sub">Give us a call — we're always happy to chat to business owners, whether it's business or not.</p>
           <div class="cta-banner__actions">
-            <a href="mailto:contactoneonethree@gmail.com" class="btn btn--primary">Email Us</a>
+            <a href="contact.html" class="btn btn--primary">Email Us</a>
             <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener" class="btn btn--outline">Find Us on Facebook</a>
           </div>
         </div>
@@ -1196,22 +1209,34 @@
         </div>
 
         <div class="footer__col">
-          <h4>Navigation</h4>
+          <h4>Company</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="about.html#contact">Contact</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
-          <h4>Contact</h4>
+          <h4>Other</h4>
           <ul>
-            <li><a href="mailto:contactoneonethree@gmail.com">contactoneonethree@gmail.com</a></li>
-            <li><a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
           </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Digital Marketing Consultants</h4>
+          <div class="consultant">
+            Nick Plieger<br>
+            <a href="mailto:nick@oneonethree.co.nz">nick@oneonethree.co.nz</a>
+          </div>
+          <div class="consultant">
+            Cam Brewitt<br>
+            <a href="mailto:cam@oneonethree.co.nz">cam@oneonethree.co.nz</a>
+          </div>
         </div>
 
       </div>

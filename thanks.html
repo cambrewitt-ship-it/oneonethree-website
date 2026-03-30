@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us – Free Consult | OneOneThree Digital</title>
-  <meta name="description" content="Get in touch with OneOneThree Digital. We're always happy to chat to business owners — book a free consultation today." />
-  <link rel="canonical" href="https://www.oneonethree.co.nz/contact" />
+  <title>Thanks for Getting in Touch | OneOneThree Digital</title>
+  <meta name="description" content="Thanks for contacting OneOneThree Digital. We'll be in touch shortly." />
+  <meta name="robots" content="noindex" />
 
   <style>
     /* ============================================================
@@ -87,16 +87,6 @@
     .section { padding-block: var(--space-xl); }
     .section--alt  { background: var(--color-section-alt); }
     .section--dark { background: var(--color-navy-dark); color: var(--color-white); }
-
-    .section-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: var(--fw-medium);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: var(--space-sm);
-    }
 
     /* Buttons */
     .btn {
@@ -241,32 +231,40 @@
     }
 
     /* ============================================================
-       PAGE HERO
+       THANKS SECTION
     ============================================================ */
-    .page-hero {
-      position: relative;
-      min-height: 60vh;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
+    .thanks-section {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding-top: 80px;
-    }
-    .page-hero__bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('obay.webp');
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.35);
-    }
-    .page-hero__content {
-      position: relative;
-      z-index: 1;
       text-align: center;
       padding-inline: var(--gutter);
-      max-width: 860px;
     }
-    .page-hero__eyebrow {
+
+    .thanks-content {
+      max-width: 600px;
+    }
+
+    .thanks-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--color-navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-inline: auto;
+      margin-bottom: var(--space-md);
+      color: var(--color-accent);
+    }
+    .thanks-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .thanks-eyebrow {
       font-size: 0.75rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
@@ -276,237 +274,37 @@
       transform: translateY(16px);
       animation: fadeUp 0.7s var(--ease) 0.2s forwards;
     }
-    .page-hero__heading {
-      font-size: clamp(2.8rem, 8vw, 6rem);
+
+    .thanks-heading {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
       font-weight: var(--fw-medium);
       line-height: 1;
       letter-spacing: -0.03em;
+      margin-bottom: var(--space-md);
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.7s var(--ease) 0.35s forwards;
     }
-    .page-hero__sub {
+
+    .thanks-sub {
       font-size: clamp(1rem, 2vw, 1.2rem);
       color: rgba(255,255,255,0.65);
-      margin-top: var(--space-md);
       line-height: 1.6;
-      max-width: 55ch;
-      margin-inline: auto;
+      margin-bottom: var(--space-xl);
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.7s var(--ease) 0.5s forwards;
     }
 
+    .thanks-cta {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s var(--ease) 0.65s forwards;
+    }
+
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* ============================================================
-       CONTACT LAYOUT
-    ============================================================ */
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: var(--space-2xl);
-      align-items: start;
-    }
-
-    /* Left column — details */
-    .contact-details { }
-
-    .contact-details__heading {
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: var(--fw-medium);
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-      margin-bottom: var(--space-md);
-    }
-
-    .contact-details__text {
-      font-size: 0.95rem;
-      line-height: 1.75;
-      color: var(--color-text-light);
-      margin-bottom: var(--space-xl);
-    }
-
-    .contact-detail-item {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-md);
-      margin-bottom: var(--space-lg);
-    }
-    .contact-detail-item__icon {
-      width: 44px;
-      height: 44px;
-      background: var(--color-navy-light);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 4px;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      color: var(--color-accent);
-    }
-    .contact-detail-item__icon svg {
-      width: 18px; height: 18px;
-    }
-    .contact-detail-item__label {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-text-light);
-      margin-bottom: 0.3rem;
-    }
-    .contact-detail-item__value {
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-    .contact-detail-item__value a {
-      transition: color var(--duration) var(--ease);
-    }
-    .contact-detail-item__value a:hover {
-      color: var(--color-accent);
-    }
-
-    .contact-socials {
-      display: flex;
-      gap: var(--space-sm);
-      margin-top: var(--space-xl);
-    }
-    .contact-socials a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-text-light);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 0.6em 1.2em;
-      transition: border-color var(--duration) var(--ease),
-                  color var(--duration) var(--ease);
-    }
-    .contact-socials a:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-    }
-
-    /* ============================================================
-       CONTACT FORM
-    ============================================================ */
-    .contact-form-wrap {
-      background: var(--color-navy-light);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: var(--space-xl);
-    }
-
-    .contact-form-wrap h2 {
-      font-size: 1.4rem;
-      font-weight: var(--fw-medium);
-      letter-spacing: -0.01em;
-      margin-bottom: var(--space-xs);
-    }
-    .contact-form-wrap p {
-      font-size: 0.85rem;
-      color: var(--color-text-light);
-      margin-bottom: var(--space-xl);
-      line-height: 1.6;
-    }
-
-    .form__row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-    }
-    .form__group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: var(--space-md);
-    }
-    .form__group label {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-text-light);
-    }
-    .form__group input,
-    .form__group textarea,
-    .form__group select {
-      background: var(--color-navy-base);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--color-white);
-      padding: 0.85rem 1.2rem;
-      font-family: var(--font-primary);
-      font-size: 0.9rem;
-      width: 100%;
-      transition: border-color var(--duration) var(--ease);
-      outline: none;
-      border-radius: 4px;
-    }
-    .form__group input::placeholder,
-    .form__group textarea::placeholder {
-      color: rgba(255,255,255,0.25);
-    }
-    .form__group input:focus,
-    .form__group textarea:focus,
-    .form__group select:focus {
-      border-color: var(--color-accent);
-    }
-    .form__group select option {
-      background: var(--color-navy-dark);
-    }
-    .form__group textarea {
-      resize: vertical;
-      min-height: 140px;
-    }
-    .form__submit {
-      margin-top: var(--space-md);
-    }
-    .form__success {
-      display: none;
-      text-align: center;
-      padding: var(--space-lg);
-      color: var(--color-accent);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .contact-location-img {
-      margin-top: var(--space-xl);
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .contact-location-img img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-    .contact-location-img__caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 0.6rem 1rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
-    }
-
-    /* ============================================================
-       SCROLL-REVEAL
-    ============================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal--delay-1 { transition-delay: 0.1s; }
-    .reveal--delay-2 { transition-delay: 0.2s; }
 
     /* ============================================================
        FOOTER
@@ -600,11 +398,6 @@
       .nav__burger { display: flex; }
       .mobile-menu { display: flex; }
 
-      .contact-layout {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
-      }
-
       .footer__top {
         grid-template-columns: 1fr 1fr;
         gap: var(--space-lg);
@@ -617,8 +410,6 @@
     ============================================================ */
     @media (max-width: 640px) {
       .section { padding-block: var(--space-lg); }
-      .form__row { grid-template-columns: 1fr; }
-      .contact-form-wrap { padding: var(--space-lg) var(--space-md); }
       .footer__top { grid-template-columns: 1fr; }
       .footer__brand { grid-column: auto; }
       .footer__bottom { flex-direction: column; text-align: center; }
@@ -640,7 +431,7 @@
       <ul class="nav__links" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html" class="active">Contact Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="product.html">Products</a></li>
         <li><a href="about.html">About Us</a></li>
       </ul>
@@ -678,94 +469,25 @@
   <main>
 
     <!-- ============================================================
-         PAGE HERO
+         THANKS SECTION
     ============================================================ -->
-    <section class="page-hero">
-      <div class="page-hero__bg" role="img" aria-label="Dunedin cityscape"></div>
-      <div class="page-hero__content">
-        <p class="page-hero__eyebrow">Free Consultation</p>
-        <h1 class="page-hero__heading">Let's work together.</h1>
-        <p class="page-hero__sub">Drop us a line — we're always happy to chat to business owners, whether it's business or not.</p>
-      </div>
-    </section>
+    <section class="thanks-section">
+      <div class="thanks-content">
 
-    <!-- ============================================================
-         CONTACT SECTION
-    ============================================================ -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-layout">
-
-          <!-- Left: details -->
-          <div class="contact-details reveal">
-            <span class="section-label">Get In Touch</span>
-            <h2 class="contact-details__heading">We'd love to hear from you.</h2>
-            <p class="contact-details__text">Whether you're looking for a one-off project or ongoing monthly support, we'll find the right fit. No lock-in, no jargon — just honest advice and real results.</p>
-
-            <div class="contact-socials">
-              <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a>
-              <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a>
-            </div>
-
-          </div>
-
-          <!-- Right: form -->
-          <div class="contact-form-wrap reveal reveal--delay-1">
-            <h2>Send us a message</h2>
-            <p>Fill in the form below and we'll be in touch shortly.</p>
-
-            <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contactForm">
-              <input type="hidden" name="form-name" value="contact" />
-              <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
-
-              <div class="form__row">
-                <div class="form__group">
-                  <label for="name">Name *</label>
-                  <input type="text" name="name" id="name" required placeholder="Your full name" />
-                </div>
-                <div class="form__group">
-                  <label for="email">Email *</label>
-                  <input type="email" name="email" id="email" required placeholder="your@email.com" />
-                </div>
-              </div>
-
-              <div class="form__row">
-                <div class="form__group">
-                  <label for="phone">Phone</label>
-                  <input type="tel" name="phone" id="phone" placeholder="e.g. 021 123 4567" />
-                </div>
-                <div class="form__group">
-                  <label for="service">Service of Interest</label>
-                  <select name="service" id="service">
-                    <option value="" disabled selected>Select a service…</option>
-                    <option value="Social Media Strategy">Social Media Strategy</option>
-                    <option value="Search Engine Marketing">Search Engine Marketing</option>
-                    <option value="Digital Advertising">Digital Advertising Campaigns</option>
-                    <option value="Social Media Management">Social Media Management</option>
-                    <option value="Email Marketing">Email Marketing</option>
-                    <option value="Content Creation">Content Creation</option>
-                    <option value="Google Review Tap Tags">Google Review Tap Tags</option>
-                    <option value="General Enquiry">General Enquiry</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form__group">
-                <label for="message">Message *</label>
-                <textarea name="message" id="message" required placeholder="Tell us about your business and what you're looking to achieve…"></textarea>
-              </div>
-
-              <div class="form__submit">
-                <button type="submit" class="btn btn--primary">Send Message</button>
-              </div>
-            </form>
-
-            <div class="form__success" id="formSuccess">
-              &#x2713;&nbsp; Thanks! We'll be in touch within one business day.
-            </div>
-          </div>
-
+        <div class="thanks-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
         </div>
+
+        <p class="thanks-eyebrow">Message received</p>
+        <h1 class="thanks-heading">Thanks for getting in touch.</h1>
+        <p class="thanks-sub">We'll be in touch shortly.</p>
+
+        <div class="thanks-cta">
+          <a href="index.html" class="btn btn--primary">Back to Home</a>
+        </div>
+
       </div>
     </section>
 
@@ -865,41 +587,6 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
     });
-
-    /* ---- Form success state ------------------------------------ */
-    const form        = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-        try {
-          await fetch('/', { method: 'POST', body: new URLSearchParams(data).toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
-          form.style.display = 'none';
-          formSuccess.style.display = 'block';
-        } catch {
-          // Fallback: let the browser handle it natively
-          form.submit();
-        }
-      });
-    }
-
-    /* ---- Scroll-reveal ---------------------------------------- */
-    const revealEls = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      revealEls.forEach(el => observer.observe(el));
-    } else {
-      revealEls.forEach(el => el.classList.add('visible'));
-    }
   </script>
 
 </body>

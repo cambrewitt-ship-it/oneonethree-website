@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | OneOneThree Digital</title>
   <meta name="description" content="Learn about OneOneThree Digital – born in Dunedin, serving Kiwi SMEs across New Zealand." />
+  <link rel="canonical" href="https://www.oneonethree.co.nz/about" />
 
   <style>
     /* ============================================================
@@ -781,7 +782,7 @@
 
     .footer__top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: var(--space-xl);
       padding-bottom: var(--space-xl);
       border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -845,6 +846,19 @@
     }
 
     .footer__col ul a:hover { color: var(--color-white); }
+
+    .footer__col .consultant {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .footer__col .consultant a {
+      color: rgba(255,255,255,0.55);
+      display: inline;
+      font-size: inherit;
+    }
+    .footer__col .consultant a:hover { color: var(--color-white); }
 
     .footer__bottom {
       display: flex;
@@ -1090,12 +1104,13 @@
       <ul class="nav__links" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
+        <li><a href="product.html">Products</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="about.html#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
 
       <div class="nav__cta">
-        <a href="mailto:contactoneonethree@gmail.com" class="btn btn--dark">Get in Touch</a>
+        <a href="contact.html" class="btn btn--dark">Get in Touch</a>
       </div>
 
       <button class="nav__burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
@@ -1109,12 +1124,13 @@
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
     <nav>
       <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
-        <li><a href="index.html"        class="mobile-link">Home</a></li>
-        <li><a href="services.html"     class="mobile-link">Services</a></li>
-        <li><a href="about.html"        class="mobile-link">About</a></li>
-        <li><a href="about.html#contact" class="mobile-link">Contact</a></li>
+        <li><a href="index.html"    class="mobile-link">Home</a></li>
+        <li><a href="services.html" class="mobile-link">Services</a></li>
+        <li><a href="product.html"  class="mobile-link">Products</a></li>
+        <li><a href="about.html"    class="mobile-link">About</a></li>
+        <li><a href="contact.html"  class="mobile-link">Contact</a></li>
         <li style="margin-top:1rem;">
-          <a href="mailto:contactoneonethree@gmail.com" class="btn btn--primary">Get in Touch</a>
+          <a href="contact.html" class="btn btn--primary">Get in Touch</a>
         </li>
       </ul>
     </nav>
@@ -1201,7 +1217,7 @@
           <p class="section-sub" style="margin-inline:auto;margin-top:var(--space-sm);">Ready to grow your digital presence? Fill in the form below and we'll be in touch shortly.</p>
         </div>
         <div class="contact-form reveal">
-          <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/about.html#contact">
+          <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/contact.html">
             <input type="hidden" name="form-name" value="contact" />
             <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
             <div class="form__row">
@@ -1263,22 +1279,34 @@
         </div>
 
         <div class="footer__col">
-          <h4>Navigation</h4>
+          <h4>Company</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="about.html#contact">Contact</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
-          <h4>Contact</h4>
+          <h4>Other</h4>
           <ul>
-            <li><a href="mailto:contactoneonethree@gmail.com">contactoneonethree@gmail.com</a></li>
-            <li><a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
           </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Digital Marketing Consultants</h4>
+          <div class="consultant">
+            Nick Plieger<br>
+            <a href="mailto:nick@oneonethree.co.nz">nick@oneonethree.co.nz</a>
+          </div>
+          <div class="consultant">
+            Cam Brewitt<br>
+            <a href="mailto:cam@oneonethree.co.nz">cam@oneonethree.co.nz</a>
+          </div>
         </div>
 
       </div>
