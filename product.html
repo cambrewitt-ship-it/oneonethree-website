@@ -628,9 +628,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-style: italic;
       line-height: 1.5;
     }
+    .product-card__price {
+      margin-top: var(--space-md);
+      font-size: 1.6rem;
+      font-weight: var(--fw-medium);
+      color: var(--color-white);
+    }
+    .product-card__price small {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--color-text-light);
+    }
     .product-card__cta {
       margin-top: var(--space-md);
     }
+    .product-card__enquire {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      text-decoration: underline;
+    }
+    .product-card__enquire:hover { color: var(--color-accent); }
 
     /* ============================================================
        PROMO BANNER
@@ -1274,8 +1293,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p><strong>Includes:</strong> Custom NFC stand, ready to use</p>
             </div>
             <p class="product-card__tip">&#x1F4A1; Place at checkout or where customers linger</p>
+            <p class="product-card__price">$XX <small>NZD incl. GST</small></p>
             <div class="product-card__cta">
-              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
+              <!-- TODO: replace with Stripe Payment Link (https://buy.stripe.com/...) -->
+              <a href="STRIPE_LINK_STAND" class="btn btn--primary">Buy Now</a>
+              <a href="contact.html" class="product-card__enquire">Have a question? Enquire first</a>
             </div>
           </article>
 
@@ -1294,8 +1316,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p><strong>Includes:</strong> Custom NFC plaque, pre-programmed</p>
             </div>
             <p class="product-card__tip">&#x1F4A1; Mount near payment points</p>
+            <p class="product-card__price">$XX <small>NZD incl. GST</small></p>
             <div class="product-card__cta">
-              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
+              <!-- TODO: replace with Stripe Payment Link (https://buy.stripe.com/...) -->
+              <a href="STRIPE_LINK_PLAQUE" class="btn btn--primary">Buy Now</a>
+              <a href="contact.html" class="product-card__enquire">Have a question? Enquire first</a>
             </div>
           </article>
 
@@ -1314,8 +1339,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p><strong>Includes:</strong> Custom NFC card, pre-programmed</p>
             </div>
             <p class="product-card__tip">&#x1F4A1; Use after a job or when handing over an invoice</p>
+            <p class="product-card__price">$XX <small>NZD incl. GST</small></p>
             <div class="product-card__cta">
-              <a href="contact.html" class="btn btn--primary">Enquire Now</a>
+              <!-- TODO: replace with Stripe Payment Link (https://buy.stripe.com/...) -->
+              <a href="STRIPE_LINK_CARD" class="btn btn--primary">Buy Now</a>
+              <a href="contact.html" class="product-card__enquire">Have a question? Enquire first</a>
             </div>
           </article>
 
