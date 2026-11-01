@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Google Review Tap Tags | OneOneThree Digital</title>
-  <meta name="description" content="Get 10x more Google reviews with NFC tap tags. One tap turns happy customers into 5-star reviews. Trusted by 100+ Kiwi businesses." />
+  <meta name="description" content="NFC Google review stands, plaques and cards, pre-programmed to your business. One tap opens your review page. One-off price, free NZ shipping. Trusted by 100+ Kiwi businesses." />
   <link rel="canonical" href="https://www.oneonethree.co.nz/product" />
 
   <style>
@@ -292,483 +292,404 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     ============================================================ */
     .hero {
       position: relative;
-      display: grid;
-      place-items: center;
       overflow: hidden;
-      padding-top: 100px;
+      padding-top: calc(100px + var(--space-lg));
       padding-bottom: var(--space-xl);
-    }
-    .hero__bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('obay.jpg');
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.35);
+      background:
+        radial-gradient(ellipse at 85% 20%, rgba(186,166,73,0.16), transparent 55%),
+        linear-gradient(180deg, var(--color-navy-dark) 0%, var(--color-navy-base) 100%);
     }
     .hero__inner {
-      position: relative;
-      z-index: 1;
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1.15fr 1fr;
       align-items: center;
       gap: var(--space-xl);
-      padding-inline: var(--gutter);
-      max-width: 1200px;
-      width: 100%;
     }
-    .hero__video-wrap {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.7s var(--ease) 0.2s forwards;
-      width: 100%;
-    }
-    .hero__video-wrap video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .hero__content {
-      color: var(--color-white);
-      text-align: left;
-    }
-    .hero__eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--color-accent);
+    .hero__proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--color-text-light);
       margin-bottom: var(--space-md);
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.7s var(--ease) 0.2s forwards;
     }
+    .stars { color: var(--color-accent); letter-spacing: 0.1em; }
     .hero__heading {
-      font-size: clamp(2.5rem, 7vw, var(--fs-h1));
+      font-size: clamp(2.4rem, 5.2vw, 4.2rem);
       font-weight: var(--fw-medium);
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: var(--space-md);
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.7s var(--ease) 0.4s forwards;
     }
+    .hero__heading em { font-style: normal; color: var(--color-accent); }
     .hero__sub {
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      font-weight: var(--fw-medium);
-      letter-spacing: 0.04em;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: var(--space-xl);
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.7s var(--ease) 0.6s forwards;
-    }
-    .hero__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(186,166,73,0.15);
-      border: 1px solid rgba(186,166,73,0.4);
-      padding: 0.6em 1.4em;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: var(--space-xl);
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.7s var(--ease) 0.8s forwards;
-    }
-    .hero__badge svg { flex-shrink: 0; }
-    .hero__cta {
-      display: flex;
-      gap: var(--space-sm);
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.7s var(--ease) 1s forwards;
-    }
-    .hero__scroll {
-      position: absolute;
-      bottom: var(--space-md);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeUp 0.7s var(--ease) 1.4s forwards;
-    }
-    .hero__scroll svg { animation: bounce 1.5s ease-in-out infinite; }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(6px); }
-    }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ============================================================
-       VALUE PROPS
-    ============================================================ */
-    .value-props {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-    .value-prop-item {
-      padding: var(--space-xl) var(--space-lg);
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-    .value-prop-item:last-child { border-right: none; }
-    .value-prop-item__icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--space-md);
-      line-height: 1;
-    }
-    .value-prop-item h3 {
-      font-size: clamp(1.8rem, 3.5vw, var(--fs-h2));
-      font-weight: var(--fw-medium);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-    .value-prop-item p {
-      font-size: 0.95rem;
-      color: var(--color-text-light);
-      margin-top: var(--space-sm);
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
       line-height: 1.6;
-    }
-
-    /* ============================================================
-       INTRO BLOCK
-    ============================================================ */
-    .intro-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
-      align-items: center;
-    }
-    .intro-block__text { }
-    .intro-block__text h2 {
-      font-size: clamp(1.8rem, 3vw, var(--fs-h2));
-      font-weight: var(--fw-medium);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      margin-bottom: var(--space-md);
-    }
-    .intro-block__text p {
-      font-size: 1rem;
-      line-height: 1.7;
       color: var(--color-text-light);
-      margin-bottom: var(--space-md);
-    }
-    .intro-block__list {
+      max-width: 46ch;
       margin-bottom: var(--space-lg);
     }
-    .intro-block__list li {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--color-text-light);
-      padding-left: 1.4rem;
-      position: relative;
-      margin-bottom: 0.5rem;
-    }
-    .intro-block__list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.65em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--color-accent);
-    }
-    .intro-block__cta {
-      font-size: 1.1rem;
-      font-weight: var(--fw-medium);
-      color: var(--color-accent);
-    }
-
-    /* ============================================================
-       PRODUCT IMAGE CAROUSEL
-    ============================================================ */
-    .product-carousel {
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    }
-    .product-carousel__track {
+    .hero__cta {
       display: flex;
       align-items: center;
       gap: var(--space-md);
-      width: max-content;
-      animation: product-scroll 32s linear infinite;
+      flex-wrap: wrap;
     }
-    .product-carousel__track:hover { animation-play-state: paused; }
-    @keyframes product-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+    .hero__cta .btn { font-size: 0.95rem; padding: 1em 2.4em; }
+    .text-link {
+      font-size: 0.9rem;
+      color: var(--color-white);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 2px;
+      transition: color var(--duration) var(--ease), border-color var(--duration) var(--ease);
     }
-    .product-carousel__img {
-      width: 340px;
-      height: 260px;
+    .text-link:hover { color: var(--color-accent); border-color: var(--color-accent); }
+    .checklist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.6rem;
+      margin-top: var(--space-lg);
+    }
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .checklist svg { width: 18px; height: 18px; color: var(--color-accent); flex-shrink: 0; }
+    .hero__media { position: relative; }
+    .hero__media > img {
+      width: 100%;
+      aspect-ratio: 1;
       object-fit: cover;
-      flex-shrink: 0;
-      border-radius: 8px;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
     }
+    .result-chip {
+      position: absolute;
+      left: -2rem;
+      bottom: 2rem;
+      background: var(--color-white);
+      color: var(--color-navy-dark);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+    .result-chip__label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6b7a90;
+      margin-bottom: 0.35rem;
+    }
+    .result-chip__row { display: flex; align-items: center; gap: 0.75rem; }
+    .result-chip__val { font-size: 1.5rem; line-height: 1; }
+    .result-chip__val small { display: block; font-size: 0.7rem; color: #6b7a90; margin-top: 0.2rem; }
+    .result-chip__arrow { color: var(--color-accent); font-size: 1.2rem; }
 
     /* ============================================================
-       PRODUCT CARDS
+       TRUST BAR
     ============================================================ */
-    .product-cards__grid {
+    .trust-bar {
+      background: var(--color-navy-mid);
+      border-block: 1px solid rgba(255,255,255,0.08);
+      padding-block: 1.1rem;
+    }
+    .trust-bar ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem 2.5rem;
+    }
+    .trust-bar li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+    .trust-bar svg { width: 20px; height: 20px; color: var(--color-accent); flex-shrink: 0; }
+
+    /* ============================================================
+       SECTION HEADER
+    ============================================================ */
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto var(--space-lg);
+    }
+    .section-head .section-sub { margin-inline: auto; }
+
+    /* ============================================================
+       PRODUCT CHOOSER
+    ============================================================ */
+    .chooser {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: var(--space-lg);
+    }
+    .chooser a {
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      padding: 0.5em 1.1em;
+      transition: border-color var(--duration) var(--ease), color var(--duration) var(--ease);
+    }
+    .chooser a strong { color: var(--color-white); font-weight: var(--fw-medium); }
+    .chooser a:hover { border-color: var(--color-accent); color: var(--color-white); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      align-items: stretch;
+    }
+    .product {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-white);
+      color: var(--color-navy-dark);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+      scroll-margin-top: 110px;
+    }
+    .product:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .product--featured { border-color: var(--color-accent); box-shadow: 0 0 0 6px rgba(186,166,73,0.18); }
+    .product__badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.45em 0.9em;
+      border-radius: 999px;
+    }
+    .product--featured .product__badge { background: var(--color-accent); color: var(--color-navy-dark); }
+    .product__media {
+      aspect-ratio: 4 / 3;
+      background: #eef1f6;
+      overflow: hidden;
+    }
+    .product__media img { width: 100%; height: 100%; object-fit: cover; }
+    /* Stand-in for the Tap Card until a real photo is added */
+    .product__media--mock {
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e9edf4, #d7deea);
+    }
+    .mock-card {
+      width: 62%;
+      aspect-ratio: 1.586;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--color-navy-base), var(--color-navy-dark));
+      color: var(--color-white);
+      box-shadow: 0 18px 40px rgba(14,50,104,0.35);
+      transform: rotate(-6deg);
+      padding: 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: clamp(0.6rem, 1vw, 0.8rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .mock-card__g {
+      width: 2.4em; height: 2.4em;
+      border-radius: 50%;
+      background: var(--color-white);
+      display: grid;
+      place-items: center;
+    }
+    .mock-card__g svg { width: 60%; height: 60%; }
+    .mock-card .stars { font-size: 1.1em; }
+    .product__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: var(--space-md);
+    }
+    .product__title { font-size: 1.4rem; font-weight: var(--fw-medium); line-height: 1.2; }
+    .product__desc { font-size: 0.9rem; color: #4a5a72; margin-top: 0.35rem; line-height: 1.5; }
+    .product__price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .product__price small { font-size: 0.78rem; color: #6b7a90; }
+    .product__list { margin-top: 1.2rem; display: grid; gap: 0.55rem; }
+    .product__list li {
+      position: relative;
+      padding-left: 1.6rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: #24344d;
+    }
+    .product__list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.2em;
+      width: 1.05rem; height: 1.05rem;
+      border-radius: 50%;
+      background: rgba(186,166,73,0.2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23866f12' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center / 62% no-repeat;
+    }
+    .product__fit {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e3e8f0;
+      font-size: 0.82rem;
+      color: #4a5a72;
+      line-height: 1.5;
+    }
+    .product__fit strong { color: var(--color-navy-dark); font-weight: var(--fw-medium); }
+    .product__buy { margin-top: auto; padding-top: var(--space-md); }
+    .product__buy .btn { display: block; text-align: center; width: 100%; font-size: 0.9rem; }
+    .product .btn--primary:hover { background: var(--color-navy-dark); color: var(--color-white); border-color: var(--color-navy-dark); }
+    .product__note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: #4a5a72;
+    }
+    .product__note svg { width: 15px; height: 15px; color: #2e8b57; flex-shrink: 0; }
+
+    .checkout-assure {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      margin-top: var(--space-lg);
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      text-align: center;
+    }
+    .checkout-assure span { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .checkout-assure svg { width: 16px; height: 16px; color: var(--color-accent); }
+    .checkout-assure a { color: var(--color-white); text-decoration: underline; text-underline-offset: 3px; }
+    .checkout-assure a:hover { color: var(--color-accent); }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    .how {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .how .section-heading { margin-bottom: var(--space-lg); }
+    .steps { list-style: none; display: grid; gap: var(--space-md); counter-reset: step; }
+    .step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 3rem; height: 3rem;
+      border-radius: 50%;
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+    }
+    .step h3 { font-size: 1.2rem; font-weight: var(--fw-medium); margin-bottom: 0.35rem; }
+    .step p { font-size: 0.95rem; line-height: 1.6; color: var(--color-text-light); }
+    .how__video {
+      max-width: 400px;
+      justify-self: center;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+    }
+    .how__video video { width: 100%; height: auto; display: block; }
+
+    /* ============================================================
+       PROOF: RESULT + TESTIMONIALS + GALLERY
+    ============================================================ */
+    .result {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-md);
+      align-items: center;
+      background: var(--color-white);
+      color: var(--color-navy-dark);
+      border-radius: 16px;
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .result figure { position: relative; }
+    .result figcaption {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6b7a90;
+      margin-bottom: 0.6rem;
+    }
+    .result figure:last-child figcaption { color: #866f12; }
+    .result img { width: 100%; height: auto; }
+    .result__arrow { font-size: 2rem; color: var(--color-accent); }
+
+    .quotes {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-md);
     }
-    .product-card {
-      background: var(--color-navy-light);
+    .quote {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--color-navy-base);
       border: 1px solid rgba(255,255,255,0.1);
-      padding: var(--space-lg) var(--space-md);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      transition: border-color var(--duration) var(--ease),
-                  transform var(--duration) var(--ease),
-                  box-shadow var(--duration) var(--ease);
+      border-radius: 16px;
+      padding: var(--space-md);
     }
-    .product-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
-      background: var(--color-accent);
-      transition: height 0.4s var(--ease);
-    }
-    .product-card:hover {
-      border-color: var(--color-accent);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-    }
-    .product-card:hover::before { height: 100%; }
-
-    .product-card__tag {
-      display: inline-block;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      background: rgba(186,166,73,0.12);
-      border: 1px solid rgba(186,166,73,0.3);
-      padding: 0.3em 0.8em;
-      margin-bottom: var(--space-md);
-      align-self: flex-start;
-    }
-    .product-card__title {
-      font-size: 1.4rem;
-      font-weight: var(--fw-medium);
-      letter-spacing: -0.01em;
-      margin-bottom: 0.4rem;
-    }
-    .product-card__descriptor {
-      font-size: 0.85rem;
-      color: var(--color-text-light);
-      font-style: italic;
-      margin-bottom: var(--space-md);
-    }
-    .product-card__list {
-      margin-bottom: var(--space-md);
-      flex: 1;
-    }
-    .product-card__list li {
-      font-size: 0.88rem;
-      line-height: 1.7;
-      color: var(--color-text-light);
-      padding-left: 1.2rem;
-      position: relative;
-      margin-bottom: 0.3rem;
-    }
-    .product-card__list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.6em;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--color-accent);
-    }
-    .product-card__meta {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: var(--space-md);
-      margin-top: var(--space-md);
-    }
-    .product-card__meta p {
-      font-size: 0.82rem;
-      line-height: 1.6;
-      color: var(--color-text-light);
-      margin-bottom: 0.3rem;
-    }
-    .product-card__meta strong {
-      color: var(--color-white);
-    }
-    .product-card__tip {
-      margin-top: var(--space-md);
-      font-size: 0.8rem;
-      color: var(--color-accent);
-      font-style: italic;
-      line-height: 1.5;
-    }
-    .product-card__price {
-      margin-top: var(--space-md);
-      font-size: 1.6rem;
-      font-weight: var(--fw-medium);
-      color: var(--color-white);
-    }
-    .product-card__price small {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      color: var(--color-text-light);
-    }
-    .product-card__cta {
-      margin-top: var(--space-md);
-    }
-    .product-card__enquire {
-      display: block;
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
-      color: var(--color-text-light);
-      text-decoration: underline;
-    }
-    .product-card__enquire:hover { color: var(--color-accent); }
-
-    /* ============================================================
-       PROMO BANNER
-    ============================================================ */
-    .promo-banner {
-      background: var(--color-accent);
-      color: var(--color-navy-dark);
-      padding-block: var(--space-lg);
-      text-align: center;
-    }
-    .promo-banner__label {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-bottom: 0.5rem;
-    }
-    .promo-banner__heading {
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      font-weight: var(--fw-medium);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-md);
-    }
-    .countdown {
-      display: inline-flex;
-      gap: var(--space-sm);
-      align-items: center;
-    }
-    .countdown__block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 70px;
-    }
-    .countdown__num {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: var(--fw-medium);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-    .countdown__label {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-top: 0.3rem;
-    }
-    .countdown__sep {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: var(--fw-medium);
-      opacity: 0.5;
-      align-self: flex-start;
-      padding-top: 0.1em;
-    }
-
-    /* ============================================================
-       TRUST BADGE
-    ============================================================ */
-    .trust-badge {
-      background: var(--color-navy-mid);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding-block: 1.2rem;
-      text-align: center;
-    }
-    .trust-badge__inner {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-text-light);
-    }
-    .trust-badge__icon {
-      width: 20px; height: 20px;
-      color: var(--color-accent);
+    .quote blockquote { font-size: 1.05rem; line-height: 1.55; flex: 1; }
+    .quote blockquote strong { color: var(--color-accent); font-weight: var(--fw-medium); }
+    .quote__who { display: flex; align-items: center; gap: 0.9rem; }
+    .quote__who img {
+      width: 56px; height: 56px;
+      object-fit: contain;
+      background: var(--color-white);
+      border-radius: 10px;
+      padding: 4px;
       flex-shrink: 0;
     }
+    .quote__who p { font-size: 0.85rem; line-height: 1.4; }
+    .quote__who span { display: block; color: var(--color-text-light); font-size: 0.78rem; }
 
-    /* ============================================================
-       BEFORE / AFTER
-    ============================================================ */
-    .before-after {
+    .gallery {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
     }
-    .before-after__item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    .before-after__item img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .before-after__label {
-      position: absolute;
-      top: var(--space-md);
-      left: var(--space-md);
-      font-size: 0.7rem;
-      font-weight: var(--fw-medium);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.4em 1em;
-      border-radius: 2px;
-    }
-    .before-after__label--before {
-      background: rgba(0,0,0,0.6);
-      color: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .before-after__label--after {
-      background: var(--color-accent);
-      color: var(--color-navy-dark);
-    }
+    .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; }
 
     /* ============================================================
        STATS
@@ -779,13 +700,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       gap: 0;
     }
     .stat-item {
-      padding: var(--space-xl) var(--space-lg);
+      padding: var(--space-lg);
       text-align: center;
       border-right: 1px solid rgba(255,255,255,0.08);
     }
     .stat-item:last-child { border-right: none; }
     .stat-item__num {
-      font-size: clamp(4rem, 8vw, 7rem);
+      font-size: clamp(3rem, 6vw, 5rem);
       font-weight: var(--fw-medium);
       line-height: 1;
       letter-spacing: -0.03em;
@@ -799,6 +720,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       max-width: 32ch;
       margin-inline: auto;
     }
+
+    /* ============================================================
+       FINAL CTA
+    ============================================================ */
+    .final-cta {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      text-align: center;
+      padding-block: var(--space-xl);
+    }
+    .final-cta h2 {
+      font-size: clamp(2rem, 4vw, var(--fs-h2));
+      font-weight: var(--fw-medium);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      max-width: 20ch;
+      margin-inline: auto;
+    }
+    .final-cta p { font-size: 1.05rem; margin: var(--space-sm) auto var(--space-md); opacity: 0.85; }
+    .final-cta .btn { background: var(--color-navy-dark); color: var(--color-white); border-color: var(--color-navy-dark); }
+    .final-cta .btn:hover { background: transparent; color: var(--color-navy-dark); }
+
+    /* ============================================================
+       STICKY MOBILE BUY BAR
+    ============================================================ */
+    .buy-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 90;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem var(--gutter) calc(0.75rem + env(safe-area-inset-bottom));
+      background: var(--color-navy-dark);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+      transform: translateY(110%);
+      transition: transform var(--duration) var(--ease);
+    }
+    .buy-bar.show { transform: translateY(0); }
+    .buy-bar p { font-size: 0.85rem; line-height: 1.3; }
+    .buy-bar p span { display: block; font-size: 0.72rem; color: var(--color-text-light); }
+    .buy-bar .btn { padding: 0.8em 1.4em; font-size: 0.8rem; white-space: nowrap; }
 
     /* ============================================================
        FAQ
@@ -851,19 +816,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* ============================================================
        CONTACT CTA
     ============================================================ */
-    /* Product photos */
-    .product-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-    }
-    .product-photos img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      display: block;
-    }
-
     /* Contact CTA form */
     .contact-cta__form {
       background: var(--color-navy-light);
@@ -1074,27 +1026,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .nav__burger { display: flex; }
       .mobile-menu { display: flex; }
 
-      .value-props { grid-template-columns: 1fr; }
-      .value-prop-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-      .value-prop-item:last-child { border-bottom: none; }
+      .hero__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .hero__media { max-width: 520px; width: 100%; margin-inline: auto; }
+      .result-chip { left: 1rem; }
 
-      .intro-block { grid-template-columns: 1fr; gap: var(--space-lg); }
-
-      .hero__inner { grid-template-columns: 1fr; }
-      .hero__content { text-align: center; }
-      .hero__cta { justify-content: center; }
-
-      .product-cards__grid { grid-template-columns: 1fr 1fr; }
-
-      .before-after { grid-template-columns: 1fr; }
-      .before-after__item img { height: auto; }
+      .product-grid { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+      .how { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .quotes { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
 
       .stats-block { grid-template-columns: 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .stat-item:last-child { border-bottom: none; }
 
       .contact-cta { grid-template-columns: 1fr; }
-      .product-photos { grid-template-columns: 1fr 1fr; }
 
       .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
       .footer__brand { grid-column: 1 / -1; }
@@ -1106,13 +1050,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 640px) {
       .section { padding-block: var(--space-lg); }
       .section-heading { font-size: var(--fs-h3); }
-      .hero__heading { font-size: clamp(2rem, 10vw, 3rem); }
-
-      .product-cards__grid { grid-template-columns: 1fr; }
-      .product-photos { grid-template-columns: 1fr; }
-
-      .countdown { gap: var(--space-xs); }
-      .countdown__block { min-width: 50px; }
+      .hero { padding-top: calc(90px + var(--space-md)); }
+      .hero__cta .btn { width: 100%; text-align: center; }
+      .hero__cta { justify-content: center; }
+      .checklist { justify-content: center; }
+      .trust-bar ul { justify-content: flex-start; gap: 0.6rem 1.5rem; }
+      .trust-bar li { font-size: 0.7rem; letter-spacing: 0.08em; }
+      .result { grid-template-columns: 1fr; text-align: center; }
+      .result__arrow { transform: rotate(90deg); justify-self: center; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .buy-bar { display: flex; }
+      .footer { padding-bottom: 6rem; }
 
       .footer__top { grid-template-columns: 1fr; }
       .footer__brand { grid-column: auto; }
@@ -1179,259 +1127,241 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          HERO
     ============================================================ -->
     <section class="hero" id="home">
-      <div class="hero__bg" role="img" aria-label="Dunedin cityscape"></div>
-      <div class="hero__inner">
-        <div class="hero__video-wrap">
-          <video autoplay muted loop playsinline>
-            <source src="25-sec-explainer.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div class="container hero__inner">
         <div class="hero__content">
-          <p class="hero__eyebrow">OneOneThree Digital &mdash; Products</p>
-          <h1 class="hero__heading">Google Review<br>Tap Tags</h1>
-          <p class="hero__sub">Get 10x More Reviews<br>Boost Your Online Visibility</p>
-          <div class="hero__badge">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M4.5 7l1.8 1.8L9.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Trusted by 100+ Kiwi Businesses
-          </div>
+          <p class="hero__proof"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Trusted by 100+ Kiwi businesses</p>
+          <h1 class="hero__heading">Turn happy customers into <em>Google reviews</em> with one tap.</h1>
+          <p class="hero__sub">NFC review stands, plaques and cards, pre-programmed to your Google Business profile. Customers tap their phone and your review page opens instantly. No app, no subscription.</p>
           <div class="hero__cta">
-            <a href="#products" class="btn btn--primary">View Products</a>
-            <a href="contact.html" class="btn btn--outline">Get in Touch</a>
+            <!-- TODO: replace $XX with the lowest product price -->
+            <a href="#products" class="btn btn--primary">Shop tap tags &middot; from $XX</a>
+            <a href="#how" class="text-link">See how it works</a>
+          </div>
+          <ul class="checklist" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Free NZ shipping</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Set up for you</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>One-off price, no fees</li>
+          </ul>
+        </div>
+        <div class="hero__media">
+          <img src="1.webp" alt="Google Review Tap Stand on a cafe counter next to the EFTPOS terminal" width="500" height="500" fetchpriority="high" />
+          <div class="result-chip" aria-label="Real customer result: from 3.6 stars with 7 reviews to 4.7 stars with 278 reviews">
+            <span class="result-chip__label">Real customer result</span>
+            <div class="result-chip__row">
+              <span class="result-chip__val">3.6&#9733;<small>7 reviews</small></span>
+              <span class="result-chip__arrow" aria-hidden="true">&rarr;</span>
+              <span class="result-chip__val">4.7&#9733;<small>278 reviews</small></span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="hero__scroll" aria-hidden="true">
-        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="1" y="1" width="14" height="22" rx="7"/>
-          <circle cx="8" cy="7" r="2" fill="currentColor" stroke="none"/>
-        </svg>
-        Scroll
       </div>
     </section>
 
     <!-- ============================================================
-         PRODUCT IMAGE CAROUSEL
+         TRUST BAR
     ============================================================ -->
-    <div class="section--alt" style="padding-block:var(--space-md);">
-      <div class="product-carousel">
-        <div class="product-carousel__track">
-          <!-- Set 1 -->
-          <img class="product-carousel__img" src="1.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="2.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="3.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="4.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="5.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="6.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="7.webp" alt="Google Review Tap Tag product" />
-          <!-- Set 2 — duplicate for seamless loop -->
-          <img class="product-carousel__img" src="1.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="2.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="3.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="4.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="5.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="6.webp" alt="Google Review Tap Tag product" />
-          <img class="product-carousel__img" src="7.webp" alt="Google Review Tap Tag product" />
-        </div>
-      </div>
+    <div class="trust-bar">
+      <ul class="container" role="list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Free NZ shipping</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>Pre-programmed to your business</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>Works with iPhone &amp; Android</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secure checkout with Stripe</li>
+      </ul>
     </div>
 
     <!-- ============================================================
-         INTRO BLOCK
-    ============================================================ -->
-    <section class="section">
-      <div class="container">
-        <div class="intro-block">
-          <div class="intro-block__text reveal">
-            <span class="section-label">How It Works</span>
-            <h2>One simple tap instantly turns happy customers into 5-star Google Reviews.</h2>
-            <ul class="intro-block__list">
-              <li>Fits any storefront. Works with any smartphone.</li>
-              <li>More reviews = higher rankings = more customers.</li>
-              <li>No app required — just tap and go.</li>
-              <li>Pre-programmed to your Google Business page, ready out of the box.</li>
-            </ul>
-            <p class="intro-block__cta">One off investment, unlimited reviews.</p>
-            <div style="margin-top:var(--space-lg);">
-              <a href="#products" class="btn btn--primary">View Products</a>
-            </div>
-          </div>
-          <div class="reveal reveal--delay-2">
-            <img src="taptagquote.webp" alt="Google Review Tap Tag in use" style="border-radius:8px;width:100%;object-fit:cover;" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         PRODUCT CARDS
+         PRODUCTS
+         TODO: replace each $XX and STRIPE_LINK_* with the real price
+         and Stripe Payment Link (https://buy.stripe.com/...)
     ============================================================ -->
     <section class="section" id="products">
       <div class="container">
-        <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
-          <span class="section-label">Choose Your Product</span>
-          <h2 class="section-heading">Find the right tag<br>for your business.</h2>
+        <div class="section-head reveal">
+          <span class="section-label">Choose your tag</span>
+          <h2 class="section-heading">Pick where your customers will tap.</h2>
+          <p class="section-sub">All three open your Google review page in one tap. Pay once and use it forever.</p>
         </div>
 
-        <div class="product-cards__grid">
+        <nav class="chooser reveal" aria-label="Which tag suits you">
+          <a href="#stand"><strong>At the counter</strong> &rarr; Tap Stand</a>
+          <a href="#plaque"><strong>On a wall or desk</strong> &rarr; Plaque</a>
+          <a href="#card"><strong>On the go</strong> &rarr; Tap Card</a>
+        </nav>
 
-          <!-- Card 1: Tap Stand -->
-          <article class="product-card reveal reveal--delay-1">
-            <span class="product-card__tag">Most Popular</span>
-            <h3 class="product-card__title">Google Review Tap Stand</h3>
-            <p class="product-card__descriptor">The tall, noticeable option.</p>
-            <ul class="product-card__list">
-              <li>NFC tap or scan &mdash; no apps needed</li>
-              <li>Works with all modern smartphones</li>
-              <li>Eye-catching, compact design</li>
-              <li>Pre-programmed to your business</li>
-            </ul>
-            <div class="product-card__meta">
-              <p><strong>Perfect for:</strong> Cafes, restaurants, clinics, retail counters</p>
-              <p><strong>Includes:</strong> Custom NFC stand, ready to use</p>
+        <div class="product-grid">
+
+          <article class="product product--featured reveal reveal--delay-1" id="stand">
+            <span class="product__badge">Most popular</span>
+            <div class="product__media">
+              <img src="7.webp" alt="Google Review Tap Stand on a cafe counter" loading="lazy" width="750" height="750" />
             </div>
-            <p class="product-card__tip">&#x1F4A1; Place at checkout or where customers linger</p>
-            <p class="product-card__price">$XX <small>NZD incl. GST</small></p>
-            <div class="product-card__cta">
-              <!-- TODO: replace with Stripe Payment Link (https://buy.stripe.com/...) -->
-              <a href="STRIPE_LINK_STAND" class="btn btn--primary">Buy Now</a>
-              <a href="contact.html" class="product-card__enquire">Have a question? Enquire first</a>
+            <div class="product__body">
+              <h3 class="product__title">Google Review Tap Stand</h3>
+              <p class="product__desc">Free-standing and impossible to miss at the counter.</p>
+              <p class="product__price">$XX <small>one-off &middot; incl. GST</small></p>
+              <ul class="product__list" role="list">
+                <li>Tap with NFC or scan the QR code</li>
+                <li>Pre-programmed to your Google review page</li>
+                <li>Eye-catching, compact design</li>
+              </ul>
+              <p class="product__fit"><strong>Best for:</strong> cafes, restaurants, clinics and retail counters</p>
+              <div class="product__buy">
+                <a href="STRIPE_LINK_STAND" class="btn btn--primary" data-product="Tap Stand">Buy the Tap Stand</a>
+                <p class="product__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Free NZ shipping &middot; arrives in 2&ndash;4 working days</p>
+              </div>
             </div>
           </article>
 
-          <!-- Card 2: Plaque -->
-          <article class="product-card reveal reveal--delay-2">
-            <span class="product-card__tag">Permanent</span>
-            <h3 class="product-card__title">Google Review Plaque</h3>
-            <p class="product-card__descriptor">The permanent, durable option.</p>
-            <ul class="product-card__list">
-              <li>Sleek, modern design</li>
-              <li>NFC-enabled &mdash; tap to review</li>
-              <li>Strong adhesive backing</li>
-            </ul>
-            <div class="product-card__meta">
-              <p><strong>Best for:</strong> Walls, reception desks, countertops</p>
-              <p><strong>Includes:</strong> Custom NFC plaque, pre-programmed</p>
+          <article class="product reveal reveal--delay-2" id="plaque">
+            <span class="product__badge">Permanent</span>
+            <div class="product__media">
+              <img src="3.webp" alt="Round Google Review Plaque fixed to a countertop beside the EFTPOS terminal" loading="lazy" width="750" height="750" />
             </div>
-            <p class="product-card__tip">&#x1F4A1; Mount near payment points</p>
-            <p class="product-card__price">$XX <small>NZD incl. GST</small></p>
-            <div class="product-card__cta">
-              <!-- TODO: replace with Stripe Payment Link (https://buy.stripe.com/...) -->
-              <a href="STRIPE_LINK_PLAQUE" class="btn btn--primary">Buy Now</a>
-              <a href="contact.html" class="product-card__enquire">Have a question? Enquire first</a>
-            </div>
-          </article>
-
-          <!-- Card 3: Tap Card -->
-          <article class="product-card reveal reveal--delay-3">
-            <span class="product-card__tag">Portable</span>
-            <h3 class="product-card__title">Google Review Tap Card</h3>
-            <p class="product-card__descriptor">The portable option.</p>
-            <ul class="product-card__list">
-              <li>Standard bank card size</li>
-              <li>Fits in your wallet</li>
-              <li>NFC tap &mdash; no apps, no fees</li>
-            </ul>
-            <div class="product-card__meta">
-              <p><strong>Best for:</strong> Tradies, landscapers, consultants, mobile services</p>
-              <p><strong>Includes:</strong> Custom NFC card, pre-programmed</p>
-            </div>
-            <p class="product-card__tip">&#x1F4A1; Use after a job or when handing over an invoice</p>
-            <p class="product-card__price">$XX <small>NZD incl. GST</small></p>
-            <div class="product-card__cta">
-              <!-- TODO: replace with Stripe Payment Link (https://buy.stripe.com/...) -->
-              <a href="STRIPE_LINK_CARD" class="btn btn--primary">Buy Now</a>
-              <a href="contact.html" class="product-card__enquire">Have a question? Enquire first</a>
+            <div class="product__body">
+              <h3 class="product__title">Google Review Plaque</h3>
+              <p class="product__desc">Sticks down for good. Durable, low-profile and always in place.</p>
+              <p class="product__price">$XX <small>one-off &middot; incl. GST</small></p>
+              <ul class="product__list" role="list">
+                <li>Strong adhesive backing</li>
+                <li>Pre-programmed to your Google review page</li>
+                <li>Sleek, modern design</li>
+              </ul>
+              <p class="product__fit"><strong>Best for:</strong> walls, reception desks and payment points</p>
+              <div class="product__buy">
+                <a href="STRIPE_LINK_PLAQUE" class="btn btn--primary" data-product="Plaque">Buy the Plaque</a>
+                <p class="product__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Free NZ shipping &middot; arrives in 2&ndash;4 working days</p>
+              </div>
             </div>
           </article>
 
+          <article class="product reveal reveal--delay-3" id="card">
+            <span class="product__badge">Portable</span>
+            <!-- TODO: swap this mock-up for a real Tap Card photo:
+                 <div class="product__media"><img src="tap-card.webp" alt="..." loading="lazy" /></div> -->
+            <div class="product__media product__media--mock" aria-hidden="true">
+              <div class="mock-card">
+                <span class="mock-card__g"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.7 6c4.5-4.2 6.9-10.3 6.9-17.7z"/><path fill="#FBBC05" d="M10.6 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg></span>
+                <span>Tap to review</span>
+                <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+            </div>
+            <div class="product__body">
+              <h3 class="product__title">Google Review Tap Card</h3>
+              <p class="product__desc">Bank-card sized. Ask for the review right when the job is done.</p>
+              <p class="product__price">$XX <small>one-off &middot; incl. GST</small></p>
+              <ul class="product__list" role="list">
+                <li>Fits in your wallet</li>
+                <li>Pre-programmed to your Google review page</li>
+                <li>NFC tap, no app needed</li>
+              </ul>
+              <p class="product__fit"><strong>Best for:</strong> tradies, landscapers, consultants and mobile services</p>
+              <div class="product__buy">
+                <a href="STRIPE_LINK_CARD" class="btn btn--primary" data-product="Tap Card">Buy the Tap Card</a>
+                <p class="product__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Free NZ shipping &middot; arrives in 2&ndash;4 working days</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="checkout-assure">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secure checkout via Stripe: card, Apple Pay &amp; Google Pay</span>
+          <span>Multiple locations or 5+ tags? <a href="contact.html">Get a bulk quote</a></span>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         TRUST BADGE
+         HOW IT WORKS
     ============================================================ -->
-    <div class="trust-badge">
-      <span class="trust-badge__inner">
-        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
-        </svg>
-        Secure SSL Encryption
-        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <rect x="3" y="11" width="18" height="11" rx="2"/>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
-        Safe &amp; Secure Checkout
-        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
-        </svg>
-        Trusted by 100+ Kiwi Businesses
-      </span>
-    </div>
-
-    <!-- ============================================================
-         PROMO BANNER
-    ============================================================ -->
-    <div class="promo-banner">
-      <p class="promo-banner__label">Limited Time Offer</p>
-      <p class="promo-banner__heading">&#x1F69A;&nbsp; Free NZ Shipping &mdash; Promo Ends:</p>
-      <div class="countdown" id="countdown" aria-live="polite">
-        <div class="countdown__block">
-          <span class="countdown__num" id="cd-days">00</span>
-          <span class="countdown__label">Days</span>
+    <section class="section section--alt" id="how">
+      <div class="container how">
+        <div class="reveal">
+          <span class="section-label">How it works</span>
+          <h2 class="section-heading">Ready to use the day it arrives.</h2>
+          <ol class="steps">
+            <li class="step">
+              <div>
+                <h3>Choose your tag and check out</h3>
+                <p>At checkout, tell us your business name as it appears on Google. That's all we need.</p>
+              </div>
+            </li>
+            <li class="step">
+              <div>
+                <h3>We program it and ship it free</h3>
+                <p>We link your tag to your Google review page, test it and send it anywhere in NZ in 2&ndash;4 working days.</p>
+              </div>
+            </li>
+            <li class="step">
+              <div>
+                <h3>Customers tap and leave a review</h3>
+                <p>Any modern smartphone opens your review page instantly. No app, no searching for your business, no friction.</p>
+              </div>
+            </li>
+          </ol>
         </div>
-        <span class="countdown__sep">:</span>
-        <div class="countdown__block">
-          <span class="countdown__num" id="cd-hours">00</span>
-          <span class="countdown__label">Hours</span>
-        </div>
-        <span class="countdown__sep">:</span>
-        <div class="countdown__block">
-          <span class="countdown__num" id="cd-mins">00</span>
-          <span class="countdown__label">Minutes</span>
-        </div>
-        <span class="countdown__sep">:</span>
-        <div class="countdown__block">
-          <span class="countdown__num" id="cd-secs">00</span>
-          <span class="countdown__label">Seconds</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================
-         PRODUCT PHOTOS
-    ============================================================ -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="product-photos">
-          <img src="craig.webp" alt="OneOneThree Digital team" />
-          <img src="craigactual.webp" alt="OneOneThree Digital team" />
+        <div class="how__video reveal reveal--delay-2">
+          <video muted loop playsinline preload="none" poster="explainer-poster.webp" aria-label="25-second video showing a customer tapping a review tag">
+            <source src="25-sec-explainer.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         BEFORE / AFTER
+         PROOF
     ============================================================ -->
-    <section class="section section--alt">
+    <section class="section" id="results">
       <div class="container">
-        <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
-          <span class="section-label">The Difference</span>
-          <h2 class="section-heading">See it in action.</h2>
-          <p class="section-sub" style="margin-inline:auto;">One NFC tap tag. A measurable impact on your Google Reviews.</p>
+        <div class="section-head reveal">
+          <span class="section-label">Real results</span>
+          <h2 class="section-heading">More reviews. Better rankings. More customers.</h2>
         </div>
-        <div class="before-after reveal">
-          <div class="before-after__item">
-            <img src="3.6.webp" alt="Google Business listing before using a Review Tap Tag — low review count" />
-            <span class="before-after__label before-after__label--before">Before</span>
-          </div>
-          <div class="before-after__item">
-            <img src="4.7.webp" alt="Google Business listing after using a Review Tap Tag — high review count" />
-            <span class="before-after__label before-after__label--after">After</span>
-          </div>
+
+        <div class="result reveal">
+          <figure>
+            <figcaption>Before</figcaption>
+            <img src="3.6.webp" alt="Google rating before: 3.6 stars from 7 reviews" loading="lazy" width="1000" height="364" />
+          </figure>
+          <span class="result__arrow" aria-hidden="true">&rarr;</span>
+          <figure>
+            <figcaption>After using a tap tag</figcaption>
+            <img src="4.7.webp" alt="Google rating after: 4.7 stars from 278 reviews" loading="lazy" width="1464" height="487" />
+          </figure>
+        </div>
+
+        <div class="quotes">
+          <figure class="quote reveal reveal--delay-1">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;We were blown away by the Google Tap Tags. Very happy to be getting great Google Reviews from our 3 restaurants in the Wellington Region!&rdquo;</blockquote>
+            <figcaption class="quote__who">
+              <img src="logo-jugnu.webp" alt="Jugnu's Little India logo" loading="lazy" />
+              <p>Jugnu<span>Jugnu's Little India, Wellington</span></p>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal reveal--delay-2">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;We're getting more customers. Our Google Business Profile has seen <strong>+566% more traffic!</strong>&rdquo;</blockquote>
+            <figcaption class="quote__who">
+              <img src="logo-josephs.webp" alt="Joseph's Hedges &amp; Gardens logo" loading="lazy" />
+              <p>Joseph<span>Joseph's Hedges &amp; Gardens, Christchurch</span></p>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal reveal--delay-3">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;We've seen plenty of new customers from our higher Google Ranking from these products at our vehicle dealership.&rdquo;</blockquote>
+            <figcaption class="quote__who">
+              <img src="logo-motorq.webp" alt="MotorQ logo" loading="lazy" />
+              <p>Craig<span>MotorQ, Howick, South Africa</span></p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="gallery reveal">
+          <img src="5.webp" alt="Kitchen owner holding her Google Review Plaque" loading="lazy" />
+          <img src="2.webp" alt="Tap Stand on a cafe counter" loading="lazy" />
+          <img src="6.webp" alt="Bar owner holding his Google Review Plaque" loading="lazy" />
+          <img src="4.webp" alt="Google Review Plaque on a shop counter" loading="lazy" />
         </div>
       </div>
     </section>
@@ -1457,7 +1387,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <div class="reveal" style="text-align:center;">
           <span class="section-label">Questions</span>
-          <h2 class="section-heading">Frequently Asked</h2>
+          <h2 class="section-heading">Before you order</h2>
         </div>
 
         <ul class="faq__list" id="faqList">
@@ -1473,7 +1403,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p class="faq__answer-inner">Simple &mdash; you just tell us the name of your business when ordering, and we'll take care of the rest. Your tag arrives fully programmed to your Google Review page, ready to go right out of the box. No setup.</p>
             </div>
           </li>
-
           <li class="faq__item">
             <button class="faq__question" aria-expanded="false">
               Are there any subscriptions or ongoing fees?
@@ -1485,7 +1414,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p class="faq__answer-inner">No. This is a one-off purchase. No apps, no subscriptions, no hidden charges. Pay once, collect reviews forever.</p>
             </div>
           </li>
-
+          <li class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Will it work with my customers' phones?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">Yes. iPhones (XS and newer) and NFC-enabled Android phones read the tag with a tap &mdash; no app needed. The Tap Stand also has a QR code for anyone whose phone doesn't support NFC.</p>
+            </div>
+          </li>
           <li class="faq__item">
             <button class="faq__question" aria-expanded="false">
               How long does shipping take?
@@ -1497,8 +1436,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p class="faq__answer-inner">We offer free, fast shipping across New Zealand. Most orders arrive within 2&ndash;4 working days.</p>
             </div>
           </li>
+          <li class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Is this allowed under Google's review rules?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">Yes. The tag simply opens your Google review form. It doesn't offer incentives or filter out reviews, so it's in line with Google's review policies.</p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              I have more than one location. Can you help?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">Absolutely. Order one tag per location, or <a href="contact.html" style="color:var(--color-accent);text-decoration:underline;">get in touch</a> for a bulk quote and we'll program each tag to the right Google profile.</p>
+            </div>
+          </li>
 
         </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA
+    ============================================================ -->
+    <section class="final-cta">
+      <div class="container reveal">
+        <h2>Start collecting more 5-star reviews this week.</h2>
+        <p>Pre-programmed, shipped free across NZ, and yours to keep. No subscription.</p>
+        <a href="#products" class="btn">Choose your tag</a>
       </div>
     </section>
 
@@ -1577,6 +1549,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
   </main>
+
+  <!-- Sticky buy bar (mobile) -->
+  <div class="buy-bar" id="buyBar" aria-hidden="true">
+    <p>Google Review Tap Tags<span>From $XX &middot; free NZ shipping</span></p>
+    <a href="#products" class="btn btn--primary" tabindex="-1">Shop now</a>
+  </div>
+
 
   <!-- ============================================================
        FOOTER
@@ -1673,39 +1652,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
     });
 
-    /* ---- Countdown timer --------------------------------------- */
-    const STORAGE_KEY = 'oot_promo_deadline';
-    const DURATION_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
-
-    let deadline = parseInt(localStorage.getItem(STORAGE_KEY), 10);
-    if (!deadline || deadline < Date.now()) {
-      deadline = Date.now() + DURATION_MS;
-      localStorage.setItem(STORAGE_KEY, deadline);
+    /* ---- Sticky buy bar: show after the hero, hide while products are on screen */
+    const buyBar = document.getElementById('buyBar');
+    const heroEl = document.getElementById('home');
+    const productsEl = document.getElementById('products');
+    if (buyBar && 'IntersectionObserver' in window) {
+      let pastHero = false, productsVisible = false;
+      const sync = () => buyBar.classList.toggle('show', pastHero && !productsVisible);
+      new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; sync(); }).observe(heroEl);
+      new IntersectionObserver(([e]) => { productsVisible = e.isIntersecting; sync(); }, { threshold: 0.15 }).observe(productsEl);
     }
 
-    const pad = n => String(n).padStart(2, '0');
+    /* ---- Explainer video: only load and play when on screen --- */
+    const howVideo = document.querySelector('.how__video video');
+    if (howVideo && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) howVideo.play().catch(() => {});
+        else howVideo.pause();
+      }, { threshold: 0.4 }).observe(howVideo);
+    }
 
-    const tickCountdown = () => {
-      const diff = deadline - Date.now();
-      if (diff <= 0) {
-        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
-          document.getElementById(id).textContent = '00';
-        });
-        return;
-      }
-      const days  = Math.floor(diff / 86400000);
-      const hours = Math.floor((diff % 86400000) / 3600000);
-      const mins  = Math.floor((diff % 3600000)  / 60000);
-      const secs  = Math.floor((diff % 60000)    / 1000);
-
-      document.getElementById('cd-days').textContent  = pad(days);
-      document.getElementById('cd-hours').textContent = pad(hours);
-      document.getElementById('cd-mins').textContent  = pad(mins);
-      document.getElementById('cd-secs').textContent  = pad(secs);
-    };
-
-    tickCountdown();
-    setInterval(tickCountdown, 1000);
+    /* ---- Track checkout clicks in GTM ------------------------- */
+    document.querySelectorAll('[data-product]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'begin_checkout', product: btn.dataset.product });
+      });
+    });
 
     /* ---- Product enquiry form --------------------------------- */
     const productForm = document.getElementById('productContactForm');
