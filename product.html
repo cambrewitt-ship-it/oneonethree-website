@@ -1618,6 +1618,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
     });
 
+    /* ---- Until real prices/Stripe links are filled in, fall back to enquiry */
+    document.querySelectorAll('[data-product]').forEach(btn => {
+      if (!btn.getAttribute('href').startsWith('STRIPE_LINK')) return;
+      btn.href = 'contact.html';
+      btn.textContent = 'Enquire now';
+      btn.removeAttribute('data-product');
+    });
+    document.querySelectorAll('.product__price').forEach(el => {
+      if (el.textContent.includes('$XX')) el.remove();
+    });
+    const heroBtn = document.querySelector('.hero__cta .btn');
+    if (heroBtn.textContent.includes('$XX')) heroBtn.textContent = 'Shop tap tags';
+    const barNote = document.querySelector('.buy-bar p span');
+    if (barNote.textContent.includes('$XX')) barNote.textContent = 'Free NZ shipping';
+
     /* ---- Sticky buy bar: show after the hero, hide while products are on screen */
     const buyBar = document.getElementById('buyBar');
     const heroEl = document.getElementById('home');
