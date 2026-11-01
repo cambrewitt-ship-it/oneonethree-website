@@ -483,41 +483,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .product--featured .product__badge { background: var(--color-accent); color: var(--color-navy-dark); }
     .product__media {
       aspect-ratio: 4 / 3;
-      background: #eef1f6;
-      overflow: hidden;
-    }
-    .product__media img { width: 100%; height: 100%; object-fit: cover; }
-    /* Stand-in for the Tap Card until a real photo is added */
-    .product__media--mock {
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #e9edf4, #d7deea);
-    }
-    .mock-card {
-      width: 62%;
-      aspect-ratio: 1.586;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--color-navy-base), var(--color-navy-dark));
-      color: var(--color-white);
-      box-shadow: 0 18px 40px rgba(14,50,104,0.35);
-      transform: rotate(-6deg);
-      padding: 7%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-size: clamp(0.6rem, 1vw, 0.8rem);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .mock-card__g {
-      width: 2.4em; height: 2.4em;
-      border-radius: 50%;
       background: var(--color-white);
-      display: grid;
-      place-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid #e3e8f0;
     }
-    .mock-card__g svg { width: 60%; height: 60%; }
-    .mock-card .stars { font-size: 1.1em; }
+    .product__media img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s var(--ease); }
+    .product:hover .product__media img { transform: scale(1.04); }
+    .product__media--photo img { object-fit: cover; object-position: center 18%; }
     .product__body {
       display: flex;
       flex-direction: column;
@@ -1193,7 +1165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <article class="product product--featured reveal reveal--delay-1" id="stand">
             <span class="product__badge">Most popular</span>
             <div class="product__media">
-              <img src="7.webp" alt="Google Review Tap Stand on a cafe counter" loading="lazy" width="750" height="750" />
+              <img src="product-stand.webp" alt="White Google Review Tap Stand with NFC tap area and five stars" loading="lazy" width="1024" height="768" />
             </div>
             <div class="product__body">
               <h3 class="product__title">Google Review Tap Stand</h3>
@@ -1215,7 +1187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <article class="product reveal reveal--delay-2" id="plaque">
             <span class="product__badge">Permanent</span>
             <div class="product__media">
-              <img src="3.webp" alt="Round Google Review Plaque fixed to a countertop beside the EFTPOS terminal" loading="lazy" width="750" height="750" />
+              <img src="product-plaque.webp" alt="Round Google Review Plaque with NFC tap area" loading="lazy" width="1024" height="768" />
             </div>
             <div class="product__body">
               <h3 class="product__title">Google Review Plaque</h3>
@@ -1236,14 +1208,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <article class="product reveal reveal--delay-3" id="card">
             <span class="product__badge">Portable</span>
-            <!-- TODO: swap this mock-up for a real Tap Card photo:
-                 <div class="product__media"><img src="tap-card.webp" alt="..." loading="lazy" /></div> -->
-            <div class="product__media product__media--mock" aria-hidden="true">
-              <div class="mock-card">
-                <span class="mock-card__g"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.7 6c4.5-4.2 6.9-10.3 6.9-17.7z"/><path fill="#FBBC05" d="M10.6 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg></span>
-                <span>Tap to review</span>
-                <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-              </div>
+            <div class="product__media product__media--photo">
+              <img src="product-card.webp" alt="Hand tapping a Google Review Tap Card on a phone, which opens the Google review form" loading="lazy" width="1024" height="1536" />
             </div>
             <div class="product__body">
               <h3 class="product__title">Google Review Tap Card</h3>
