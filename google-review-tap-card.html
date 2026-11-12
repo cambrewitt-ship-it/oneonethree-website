@@ -1,0 +1,1663 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WHRTLS3X');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Review Tap Card NZ | OneOneThree Digital</title>
+  <meta name="description" content="A wallet-sized, pre-programmed NFC Google review card for tradies and mobile businesses. One tap opens your review page. Free NZ shipping." />
+  <link rel="canonical" href="https://www.oneonethree.co.nz/google-review-tap-card" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-primary:     #113D79;
+      --color-background:  #113D79;
+      --color-text:        #FFFFFF;
+      --color-secondary:   #FFFFFF;
+      --color-accent:      #BAA649;
+      --color-border:      rgba(255,255,255,0.18);
+      --color-text-light:  #a8c0e0;
+
+      --color-navy-base:   #113D79;
+      --color-navy-light:  #1a4d94;
+      --color-navy-mid:    #163870;
+      --color-navy-dark:   #0e3268;
+
+      --color-white:       #ffffff;
+      --color-black:       #000000;
+      --color-gold:        #BAA649;
+      --color-navy:        #113D79;
+      --color-bg:          var(--color-navy-base);
+      --color-muted:       var(--color-text-light);
+      --color-section-alt: var(--color-navy-light);
+
+      --font-primary: "gopher", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --fw-medium:  500;
+
+      --fs-base:  16px;
+      --fs-body:  1.5rem;
+      --fs-h4:    2rem;
+      --fs-h3:    2.5rem;
+      --fs-h2:    3rem;
+      --fs-h1:    4.5rem;
+
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  2rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+      --space-2xl: 8rem;
+
+      --max-width: 1500px;
+      --gutter: 4vw;
+      --gutter-mobile: 6vw;
+
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration: 0.3s;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { font-size: var(--fs-base); scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-body);
+      line-height: 1.4;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    [hidden] { display: none !important; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .section { padding-block: var(--space-xl); }
+    .section--alt  { background: var(--color-section-alt); }
+    .section--dark { background: var(--color-navy-dark); color: var(--color-white); }
+    .section--navy { background: var(--color-navy); color: var(--color-white); }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-heading {
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-medium);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      max-width: 60ch;
+      margin-top: var(--space-sm);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-family: var(--font-primary);
+      font-weight: var(--fw-medium);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid currentColor;
+      cursor: pointer;
+      transition: background var(--duration) var(--ease),
+                  color var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease);
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      border-color: var(--color-accent);
+    }
+    .btn--primary:hover {
+      background: transparent;
+      color: var(--color-accent);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+    .btn--outline:hover {
+      background: var(--color-white);
+      color: var(--color-navy-base);
+    }
+
+    .btn--dark {
+      background: var(--color-white);
+      color: var(--color-navy-base);
+      border-color: var(--color-white);
+    }
+    .btn--dark:hover {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      border-color: var(--color-accent);
+    }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--color-navy-base);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: box-shadow var(--duration) var(--ease);
+    }
+    .header.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding-inline: var(--gutter);
+      max-width: var(--max-width);
+      margin-inline: auto;
+    }
+
+    .nav__logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav__logo img { height: 52px; width: auto; display: block; }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+    .nav__links a {
+      font-size: 0.8rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color var(--duration) var(--ease);
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--color-accent);
+      transition: width var(--duration) var(--ease);
+    }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__links a.active::after { width: 100%; }
+
+    .nav__cta { display: flex; align-items: center; gap: var(--space-sm); }
+
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px; height: 36px;
+      background: none; border: none;
+      cursor: pointer; padding: 0;
+      z-index: 200;
+    }
+    .nav__burger span {
+      display: block;
+      height: 2px;
+      background: var(--color-white);
+      border-radius: 2px;
+      transition: transform var(--duration) var(--ease),
+                  opacity var(--duration) var(--ease);
+    }
+    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: var(--color-navy-dark);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--duration) var(--ease);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-medium);
+      letter-spacing: -0.01em;
+      transition: color var(--duration) var(--ease);
+    }
+    .mobile-menu a:hover { color: var(--color-accent); }
+    .mobile-menu__social {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .mobile-menu__social a {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-top: calc(100px + var(--space-lg));
+      padding-bottom: var(--space-xl);
+      background:
+        radial-gradient(ellipse at 85% 20%, rgba(186,166,73,0.16), transparent 55%),
+        linear-gradient(180deg, var(--color-navy-dark) 0%, var(--color-navy-base) 100%);
+    }
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+    .hero__proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-bottom: var(--space-md);
+    }
+    .stars { color: var(--color-accent); letter-spacing: 0.1em; }
+    .hero__heading {
+      font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+      font-weight: var(--fw-medium);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+    }
+    .hero__heading em { font-style: normal; color: var(--color-accent); }
+    .hero__sub {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      line-height: 1.6;
+      color: var(--color-text-light);
+      max-width: 46ch;
+      margin-bottom: var(--space-lg);
+    }
+    .hero__cta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .hero__cta .btn { font-size: 0.95rem; padding: 1em 2.4em; }
+    .text-link {
+      font-size: 0.9rem;
+      color: var(--color-white);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 2px;
+      transition: color var(--duration) var(--ease), border-color var(--duration) var(--ease);
+    }
+    .text-link:hover { color: var(--color-accent); border-color: var(--color-accent); }
+    .checklist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.6rem;
+      margin-top: var(--space-lg);
+    }
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .checklist svg { width: 18px; height: 18px; color: var(--color-accent); flex-shrink: 0; }
+    .hero__media { position: relative; }
+    .hero__media > img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    }
+    .result-chip {
+      position: absolute;
+      left: -2rem;
+      bottom: 2rem;
+      background: var(--color-white);
+      color: var(--color-navy-dark);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+    .result-chip__label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6b7a90;
+      margin-bottom: 0.35rem;
+    }
+    .result-chip__row { display: flex; align-items: center; gap: 0.75rem; }
+    .result-chip__val { font-size: 1.5rem; line-height: 1; }
+    .result-chip__val small { display: block; font-size: 0.7rem; color: #6b7a90; margin-top: 0.2rem; }
+    .result-chip__arrow { color: var(--color-accent); font-size: 1.2rem; }
+
+    /* ============================================================
+       TRUST BAR
+    ============================================================ */
+    .trust-bar {
+      background: var(--color-navy-mid);
+      border-block: 1px solid rgba(255,255,255,0.08);
+      padding-block: 1.1rem;
+    }
+    .trust-bar ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem 2.5rem;
+    }
+    .trust-bar li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+    .trust-bar svg { width: 20px; height: 20px; color: var(--color-accent); flex-shrink: 0; }
+
+    /* ============================================================
+       SECTION HEADER
+    ============================================================ */
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto var(--space-lg);
+    }
+    .section-head .section-sub { margin-inline: auto; }
+
+    /* ============================================================
+       PRODUCT CHOOSER
+    ============================================================ */
+    .chooser {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: var(--space-lg);
+    }
+    .chooser a {
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      padding: 0.5em 1.1em;
+      transition: border-color var(--duration) var(--ease), color var(--duration) var(--ease);
+    }
+    .chooser a strong { color: var(--color-white); font-weight: var(--fw-medium); }
+    .chooser a:hover { border-color: var(--color-accent); color: var(--color-white); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      align-items: stretch;
+    }
+    .product {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-white);
+      color: var(--color-navy-dark);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+      scroll-margin-top: 110px;
+    }
+    .product:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .product--featured { border-color: var(--color-accent); box-shadow: 0 0 0 6px rgba(186,166,73,0.18); }
+    .product__badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.45em 0.9em;
+      border-radius: 999px;
+    }
+    .product--featured .product__badge { background: var(--color-accent); color: var(--color-navy-dark); }
+    .product__media {
+      aspect-ratio: 4 / 3;
+      background: var(--color-white);
+      overflow: hidden;
+      border-bottom: 1px solid #e3e8f0;
+    }
+    .product__media img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s var(--ease); }
+    .product:hover .product__media img { transform: scale(1.04); }
+    .product__media--photo img { object-fit: cover; object-position: center 18%; }
+    .product__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: var(--space-md);
+    }
+    .product__title { font-size: 1.4rem; font-weight: var(--fw-medium); line-height: 1.2; }
+    .product__desc { font-size: 0.9rem; color: #4a5a72; margin-top: 0.35rem; line-height: 1.5; }
+    .product__price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .product__price small { font-size: 0.78rem; color: #6b7a90; }
+    .product__list { margin-top: 1.2rem; display: grid; gap: 0.55rem; }
+    .product__list li {
+      position: relative;
+      padding-left: 1.6rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: #24344d;
+    }
+    .product__list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.2em;
+      width: 1.05rem; height: 1.05rem;
+      border-radius: 50%;
+      background: rgba(186,166,73,0.2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23866f12' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center / 62% no-repeat;
+    }
+    .product__fit {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e3e8f0;
+      font-size: 0.82rem;
+      color: #4a5a72;
+      line-height: 1.5;
+    }
+    .product__fit strong { color: var(--color-navy-dark); font-weight: var(--fw-medium); }
+    .product__buy { margin-top: auto; padding-top: var(--space-md); }
+    .product__buy .btn { display: block; text-align: center; width: 100%; font-size: 0.9rem; }
+    .product .btn--primary:hover { background: var(--color-navy-dark); color: var(--color-white); border-color: var(--color-navy-dark); }
+    .product__title a:hover { color: var(--color-navy-light); text-decoration: underline; }
+    .product__more {
+      display: block;
+      margin-top: 0.75rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-navy-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .product__more:hover { color: #866f12; }
+    .product__note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: #4a5a72;
+    }
+    .product__note svg { width: 15px; height: 15px; color: #2e8b57; flex-shrink: 0; }
+
+    .checkout-assure {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      margin-top: var(--space-lg);
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      text-align: center;
+    }
+    .checkout-assure span { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .checkout-assure svg { width: 16px; height: 16px; color: var(--color-accent); }
+    .checkout-assure a { color: var(--color-white); text-decoration: underline; text-underline-offset: 3px; }
+    .checkout-assure a:hover { color: var(--color-accent); }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    .how {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .how .section-heading { margin-bottom: var(--space-lg); }
+    .steps { list-style: none; display: grid; gap: var(--space-md); counter-reset: step; }
+    .step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 3rem; height: 3rem;
+      border-radius: 50%;
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+    }
+    .step h3 { font-size: 1.2rem; font-weight: var(--fw-medium); margin-bottom: 0.35rem; }
+    .step p { font-size: 0.95rem; line-height: 1.6; color: var(--color-text-light); }
+    .how__video {
+      max-width: 400px;
+      justify-self: center;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+    }
+    .how__video video { width: 100%; height: auto; display: block; }
+
+    /* ============================================================
+       PROOF: RESULT + TESTIMONIALS + GALLERY
+    ============================================================ */
+    .result {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-md);
+      align-items: center;
+      background: var(--color-white);
+      color: var(--color-navy-dark);
+      border-radius: 16px;
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .result figure { position: relative; }
+    .result figcaption {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6b7a90;
+      margin-bottom: 0.6rem;
+    }
+    .result figure:last-child figcaption { color: #866f12; }
+    .result img { width: 100%; height: auto; }
+    .result__arrow { font-size: 2rem; color: var(--color-accent); }
+
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    .quote {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--color-navy-base);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: var(--space-md);
+    }
+    .quote blockquote { font-size: 1.05rem; line-height: 1.55; flex: 1; }
+    .quote blockquote strong { color: var(--color-accent); font-weight: var(--fw-medium); }
+    .quote__who { display: flex; align-items: center; gap: 0.9rem; }
+    .quote__who img {
+      width: 56px; height: 56px;
+      object-fit: contain;
+      background: var(--color-white);
+      border-radius: 10px;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .quote__who p { font-size: 0.85rem; line-height: 1.4; }
+    .quote__who span { display: block; color: var(--color-text-light); font-size: 0.78rem; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+    }
+    .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; }
+
+    /* ============================================================
+       STATS
+    ============================================================ */
+    .stats-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .stat-item {
+      padding: var(--space-lg);
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item__num {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: var(--fw-medium);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--color-accent);
+    }
+    .stat-item__text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      margin-top: var(--space-sm);
+      max-width: 32ch;
+      margin-inline: auto;
+    }
+
+    /* ============================================================
+       FINAL CTA
+    ============================================================ */
+    .final-cta {
+      background: var(--color-accent);
+      color: var(--color-navy-dark);
+      text-align: center;
+      padding-block: var(--space-xl);
+    }
+    .final-cta h2 {
+      font-size: clamp(2rem, 4vw, var(--fs-h2));
+      font-weight: var(--fw-medium);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      max-width: 20ch;
+      margin-inline: auto;
+    }
+    .final-cta p { font-size: 1.05rem; margin: var(--space-sm) auto var(--space-md); opacity: 0.85; }
+    .final-cta .btn { background: var(--color-navy-dark); color: var(--color-white); border-color: var(--color-navy-dark); }
+    .final-cta .btn:hover { background: transparent; color: var(--color-navy-dark); }
+
+    /* ============================================================
+       STICKY MOBILE BUY BAR
+    ============================================================ */
+    .buy-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 90;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem var(--gutter) calc(0.75rem + env(safe-area-inset-bottom));
+      background: var(--color-navy-dark);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+      transform: translateY(110%);
+      transition: transform var(--duration) var(--ease);
+    }
+    .buy-bar.show { transform: translateY(0); }
+    .buy-bar p { font-size: 0.85rem; line-height: 1.3; }
+    .buy-bar p > span { display: block; font-size: 0.72rem; color: var(--color-text-light); }
+    .buy-bar .btn { padding: 0.8em 1.4em; font-size: 0.8rem; white-space: nowrap; }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .faq__list {
+      max-width: 820px;
+      margin-inline: auto;
+      margin-top: var(--space-xl);
+    }
+    .faq__item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq__question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--color-white);
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      font-weight: var(--fw-medium);
+      text-align: left;
+      padding: var(--space-md) 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      transition: color var(--duration) var(--ease);
+    }
+    .faq__question:hover { color: var(--color-accent); }
+    .faq__chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      transition: transform var(--duration) var(--ease);
+      color: var(--color-accent);
+    }
+    .faq__item.open .faq__chevron { transform: rotate(180deg); }
+    .faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--ease);
+    }
+    .faq__answer-inner {
+      padding-bottom: var(--space-md);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--color-text-light);
+    }
+
+    /* ============================================================
+       CONTACT CTA
+    ============================================================ */
+    /* Contact CTA form */
+    .contact-cta__form {
+      background: var(--color-navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: var(--space-lg);
+      border-radius: 8px;
+    }
+    .cta-form__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: var(--space-md);
+    }
+    .cta-form__group label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+    .cta-form__group input,
+    .cta-form__group textarea,
+    .cta-form__group select {
+      background: var(--color-navy-base);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--color-white);
+      padding: 0.85rem 1.2rem;
+      font-family: var(--font-primary);
+      font-size: 0.9rem;
+      width: 100%;
+      transition: border-color var(--duration) var(--ease);
+      outline: none;
+      border-radius: 4px;
+    }
+    .cta-form__group input::placeholder,
+    .cta-form__group textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+    .cta-form__group input:focus,
+    .cta-form__group textarea:focus,
+    .cta-form__group select:focus {
+      border-color: var(--color-accent);
+    }
+    .cta-form__group select option { background: var(--color-navy-dark); }
+    .cta-form__group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .contact-cta__text { }
+    .contact-cta__heading {
+      font-size: clamp(2rem, 4vw, var(--fs-h2));
+      font-weight: var(--fw-medium);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: var(--space-md);
+    }
+    .contact-cta__heading span {
+      color: var(--color-accent);
+    }
+    .contact-cta__details {
+      margin-top: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .contact-cta__details a {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color var(--duration) var(--ease);
+    }
+    .contact-cta__details a:hover { color: var(--color-white); }
+    .contact-cta__details svg {
+      flex-shrink: 0;
+      width: 16px; height: 16px;
+      color: var(--color-accent);
+    }
+    .contact-cta__images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+    .contact-cta__img {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .contact-cta__img img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: top;
+    }
+    .contact-cta__img:first-child {
+      margin-top: var(--space-xl);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+      padding-block: var(--space-xl) var(--space-md);
+    }
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer__brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      margin-top: var(--space-md);
+      max-width: 35ch;
+    }
+    .footer__social {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    .footer__social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      transition: background var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease);
+    }
+    .footer__social a:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-black);
+    }
+    .footer__col h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+    .footer__col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .footer__col ul a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--duration) var(--ease);
+    }
+    .footer__col ul a:hover { color: var(--color-white); }
+    .footer__col .consultant {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .footer__col .consultant a {
+      color: rgba(255,255,255,0.55);
+      display: inline;
+      font-size: inherit;
+    }
+    .footer__col .consultant a:hover { color: var(--color-white); }
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-md);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* ============================================================
+       SCROLL-REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+
+    /* ============================================================
+       RESPONSIVE – TABLET (≤1024px)
+    ============================================================ */
+    @media (max-width: 1024px) {
+      :root { --gutter: var(--gutter-mobile); }
+
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+      .mobile-menu { display: flex; }
+
+      .hero__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .hero__media { max-width: 520px; width: 100%; margin-inline: auto; }
+      .result-chip { left: 1rem; }
+
+      .product-grid { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+      .how { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .quotes { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
+
+      .stats-block { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .stat-item:last-child { border-bottom: none; }
+
+      .contact-cta { grid-template-columns: 1fr; }
+
+      .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .footer__brand { grid-column: 1 / -1; }
+    }
+
+    /* ============================================================
+       RESPONSIVE – MOBILE (≤640px)
+    ============================================================ */
+    @media (max-width: 640px) {
+      .section { padding-block: var(--space-lg); }
+      .section-heading { font-size: var(--fs-h3); }
+      .hero { padding-top: calc(90px + var(--space-md)); }
+      .hero__cta .btn { width: 100%; text-align: center; }
+      .hero__cta { justify-content: center; }
+      .checklist { justify-content: center; }
+      .trust-bar ul { justify-content: flex-start; gap: 0.6rem 1.5rem; }
+      .trust-bar li { font-size: 0.7rem; letter-spacing: 0.08em; }
+      .result { grid-template-columns: 1fr; text-align: center; }
+      .result__arrow { transform: rotate(90deg); justify-self: center; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .buy-bar { display: flex; }
+      .footer { padding-bottom: 6rem; }
+
+      .footer__top { grid-template-columns: 1fr; }
+      .footer__brand { grid-column: auto; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* ============================================================
+       PRODUCT DETAIL PAGE
+    ============================================================ */
+    .pdp {
+      background: var(--color-white);
+      color: var(--color-navy-dark);
+      padding-top: calc(100px + var(--space-md));
+      padding-bottom: var(--space-xl);
+    }
+    .crumbs { font-size: 0.8rem; color: #6b7a90; margin-bottom: var(--space-md); }
+    .crumbs a { text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs a:hover { color: var(--color-navy-dark); }
+    .pdp__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .pdp__gallery { position: sticky; top: 110px; }
+    .pdp__main {
+      position: relative;
+      aspect-ratio: 1;
+      border: 1px solid #e3e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--color-white);
+    }
+    .pdp__main img { width: 100%; height: 100%; object-fit: cover; }
+    .pdp__main img.fit-contain { object-fit: contain; padding: 6%; }
+    .seal {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--color-white);
+      border: 2px dashed var(--color-accent);
+      box-shadow: 0 0 0 4px var(--color-white), 0 8px 20px rgba(14,50,104,0.18);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 0.6rem;
+      line-height: 1.15;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-navy-dark);
+    }
+    .seal strong { display: block; font-size: 1.05rem; letter-spacing: 0.02em; color: #866f12; font-weight: var(--fw-medium); }
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .thumbs button {
+      aspect-ratio: 1;
+      border: 2px solid #e3e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 0;
+      background: var(--color-white);
+      cursor: pointer;
+      transition: border-color var(--duration) var(--ease);
+    }
+    .thumbs button:hover { border-color: #b9c3d3; }
+    .thumbs button[aria-current="true"] { border-color: var(--color-accent); }
+    .thumbs img { width: 100%; height: 100%; object-fit: cover; }
+
+    .pdp__rating { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: #4a5a72; }
+    .pdp__rating .stars { color: #e3a008; font-size: 1rem; }
+    .pdp__title {
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
+      font-weight: var(--fw-medium);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-top: 0.6rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.9rem;
+      padding: 0.4em 0.9em;
+      border-radius: 999px;
+      background: rgba(186,166,73,0.16);
+      color: #6e5b0c;
+      font-size: 0.8rem;
+    }
+    .pill svg { width: 15px; height: 15px; }
+    .pdp__lead { margin-top: 1rem; font-size: 1rem; line-height: 1.6; color: #33435c; }
+    .pdp__price {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.8rem;
+      margin-top: 1.4rem;
+    }
+    .pdp__price [data-price] { font-size: 2.2rem; line-height: 1; }
+    .pdp__price small { font-size: 0.8rem; color: #6b7a90; }
+    .compare { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .compare s { color: #8a96a8; font-size: 1.1rem; }
+    .save {
+      background: #e8f5ee;
+      color: #1f7a4a;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35em 0.7em;
+      border-radius: 999px;
+    }
+    .ticks { margin-top: 1.4rem; display: grid; gap: 0.7rem; }
+    .ticks li { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.95rem; line-height: 1.45; color: #24344d; }
+    .ticks svg {
+      width: 22px; height: 22px;
+      flex-shrink: 0;
+      padding: 4px;
+      border-radius: 50%;
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+    }
+    .pdp__buy { margin-top: 1.6rem; }
+    .btn--buy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      width: 100%;
+      padding: 1.15em 1em;
+      font-size: 1rem;
+      border-radius: 10px;
+      background: var(--color-navy-dark);
+      color: var(--color-white);
+      border-color: var(--color-navy-dark);
+      box-shadow: 0 10px 24px rgba(14,50,104,0.25);
+    }
+    .btn--buy:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-navy-dark); }
+    .btn--buy svg { width: 20px; height: 20px; }
+    .pay {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+    .pay span {
+      border: 1px solid #dfe5ee;
+      border-radius: 6px;
+      padding: 0.3em 0.6em;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      color: #33435c;
+      background: #f7f9fc;
+    }
+    .assure { margin-top: 1.2rem; display: grid; gap: 0.5rem; }
+    .assure li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: #33435c; }
+    .assure svg { width: 18px; height: 18px; color: #866f12; flex-shrink: 0; }
+    .acc { margin-top: 1.6rem; border-top: 1px solid #e3e8f0; }
+    .acc details { border-bottom: 1px solid #e3e8f0; }
+    .acc summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 0;
+      cursor: pointer;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .acc summary::-webkit-details-marker { display: none; }
+    .acc__icon { width: 18px; height: 18px; color: #4a5a72; flex-shrink: 0; }
+    .acc__chev { width: 18px; height: 18px; margin-left: auto; color: #866f12; transition: transform var(--duration) var(--ease); }
+    .acc details[open] .acc__chev { transform: rotate(180deg); }
+    .acc details p { padding: 0 0 1.1rem 2.1rem; font-size: 0.92rem; line-height: 1.65; color: #33435c; }
+    .acc details a { text-decoration: underline; }
+    .trusted { margin-top: 1.8rem; text-align: center; }
+    .trusted p { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #6b7a90; margin-bottom: 0.8rem; }
+    .trusted div { display: flex; justify-content: center; align-items: center; gap: 1.6rem; }
+    .trusted img { height: 46px; width: auto; filter: grayscale(1); opacity: 0.75; transition: filter var(--duration), opacity var(--duration); }
+    .trusted img:hover { filter: none; opacity: 1; }
+
+    .xsell { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); max-width: 900px; margin-inline: auto; }
+    .xsell a {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.2rem;
+      align-items: center;
+      background: var(--color-white);
+      color: var(--color-navy-dark);
+      border-radius: 14px;
+      padding: 1rem;
+      transition: transform var(--duration) var(--ease);
+    }
+    .xsell a:hover { transform: translateY(-3px); }
+    .xsell img { width: 120px; height: 120px; object-fit: cover; border-radius: 10px; }
+    .xsell h3 { font-size: 1.1rem; font-weight: var(--fw-medium); }
+    .xsell p { font-size: 0.85rem; color: #4a5a72; margin-top: 0.3rem; }
+    .xsell span { display: inline-block; margin-top: 0.5rem; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 1024px) {
+      .pdp__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .pdp__gallery { position: static; max-width: 620px; width: 100%; margin-inline: auto; }
+      .pdp__info { max-width: 620px; width: 100%; margin-inline: auto; }
+    }
+    @media (max-width: 640px) {
+      .pdp { padding-top: calc(80px + var(--space-sm)); }
+      .seal { width: 72px; height: 72px; font-size: 0.5rem; }
+      .seal strong { font-size: 0.85rem; }
+      .xsell { grid-template-columns: 1fr; }
+      .xsell a { grid-template-columns: 90px 1fr; }
+      .xsell img { width: 90px; height: 90px; }
+      .trusted div { gap: 1rem; }
+      .trusted img { height: 38px; }
+    }
+  </style>
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHRTLS3X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="index.html" class="nav__logo" aria-label="OneOneThree Digital home">
+        <img src="oot-logo.webp" alt="OneOneThree Digital" />
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="product.html" class="active">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--dark">Get in Touch</a>
+      </div>
+
+      <button class="nav__burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav>
+      <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <li><a href="index.html"         class="mobile-link">Home</a></li>
+        <li><a href="services.html"      class="mobile-link">Services</a></li>
+        <li><a href="contact.html" class="mobile-link">Contact Us</a></li>
+        <li><a href="product.html"       class="mobile-link">Products</a></li>
+        <li><a href="about.html"         class="mobile-link">About Us</a></li>
+        <li style="margin-top:1rem;">
+          <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__social">
+      <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ============================================================
+         PRODUCT
+         Price and checkout link: products.js ("card")
+    ============================================================ -->
+    <section class="pdp">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="product.html">Review tap tags</a> / Google Review Tap Card</nav>
+        <div class="pdp__grid">
+
+          <div class="pdp__gallery">
+            <div class="pdp__main">
+              <img id="mainImg" src="product-card.webp" alt="A Google Review Tap Card tapped on a phone, which opens the Google review form" class="" fetchpriority="high" />
+              <div class="seal" aria-hidden="true"><span><strong>Free</strong>NZ<br>shipping</span></div>
+            </div>
+          </div>
+
+          <div class="pdp__info">
+            <p class="pdp__rating"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Trusted by 100+ Kiwi businesses</p>
+            <h1 class="pdp__title">Google Review Tap Card</h1>
+            <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>Portable &middot; fits in your wallet</span>
+            <p class="pdp__lead">A bank-card-sized review tag you can take anywhere. Hand it over when the job is done and your customer leaves a review on the spot.</p>
+
+            <div class="pdp__price" data-price-wrap hidden>
+              <span data-price="card"></span>
+              <span class="compare" data-compare="card" hidden><s></s><span class="save" data-save></span></span>
+              <small>NZD incl. GST &middot; one-off, no subscription</small>
+            </div>
+
+            <ul class="ticks" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Fits in your wallet, toolbox or van</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Ask for the review at the happiest moment, right after the job</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Arrives pre-programmed: no app, no setup</li>
+            </ul>
+
+            <div class="pdp__buy" id="buy">
+              <a href="contact.html" class="btn btn--buy" data-buy="card" data-label="Buy now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></svg>Enquire now</a>
+              <div class="pay" aria-label="Payment methods"><span>VISA</span><span>Mastercard</span><span>Apple Pay</span><span>Google Pay</span><span>Secure checkout by Stripe</span></div>
+            </div>
+
+            <ul class="assure" role="list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Free NZ shipping &middot; arrives in 2&ndash;4 working days</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>Programmed and tested for your business before it ships</li>
+            </ul>
+
+            <div class="acc">
+              <details open>
+                <summary><svg class="acc__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>Details<svg class="acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>Bank-card-sized NFC review card with a five-star Google design. We program it to your Google Business review page and test it before it ships. One-off purchase: no app, no subscription, no ongoing fees.</p>
+              </details>
+              <details>
+                <summary><svg class="acc__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Best for<svg class="acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>Tradies, landscapers, cleaners, consultants and anyone who works on the go.</p>
+              </details>
+              <details>
+                <summary><svg class="acc__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>What we need from you<svg class="acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>Just your business name as it appears on Google. Enter it at checkout and we'll link your tag to your review page.</p>
+              </details>
+              <details>
+                <summary><svg class="acc__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Delivery information<svg class="acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>Free shipping anywhere in New Zealand. Most orders arrive in 2&ndash;4 working days, and you'll get an email receipt as soon as you order.</p>
+              </details>
+              <details>
+                <summary><svg class="acc__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>Will it work with my customers' phones?<svg class="acc__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>Yes. iPhones (XS and newer) and NFC-enabled Android phones open your review page with a tap, no app needed.</p>
+              </details>
+            </div>
+
+            <div class="trusted">
+              <p>Trusted by Kiwi businesses</p>
+              <div>
+                <img src="logo-jugnu.webp" alt="Jugnu's Little India" loading="lazy" />
+                <img src="logo-josephs.webp" alt="Joseph's Hedges &amp; Gardens" loading="lazy" />
+                <img src="logo-motorq.webp" alt="MotorQ" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROOF
+    ============================================================ -->
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Real results</span>
+          <h2 class="section-heading">What happens when asking is this easy.</h2>
+        </div>
+        <div class="result reveal">
+          <figure>
+            <figcaption>Before</figcaption>
+            <img src="3.6.webp" alt="Google rating before: 3.6 stars from 7 reviews" loading="lazy" width="1000" height="364" />
+          </figure>
+          <span class="result__arrow" aria-hidden="true">&rarr;</span>
+          <figure>
+            <figcaption>After using a tap tag</figcaption>
+            <img src="4.7.webp" alt="Google rating after: 4.7 stars from 278 reviews" loading="lazy" width="1464" height="487" />
+          </figure>
+        </div>
+
+        <div class="quotes">
+          <figure class="quote reveal reveal--delay-1">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;We were blown away by the Google Tap Tags. Very happy to be getting great Google Reviews from our 3 restaurants in the Wellington Region!&rdquo;</blockquote>
+            <figcaption class="quote__who">
+              <img src="logo-jugnu.webp" alt="Jugnu's Little India logo" loading="lazy" />
+              <p>Jugnu<span>Jugnu's Little India, Wellington</span></p>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal reveal--delay-2">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;We're getting more customers. Our Google Business Profile has seen <strong>+566% more traffic!</strong>&rdquo;</blockquote>
+            <figcaption class="quote__who">
+              <img src="logo-josephs.webp" alt="Joseph's Hedges &amp; Gardens logo" loading="lazy" />
+              <p>Joseph<span>Joseph's Hedges &amp; Gardens, Christchurch</span></p>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal reveal--delay-3">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;We've seen plenty of new customers from our higher Google Ranking from these products at our vehicle dealership.&rdquo;</blockquote>
+            <figcaption class="quote__who">
+              <img src="logo-motorq.webp" alt="MotorQ logo" loading="lazy" />
+              <p>Craig<span>MotorQ, Howick, South Africa</span></p>
+            </figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS
+    ============================================================ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">How it works</span>
+          <h2 class="section-heading">Ready to use the day it arrives.</h2>
+        </div>
+        <ol class="steps reveal" style="max-width:720px;margin-inline:auto;">
+          <li class="step"><div><h3>Order your Tap Card</h3><p>Tell us your business name as it appears on Google at checkout.</p></div></li>
+          <li class="step"><div><h3>We program it and ship it free</h3><p>We link it to your Google review page, test it and send it anywhere in NZ in 2&ndash;4 working days.</p></div></li>
+          <li class="step"><div><h3>Customers tap and review</h3><p>Your review page opens instantly. No app, no searching for your business.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CROSS-SELL
+    ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Complete your setup</span>
+          <h2 class="section-heading">Catch reviews everywhere.</h2>
+          <p class="section-sub">Pair a counter tag with a portable one and never miss a happy customer.</p>
+        </div>
+        <div class="xsell reveal">
+        <a href="google-review-tap-stand.html">
+          <img src="product-stand.webp" alt="" loading="lazy" />
+          <div>
+            <h3>Google Review Tap Stand</h3>
+            <p><span data-price-wrap hidden><span data-price="stand"></span> &middot; </span>Most popular &middot; perfect for counters</p>
+            <span>View product</span>
+          </div>
+        </a>
+        <a href="google-review-plaque.html">
+          <img src="product-plaque.webp" alt="" loading="lazy" />
+          <div>
+            <h3>Google Review Plaque</h3>
+            <p><span data-price-wrap hidden><span data-price="plaque"></span> &middot; </span>Permanent &middot; sticks anywhere</p>
+            <span>View product</span>
+          </div>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container reveal">
+        <h2>Start collecting more 5-star reviews this week.</h2>
+        <p>Pre-programmed, shipped free across NZ, and yours to keep. No subscription.</p>
+        <a href="#buy" class="btn">Get your Tap Card</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky buy bar (mobile) -->
+  <div class="buy-bar" id="buyBar" aria-hidden="true">
+    <p>Google Review Tap Card<span><span data-price-wrap hidden><span data-price="card"></span> &middot; </span>Free NZ shipping</span></p>
+    <a href="contact.html" class="btn btn--primary" tabindex="-1" data-buy="card" data-label="Buy now">Enquire now</a>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <img src="oot-logo.webp" alt="OneOneThree Digital" style="height:52px;width:auto;" />
+          <p>Experienced, cost-effective digital marketing for Kiwi SMEs. Based in Dunedin, with consultants in Wellington &amp; Christchurch.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/profile.php?id=61574924115662" target="_blank" rel="noopener" aria-label="Facebook">fb</a>
+            <a href="https://www.linkedin.com/company/oneonethreeconsulting" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Other</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Digital Marketing Consultants</h4>
+          <div class="consultant">
+            Nick Plieger<br>
+            <a href="mailto:nick@oneonethree.co.nz">nick@oneonethree.co.nz</a>
+          </div>
+          <div class="consultant">
+            Cam Brewitt<br>
+            <a href="mailto:cam@oneonethree.co.nz">cam@oneonethree.co.nz</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span id="year"></span> OneOneThree Digital Ltd. All rights reserved.</span>
+        <span>Born at 113A York Place, Dunedin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script src="products.js"></script>
+  <script>
+    'use strict';
+
+    /* ---- Year -------------------------------------------------- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---- Header scroll state ----------------------------------- */
+    const header = document.getElementById('header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ---- Mobile menu ------------------------------------------ */
+    const burger     = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link, .btn');
+
+    const openMenu = () => {
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    burger.addEventListener('click', () => burger.classList.contains('open') ? closeMenu() : openMenu());
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    });
+
+    /* ---- Gallery thumbnails ----------------------------------- */
+    const mainImg = document.getElementById('mainImg');
+    document.querySelectorAll('.thumbs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        mainImg.src = btn.dataset.src;
+        mainImg.alt = btn.dataset.alt;
+        mainImg.classList.toggle('fit-contain', btn.dataset.fit === 'contain');
+        document.querySelectorAll('.thumbs button').forEach(b => b.removeAttribute('aria-current'));
+        btn.setAttribute('aria-current', 'true');
+      });
+    });
+
+    /* ---- Sticky buy bar: show once the main buy button scrolls away */
+    const buyBar = document.getElementById('buyBar');
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => {
+        buyBar.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0);
+      }).observe(document.getElementById('buy'));
+    }
+
+    /* ---- Scroll-reveal ---------------------------------------- */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+
+    /* ---- Smooth scroll ---------------------------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

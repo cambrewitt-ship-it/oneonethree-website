@@ -87,6 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       overflow-x: hidden;
     }
 
+    [hidden] { display: none !important; }
     img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
@@ -535,6 +536,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .product__buy { margin-top: auto; padding-top: var(--space-md); }
     .product__buy .btn { display: block; text-align: center; width: 100%; font-size: 0.9rem; }
     .product .btn--primary:hover { background: var(--color-navy-dark); color: var(--color-white); border-color: var(--color-navy-dark); }
+    .product__title a:hover { color: var(--color-navy-light); text-decoration: underline; }
+    .product__more {
+      display: block;
+      margin-top: 0.75rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-navy-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .product__more:hover { color: #866f12; }
     .product__note {
       display: flex;
       align-items: center;
@@ -734,7 +746,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .buy-bar.show { transform: translateY(0); }
     .buy-bar p { font-size: 0.85rem; line-height: 1.3; }
-    .buy-bar p span { display: block; font-size: 0.72rem; color: var(--color-text-light); }
+    .buy-bar p > span { display: block; font-size: 0.72rem; color: var(--color-text-light); }
     .buy-bar .btn { padding: 0.8em 1.4em; font-size: 0.8rem; white-space: nowrap; }
 
     /* ============================================================
@@ -1105,8 +1117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h1 class="hero__heading">Turn happy customers into <em>Google reviews</em> with one tap.</h1>
           <p class="hero__sub">NFC review stands, plaques and cards, pre-programmed to your Google Business profile. Customers tap their phone and your review page opens instantly. No app, no subscription.</p>
           <div class="hero__cta">
-            <!-- TODO: replace $XX with the lowest product price -->
-            <a href="#products" class="btn btn--primary">Shop tap tags &middot; from $XX</a>
+            <a href="#products" class="btn btn--primary">Shop tap tags<span data-from-price=" &middot; from {price}" hidden></span></a>
             <a href="#how" class="text-link">See how it works</a>
           </div>
           <ul class="checklist" role="list">
@@ -1143,8 +1154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- ============================================================
          PRODUCTS
-         TODO: replace each $XX and STRIPE_LINK_* with the real price
-         and Stripe Payment Link (https://buy.stripe.com/...)
+         Prices and Stripe links live in products.js
     ============================================================ -->
     <section class="section" id="products">
       <div class="container">
@@ -1168,9 +1178,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <img src="product-stand.webp" alt="White Google Review Tap Stand with NFC tap area and five stars" loading="lazy" width="1024" height="768" />
             </div>
             <div class="product__body">
-              <h3 class="product__title">Google Review Tap Stand</h3>
+              <h3 class="product__title"><a href="google-review-tap-stand.html">Google Review Tap Stand</a></h3>
               <p class="product__desc">Free-standing and impossible to miss at the counter.</p>
-              <p class="product__price">$XX <small>one-off &middot; incl. GST</small></p>
+              <p class="product__price" data-price-wrap hidden><span data-price="stand"></span> <small>one-off &middot; incl. GST</small></p>
               <ul class="product__list" role="list">
                 <li>Tap with NFC or scan the QR code</li>
                 <li>Pre-programmed to your Google review page</li>
@@ -1178,7 +1188,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </ul>
               <p class="product__fit"><strong>Best for:</strong> cafes, restaurants, clinics and retail counters</p>
               <div class="product__buy">
-                <a href="STRIPE_LINK_STAND" class="btn btn--primary" data-product="Tap Stand">Buy the Tap Stand</a>
+                <a href="contact.html" class="btn btn--primary" data-buy="stand" data-label="Buy the Tap Stand">Enquire now</a>
+                <a href="google-review-tap-stand.html" class="product__more">See full details &rarr;</a>
                 <p class="product__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Free NZ shipping &middot; arrives in 2&ndash;4 working days</p>
               </div>
             </div>
@@ -1190,9 +1201,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <img src="product-plaque.webp" alt="Round Google Review Plaque with NFC tap area" loading="lazy" width="1024" height="768" />
             </div>
             <div class="product__body">
-              <h3 class="product__title">Google Review Plaque</h3>
+              <h3 class="product__title"><a href="google-review-plaque.html">Google Review Plaque</a></h3>
               <p class="product__desc">Sticks down for good. Durable, low-profile and always in place.</p>
-              <p class="product__price">$XX <small>one-off &middot; incl. GST</small></p>
+              <p class="product__price" data-price-wrap hidden><span data-price="plaque"></span> <small>one-off &middot; incl. GST</small></p>
               <ul class="product__list" role="list">
                 <li>Strong adhesive backing</li>
                 <li>Pre-programmed to your Google review page</li>
@@ -1200,7 +1211,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </ul>
               <p class="product__fit"><strong>Best for:</strong> walls, reception desks and payment points</p>
               <div class="product__buy">
-                <a href="STRIPE_LINK_PLAQUE" class="btn btn--primary" data-product="Plaque">Buy the Plaque</a>
+                <a href="contact.html" class="btn btn--primary" data-buy="plaque" data-label="Buy the Plaque">Enquire now</a>
+                <a href="google-review-plaque.html" class="product__more">See full details &rarr;</a>
                 <p class="product__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Free NZ shipping &middot; arrives in 2&ndash;4 working days</p>
               </div>
             </div>
@@ -1212,9 +1224,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <img src="product-card.webp" alt="Hand tapping a Google Review Tap Card on a phone, which opens the Google review form" loading="lazy" width="1024" height="1536" />
             </div>
             <div class="product__body">
-              <h3 class="product__title">Google Review Tap Card</h3>
+              <h3 class="product__title"><a href="google-review-tap-card.html">Google Review Tap Card</a></h3>
               <p class="product__desc">Bank-card sized. Ask for the review right when the job is done.</p>
-              <p class="product__price">$XX <small>one-off &middot; incl. GST</small></p>
+              <p class="product__price" data-price-wrap hidden><span data-price="card"></span> <small>one-off &middot; incl. GST</small></p>
               <ul class="product__list" role="list">
                 <li>Fits in your wallet</li>
                 <li>Pre-programmed to your Google review page</li>
@@ -1222,7 +1234,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </ul>
               <p class="product__fit"><strong>Best for:</strong> tradies, landscapers, consultants and mobile services</p>
               <div class="product__buy">
-                <a href="STRIPE_LINK_CARD" class="btn btn--primary" data-product="Tap Card">Buy the Tap Card</a>
+                <a href="contact.html" class="btn btn--primary" data-buy="card" data-label="Buy the Tap Card">Enquire now</a>
+                <a href="google-review-tap-card.html" class="product__more">See full details &rarr;</a>
                 <p class="product__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Free NZ shipping &middot; arrives in 2&ndash;4 working days</p>
               </div>
             </div>
@@ -1518,7 +1531,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Sticky buy bar (mobile) -->
   <div class="buy-bar" id="buyBar" aria-hidden="true">
-    <p>Google Review Tap Tags<span>From $XX &middot; free NZ shipping</span></p>
+    <p>Google Review Tap Tags<span><span data-from-price="From {price} &middot; " hidden></span>Free NZ shipping</span></p>
     <a href="#products" class="btn btn--primary" tabindex="-1">Shop now</a>
   </div>
 
@@ -1582,6 +1595,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- ============================================================
        JAVASCRIPT
   ============================================================ -->
+  <script src="products.js"></script>
   <script>
     'use strict';
 
@@ -1618,21 +1632,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
     });
 
-    /* ---- Until real prices/Stripe links are filled in, fall back to enquiry */
-    document.querySelectorAll('[data-product]').forEach(btn => {
-      if (!btn.getAttribute('href').startsWith('STRIPE_LINK')) return;
-      btn.href = 'contact.html';
-      btn.textContent = 'Enquire now';
-      btn.removeAttribute('data-product');
-    });
-    document.querySelectorAll('.product__price').forEach(el => {
-      if (el.textContent.includes('$XX')) el.remove();
-    });
-    const heroBtn = document.querySelector('.hero__cta .btn');
-    if (heroBtn.textContent.includes('$XX')) heroBtn.textContent = 'Shop tap tags';
-    const barNote = document.querySelector('.buy-bar p span');
-    if (barNote.textContent.includes('$XX')) barNote.textContent = 'Free NZ shipping';
-
     /* ---- Sticky buy bar: show after the hero, hide while products are on screen */
     const buyBar = document.getElementById('buyBar');
     const heroEl = document.getElementById('home');
@@ -1652,14 +1651,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         else howVideo.pause();
       }, { threshold: 0.4 }).observe(howVideo);
     }
-
-    /* ---- Track checkout clicks in GTM ------------------------- */
-    document.querySelectorAll('[data-product]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'begin_checkout', product: btn.dataset.product });
-      });
-    });
 
     /* ---- Product enquiry form --------------------------------- */
     const productForm = document.getElementById('productContactForm');
